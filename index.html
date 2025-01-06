@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>M. Shakil | Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         .fade-in {
             animation: fadeIn 1.5s ease-in forwards;
@@ -53,6 +54,11 @@
             <div class="grid md:grid-cols-2 gap-8 items-center">
                 <div>
                     <p class="text-lg leading-relaxed">I'm a dedicated software engineer with a passion for Android development and full-stack solutions. My expertise includes creating innovative applications like ByteBuddy and Tech Savvy BIMS. With a focus on user experience and scalability, I aim to deliver top-notch digital solutions.</p>
+                    <ul class="mt-4 space-y-2">
+                        <li class="flex items-center"><i class="fas fa-check-circle text-yellow-400 mr-2"></i> 1st Prize Winner: Young Developer 2024</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-yellow-400 mr-2"></i> Proficient in multiple frameworks and technologies</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-yellow-400 mr-2"></i> Passionate about innovative solutions</li>
+                    </ul>
                 </div>
                 <div>
                     <img src="profile.jpg" alt="M. Shakil" class="rounded-lg shadow-lg">
@@ -67,14 +73,17 @@
             <h2 class="text-4xl font-bold text-center mb-8">My Services</h2>
             <div class="grid md:grid-cols-3 gap-8">
                 <div class="bg-gray-800 p-6 rounded-lg shadow-lg text-center">
+                    <i class="fas fa-mobile-alt text-4xl text-yellow-400 mb-4"></i>
                     <h3 class="text-2xl font-bold mb-4">Android Development</h3>
                     <p>Expert in Jetpack Compose, Kotlin, and building high-performance Android apps.</p>
                 </div>
                 <div class="bg-gray-800 p-6 rounded-lg shadow-lg text-center">
+                    <i class="fas fa-code text-4xl text-yellow-400 mb-4"></i>
                     <h3 class="text-2xl font-bold mb-4">Full-Stack Solutions</h3>
                     <p>Experienced in React.js, Laravel, and scalable backend architectures.</p>
                 </div>
                 <div class="bg-gray-800 p-6 rounded-lg shadow-lg text-center">
+                    <i class="fas fa-cloud text-4xl text-yellow-400 mb-4"></i>
                     <h3 class="text-2xl font-bold mb-4">Custom SaaS Products</h3>
                     <p>Proficient in developing multi-tenant SaaS applications tailored to your needs.</p>
                 </div>
@@ -86,18 +95,26 @@
     <section id="projects" class="py-16 bg-gray-800 slide-in">
         <div class="container mx-auto px-4">
             <h2 class="text-4xl font-bold text-center mb-8">Projects</h2>
-            <div class="grid md:grid-cols-2 gap-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <div class="bg-gray-900 p-6 rounded-lg shadow-lg">
                     <h3 class="text-2xl font-bold mb-4">ByteBuddy</h3>
                     <p>A smart learning app with modules like learning, FAQs, and chat for students.</p>
+                    <a href="#" class="text-yellow-400 hover:underline">Learn More</a>
                 </div>
                 <div class="bg-gray-900 p-6 rounded-lg shadow-lg">
                     <h3 class="text-2xl font-bold mb-4">Tech Savvy BIMS</h3>
                     <p>A barcode inventory management system converted to a SaaS product.</p>
+                    <a href="#" class="text-yellow-400 hover:underline">Learn More</a>
                 </div>
                 <div class="bg-gray-900 p-6 rounded-lg shadow-lg">
                     <h3 class="text-2xl font-bold mb-4">MindsMeet</h3>
                     <p>A Learning Management Student Collaboration System with comprehensive features.</p>
+                    <a href="#" class="text-yellow-400 hover:underline">Learn More</a>
+                </div>
+                <div class="bg-gray-900 p-6 rounded-lg shadow-lg">
+                    <h3 class="text-2xl font-bold mb-4">Billing App</h3>
+                    <p>Developed for myCampus to streamline payment systems with robust features.</p>
+                    <a href="#" class="text-yellow-400 hover:underline">Learn More</a>
                 </div>
             </div>
         </div>
@@ -129,6 +146,11 @@
     <footer class="bg-gray-800 py-6">
         <div class="container mx-auto text-center">
             <p>&copy; 2025 M. Shakil. All rights reserved.</p>
+            <div class="flex justify-center space-x-6 mt-4">
+                <a href="#" class="text-yellow-400 hover:text-yellow-300"><i class="fab fa-linkedin"></i></a>
+                <a href="#" class="text-yellow-400 hover:text-yellow-300"><i class="fab fa-github"></i></a>
+                <a href="#" class="text-yellow-400 hover:text-yellow-300"><i class="fab fa-twitter"></i></a>
+            </div>
         </div>
     </footer>
 </body>
