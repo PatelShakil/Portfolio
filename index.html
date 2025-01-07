@@ -77,20 +77,25 @@
     </header>
     
     <script>
-        const menuToggle = document.getElementById("menu-toggle");
-        const menuClose = document.getElementById("menu-close");
-        const mobileMenu = document.getElementById("mobile-menu");
-    
-        menuToggle.addEventListener("click", () => {
-            mobileMenu.classList.remove("-translate-y-full");
-        });
-mobileMenu.addEventListener("click", () => {
-            mobileMenu.classList.add("-translate-y-full");
-        });
-    
-        menuClose.addEventListener("click", () => {
-            mobileMenu.classList.add("-translate-y-full");
-        });
+ const menuToggle = document.getElementById("menu-toggle");
+const menuClose = document.getElementById("menu-close");
+const mobileMenu = document.getElementById("mobile-menu");
+const mobileMenuLinks = mobileMenu.querySelectorAll("a"); // Select all menu links
+
+menuToggle.addEventListener("click", () => {
+    mobileMenu.classList.remove("-translate-y-full");
+});
+
+menuClose.addEventListener("click", () => {
+    mobileMenu.classList.add("-translate-y-full");
+});
+
+// Add event listeners to each menu link
+mobileMenuLinks.forEach(link => {
+    link.addEventListener("click", () => {
+        mobileMenu.classList.add("-translate-y-full");
+    });
+});
     </script>
     
 
