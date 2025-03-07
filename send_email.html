@@ -40,7 +40,7 @@
             display: block;
             margin-top: 15px;
         }
-        input {
+        input, .btn, .radio-group {
             width: 100%;
             padding: 10px;
             margin-top: 5px;
@@ -48,9 +48,11 @@
             border-radius: 4px;
             font-size: 16px;
         }
+        .radio-group {
+            display: flex;
+            justify-content: space-around;
+        }
         .btn {
-            width: 100%;
-            padding: 12px;
             margin-top: 20px;
             border: none;
             background-color: #007bff;
@@ -71,15 +73,6 @@
             color: #666;
             padding: 10px;
         }
-        @media (max-width: 768px) {
-            .container {
-                width: 90%;
-                padding: 15px;
-            }
-            input, .btn {
-                font-size: 14px;
-            }
-        }
     </style>
     <script>
         function sendEmail() {
@@ -88,15 +81,26 @@
                 alert("Please enter your name before proceeding.");
                 return;
             }
-            
+
+            let language = document.querySelector('input[name="language"]:checked').value;
             let subject = "Concerns Regarding the Implementation of the Uniform Civil Code (UCC)";
-            let body = `Hon’ble Justice (R.) Ranjana Prakash Desai,\n\n` +
+            let body;
+
+            if (language === "english") {
+                body = `Hon’ble Justice (R.) Ranjana Prakash Desai,\n\n` +
                        `I hope this message finds you well. I am writing to share my concerns regarding the proposed implementation of the Uniform Civil Code (UCC) in our country.\n\n` +
-                       `Being a Muslim, I adhere to the guidelines of the Quran, which shape our social and familial life, including marriage, inheritance, and other personal matters. We believe that abiding by these religious principles not only serves our community's spiritual needs but also maintains societal harmony.\n\n` +
+                       `Being a Muslim, I adhere to the guidelines of the Quran, which shape our social and familial life, including marriage, inheritance, and other personal matters.\n\n` +
                        `My concern lies in the potential disruption of our religious and social systems that have been laid down by the Quran, which every Muslim is bound to follow. The implementation of the UCC might undermine these principles, leading to confusion and discord not only within our community but potentially across the nation.\n\n` +
-                       `I urge you to consider the diverse fabric of our nation, where multiple communities with distinct identities have coexisted for centuries under personal laws that resonate with their cultural and religious ethos. By respecting these differences, we can ensure a more inclusive and harmonious society.\n\n` +
                        `Thank you for considering my viewpoint. I look forward to your understanding and support.\n\n` +
                        `Yours sincerely,\n${userName}`;
+            } else {
+                body = `માનનીય ન્યાયાધીશ ,\nરંજના પ્રકાશ દેસાઇ \n\n` +
+                       `મને આશા છે કે આ સંદેશ તમને ગમશે. હું આપણા દેશમાં સમાન નાગરિક સંહિતા (UCC) ના પ્રસ્તાવિત અમલીકરણ અંગેની મારી ચિંતાઓ શેર કરવા માટે લખી રહ્યો છું.\n\n` +
+                       `મુસ્લિમ હોવાને કારણે, હું કુરાનની માર્ગદર્શિકાનું પાલન કરું છું, જે આપણા સામાજિક અને પારિવારિક જીવનને આકાર આપે છે, જેમાં લગ્ન, વારસો અને અન્ય વ્યક્તિગત બાબતોનો સમાવેશ થાય છે.\n\n` +
+                       `મારી ચિંતા કુરાન દ્વારા નિર્ધારિત આપણી ધાર્મિક અને સામાજિક વ્યવસ્થાઓમાં સંભવિત વિક્ષેપમાં રહેલી છે, જેનું પાલન દરેક મુસ્લિમ માટે ફરજિયાત છે. UCC ના અમલીકરણથી આ સિદ્ધાંતો નબળા પડી શકે છે, જેનાથી ફક્ત આપણા સમુદાયમાં જ નહીં પરંતુ સમગ્ર દેશમાં મૂંઝવણ અને વિખવાદ થઈ શકે છે.\n\n` +
+                       `મારા દૃષ્ટિકોણને ધ્યાનમાં લેવા બદલ આભાર. હું તમારી સમજણ અને સમર્થનની રાહ જોઉં છું.\n\n` +
+                       `આપનો સાદર,\n${userName}`;
+            }
 
             let mailtoLink = `mailto:ucc@gujarat.gov.in?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
             window.location.href = mailtoLink;
@@ -104,7 +108,6 @@
     </script>
 </head>
 <body>
-
     <div class="container">
         <h2>Concern on Uniform Civil Code (UCC)</h2>
         <p>
@@ -119,6 +122,12 @@
 
         <label for="name">Enter Your Name:</label>
         <input type="text" id="name" placeholder="Your Name">
+        
+        <label>Select Language:</label>
+        <div class="radio-group">
+            <label><input type="radio" name="language" value="english" checked> English</label>
+            <label><input type="radio" name="language" value="gujarati"> ગુજરાતી</label>
+        </div>
 
         <button class="btn" onclick="sendEmail()">Send Email</button>
     </div>
@@ -126,6 +135,5 @@
     <div class="footer">
         <p><strong>Legal Disclaimer:</strong> This webpage is for informational purposes only. Sending this email is a voluntary action, and the content represents personal concerns regarding the UCC. The developers of this page hold no legal liability for any responses or outcomes resulting from sending this email.</p>
     </div>
-
 </body>
 </html>
