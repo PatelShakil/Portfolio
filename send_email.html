@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UCC Concern Email</title>
+    <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            padding-top: 10px;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+            color: #444;
+        }
+        p {
+            text-align: justify;
+            margin-bottom: 10px;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 15px;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        .btn {
+            width: 100%;
+            padding: 12px;
+            margin-top: 20px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background 0.3s;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+        .footer {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 12px;
+            color: #666;
+            padding: 10px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                width: 90%;
+                padding: 15px;
+            }
+            input, .btn {
+                font-size: 14px;
+            }
+        }
+    </style>
+    <script>
+        function sendEmail() {
+            let userName = document.getElementById("name").value.trim();
+            if (userName === "") {
+                alert("Please enter your name before proceeding.");
+                return;
+            }
+            
+            let subject = "Concerns Regarding the Implementation of the Uniform Civil Code (UCC)";
+            let body = `Hon’ble Justice (R.) Ranjana Prakash Desai,\n\n` +
+                       `I hope this message finds you well. I am writing to share my concerns regarding the proposed implementation of the Uniform Civil Code (UCC) in our country.\n\n` +
+                       `Being a Muslim, I adhere to the guidelines of the Quran, which shape our social and familial life, including marriage, inheritance, and other personal matters. We believe that abiding by these religious principles not only serves our community's spiritual needs but also maintains societal harmony.\n\n` +
+                       `My concern lies in the potential disruption of our religious and social systems that have been laid down by the Quran, which every Muslim is bound to follow. The implementation of the UCC might undermine these principles, leading to confusion and discord not only within our community but potentially across the nation.\n\n` +
+                       `I urge you to consider the diverse fabric of our nation, where multiple communities with distinct identities have coexisted for centuries under personal laws that resonate with their cultural and religious ethos. By respecting these differences, we can ensure a more inclusive and harmonious society.\n\n` +
+                       `Thank you for considering my viewpoint. I look forward to your understanding and support.\n\n` +
+                       `Yours sincerely,\n${userName}`;
+
+            let mailtoLink = `mailto:ucc@gujarat.gov.in?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            window.location.href = mailtoLink;
+        }
+    </script>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Concern on Uniform Civil Code (UCC)</h2>
+        <p>
+            The proposed implementation of the Uniform Civil Code (UCC) raises concerns about its impact on religious 
+            and cultural laws. Many communities, including Muslims, follow specific religious principles for social and familial 
+            matters. The UCC may disrupt these traditions, leading to potential social disharmony.
+        </p>
+        <p>
+            To express your concerns, you can send an email to the authorities highlighting the importance of preserving 
+            personal laws that align with diverse religious and cultural beliefs.
+        </p>
+
+        <label for="name">Enter Your Name:</label>
+        <input type="text" id="name" placeholder="Your Name">
+
+        <button class="btn" onclick="sendEmail()">Send Email</button>
+    </div>
+
+    <div class="footer">
+        <p><strong>Legal Disclaimer:</strong> This webpage is for informational purposes only. Sending this email is a voluntary action, and the content represents personal concerns regarding the UCC. The developers of this page hold no legal liability for any responses or outcomes resulting from sending this email.</p>
+    </div>
+
+</body>
+</html>
