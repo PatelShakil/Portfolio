@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ByteBuddy - The EduCollab Center</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
+
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .animate-fade-in {
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    .animate-slide-in-left {
+      animation: slideInLeft 0.5s ease-out;
+    }
+
+    @keyframes slideInLeft {
+      from {
+        transform: translateX(-100%);
+        opacity: 0;
+      }
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    .animate-pulse {
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.05);
+      }
+    }
+  </style>
+
+</head>
+<body class="bg-black text-white">
+  <div class="flex flex-col mt-16 pt-4 mb-10">
+    <!-- Banner Section -->
+    <div class="mx-2 justify-center w-fit mx-auto rounded-lg shadow-lg bg-black mb-5">
+      <img class="object-contain rounded-lg animate-fade-in" src="https://tech-savvy-solution.web.app/assets/bytebuddy_banner.jpg" alt="ByteBuddy Banner" />
+    </div>
+
+    <!-- Header Section -->
+    <div class="flex flex-col px-6">
+      <div class="flex mt-5 bg-[#111] rounded-lg w-full items-center justify-start p-4 lg:p-10 gap-x-5">
+        <img src="https://tech-savvy-solution.web.app/assets/bytebuddy_logo.png" alt="ByteBuddy Logo" class="rounded-full w-24 shadow-2xl" />
+        <p class="lg:text-3xl text-2xl font-semibold">
+          ByteBuddy <br />
+          <span class="text-blue-400">The EduCollab Center</span>
+        </p>
+      </div>
+    </div>
+
+    <!-- Key Features Section -->
+    <section class="mt-10 px-6">
+      <h2 class="text-center text-4xl font-bold mb-6 animate-slide-in-left">Why ByteBuddy?</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+        <div class="bg-[#222] p-6 rounded-lg shadow-lg hover:shadow-xl transform transition duration-300 hover:scale-105">
+          <i class="fas fa-book-open text-blue-400 text-3xl mb-4"></i>
+          <h3 class="text-xl font-semibold">Learning Module</h3>
+          <p class="mt-2">Offers in-depth course material, including BCA, MSC ICT, and multiple programming languages. Users can upload and access notes.</p>
+        </div>
+        <div class="bg-[#222] p-6 rounded-lg shadow-lg hover:shadow-xl transform transition duration-300 hover:scale-105">
+          <i class="fas fa-code text-blue-400 text-3xl mb-4"></i>
+          <h3 class="text-xl font-semibold">FAQ Module</h3>
+          <p class="mt-2">Post questions with code, images, or screenshots, similar to Stack Overflow. Answers can be upvoted, downvoted, or saved.</p>
+        </div>
+        <div class="bg-[#222] p-6 rounded-lg shadow-lg hover:shadow-xl transform transition duration-300 hover:scale-105">
+          <i class="fas fa-comments text-blue-400 text-3xl mb-4"></i>
+          <h3 class="text-xl font-semibold">Chat Module</h3>
+          <p class="mt-2">Enables one-to-one chat, including features like message deletion, editing, and more.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Technical Approach Section -->
+    <section class="mt-10 px-6 bg-[#111] py-10 rounded-lg">
+      <h2 class="text-center text-4xl font-bold mb-6 animate-pulse">What We Have ?</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-[#222] p-6 rounded-lg shadow-lg">
+          <h3 class="text-xl font-semibold text-blue-400 mb-2">Smart Learning</h3>
+          <ul class="list-disc ml-5">
+            <li>In-depth notes for BCA, MSC ICT, and programming languages.</li>
+            <li>Listen to notes, translate them, and save them for future use.</li>
+            <li>Upload custom notes and share knowledge with peers.</li>
+          </ul>
+        </div>
+        <div class="bg-[#222] p-6 rounded-lg shadow-lg">
+          <h3 class="text-xl font-semibold text-blue-400 mb-2">Real-time Collaboration</h3>
+          <ul class="list-disc ml-5">
+            <li>Peer-to-peer chat for real-time discussions.</li>
+            <li>FAQs with community-driven upvotes and code discussions.</li>
+            <li>Interactive discussions for deeper understanding.</li>
+          </ul>
+        </div>
+        <div class="bg-[#222] p-6 rounded-lg shadow-lg">
+          <h3 class="text-xl font-semibold text-blue-400 mb-2">Scalable Infrastructure</h3>
+          <ul class="list-disc ml-5">
+            <li>Cloud-based infrastructure ensuring high availability.</li>
+            <li>Fast response time for quick access to learning materials.</li>
+            <li>Global reach and minimal latency for students across the world.</li>
+          </ul>
+        </div>
+        <div class="bg-[#222] p-6 rounded-lg shadow-lg">
+          <h3 class="text-xl font-semibold text-blue-400 mb-2">Security</h3>
+          <ul class="list-disc ml-5">
+            <li>End-to-end encrypted chat and data transfer.</li>
+            <li>Robust authentication and user data privacy protection.</li>
+            <li>Periodic security audits to ensure the highest standard.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="mt-10 justify-center flex flex-col items-center gap-y-6 bg-[#111] text-gray-400 py-6">
+      <a href="./assets/ByteBuddy.apk"
+          download 
+      class="inline-flex items-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+  <svg class="fill-current w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z"/></svg>
+  <span>Download App</span>
+</a>
+      <div class="container mx-auto text-center">
+        <p>&copy; 2025 ByteBuddy | All rights reserved</p>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
