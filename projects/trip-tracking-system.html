@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trip Tracking System - Visual Flow</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        font-family: "Poppins", sans-serif;
+      }
+      .bg-gray-900 {
+        background-color: #1a202c;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-900 text-white font-sans">
+    <!-- Header -->
+    <header class="bg-gray-800 shadow-lg sticky top-0 z-50">
+      <div
+        class="container mx-auto px-4 py-4 flex justify-between items-center"
+      >
+        <h1 class="text-3xl font-bold text-yellow-400">M.Shakil Patel</h1>
+        <nav class="hidden md:flex space-x-6">
+          <a href="/" class="hover:text-yellow-400">Home</a>
+          <a href="#overview" class="hover:text-yellow-400">Overview</a>
+          <a href="#demo" class="hover:text-yellow-400">Demo</a>
+          <a href="#contact" class="hover:text-yellow-400">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-gray-900 py-16 px-4 text-center">
+      <h2 class="text-4xl font-bold mb-4 text-yellow-400">
+        Trip Tracking System
+      </h2>
+      <p class="text-lg text-gray-300 max-w-3xl mx-auto">
+        This interactive board demonstrates the complete workflow of the trip
+        tracking system — from the driver's journey to the admin’s control
+        panel. It ensures clarity, transparency, and a shared understanding of
+        the system before development.
+      </p>
+    </section>
+
+    <!-- Overview Section -->
+    <section id="overview" class="py-12 px-4">
+      <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-8 items-center">
+        <div>
+          <h3 class="text-2xl font-semibold text-yellow-400 mb-4">
+            How It Works
+          </h3>
+          <ul class="space-y-3 text-gray-300">
+            <li>✔ Drivers log in, start trips, and record journey data.</li>
+            <li>✔ Admins monitor trips, assign tasks, and review history.</li>
+            <li>✔ All data is processed in a secure centralized system.</li>
+            <li>✔ No real-time complexity — efficient flag-based updates.</li>
+          </ul>
+        </div>
+        <div class="bg-gray-800 rounded-lg p-6 shadow-lg">
+          <h4 class="text-xl font-semibold mb-2">Key Benefits</h4>
+          <p class="text-gray-300 mb-2">
+            ⚡ Low-cost hosting with Laravel backend support.
+          </p>
+          <p class="text-gray-300 mb-2">
+            📱 Modern Android Jetpack Compose mobile app.
+          </p>
+          <p class="text-gray-300">
+            💻 Sleek React + Tailwind admin dashboard.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FigJam Embed -->
+    <section id="demo" class="py-12 px-4">
+      <div class="max-w-full mx-auto">
+        <h3 class="text-2xl font-semibold text-yellow-400 mb-6 text-center">
+          Interactive Flow Diagram
+        </h3>
+        <div
+          class="w-full relative aspect-video border-4 border-yellow-400 rounded-lg overflow-hidden shadow-2xl"
+        >
+          <iframe
+            src="https://embed.figma.com/board/ssRblWfLXM9sFKwP4dglnY/Trip-Tracking-System---Farhan?node-id=0-1&embed-host=share"
+            allowfullscreen
+            class="w-full h-full"
+          ></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-16 px-4 bg-gray-800 text-center">
+      <h3 class="text-3xl font-bold mb-4 text-yellow-400">
+        Ready to Bring This to Life?
+      </h3>
+      <p class="text-lg text-gray-300 mb-8">
+        Let’s finalize the workflow and proceed to development with full clarity
+        and confidence.
+      </p>
+      <a
+  href="mailto:patelshakil.dev@gmail.com?subject=Inquiry%20from%20Website&body=Hello%20Shakil,%0D%0A%0D%0AI%20visited%20your%20website%20and%20would%20like%20to%20discuss...%0D%0A%0D%0ARegards,%0D%0A[Your%20Name]"
+  class="px-6 py-3 bg-yellow-400 text-gray-900 font-bold rounded-full shadow-lg hover:bg-yellow-300 transition"
+>
+  Get in Touch
+</a>
+
+    </section>
+
+    <!-- Footer -->
+    <footer
+      id="contact"
+      class="bg-gray-900 py-8 text-center text-gray-400 text-sm border-t border-gray-700"
+    >
+      &copy; 2025 M.Shakil Patel. All Rights Reserved.
+    </footer>
+  </body>
+</html>

@@ -223,6 +223,74 @@
       id="home"
       class="h-screen flex items-center justify-center bg-cover bg-center relative"
     >
+      <!-- Backlink / News Card -->
+<div id="project-card"
+  class="lg:fixed md:fixed absolute md:top-20 lg:top-20 right-4 top-4 lg:right-8 max-w-xs w-full z-50 transform transition-all duration-300"
+>
+  <div
+    class="bg-gray-800/90 backdrop-blur-lg border border-yellow-400 rounded-lg shadow-lg overflow-hidden hover:scale-105 transition-transform duration-300"
+  >
+    <!-- Header -->
+    <div class="p-4 flex justify-between items-center border-b border-gray-700">
+      <h3 class="text-lg font-bold text-yellow-400 flex items-center">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-5 w-5 mr-2"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M12 8v4l3 3m6-7a9 9 0 11-18 0 9 9 0 0118 0z"
+          />
+        </svg>
+        Latest Project
+      </h3>
+
+      <!-- Close Button (Mobile only) -->
+      <button
+        id="close-card"
+        class="lg:hidden text-gray-400 hover:text-yellow-400 focus:outline-none"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"
+          viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Body -->
+    <div class="p-4">
+      <p class="text-sm text-gray-300">
+        Explore our brand new
+        <span class="text-yellow-300 font-semibold">Trip Tracking System</span>
+        with real-time route monitoring and modern UI.
+      </p>
+      <a
+        href="projects/trip-tracking-system.html"
+        class="mt-4 inline-block w-full text-center px-4 py-2 bg-yellow-400 text-gray-900 font-semibold rounded hover:bg-yellow-300 transition"
+      >
+        View Project
+      </a>
+    </div>
+  </div>
+</div>
+
+<script>
+  const closeBtn = document.getElementById("close-card");
+  const projectCard = document.getElementById("project-card");
+
+  closeBtn.addEventListener("click", () => {
+    projectCard.classList.add("opacity-0", "translate-y-5");
+    setTimeout(() => projectCard.remove(), 300);
+  });
+</script>
+
+
       <video
         class="absolute inset-0 w-full h-full object-cover"
         autoplay
@@ -642,7 +710,10 @@
               ShowCaseMe - Your Digital Identity, Simplified
             </h3>
             <p class="text-gray-400 mb-4">
-              A personal branding and portfolio platform built with .NET Core and React.js. Features customizable profiles, dynamic sections, resume uploads, and analytics. Secure, scalable, and hosted on Azure.
+              A personal branding and portfolio platform built with .NET Core
+              and React.js. Features customizable profiles, dynamic sections,
+              resume uploads, and analytics. Secure, scalable, and hosted on
+              Azure.
             </p>
             <a
               href="https://showcaseme.patelshakil.tech/showcaseme"
