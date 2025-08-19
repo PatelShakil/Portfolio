@@ -359,6 +359,99 @@
         </a>
       </div>
     </section>
+    <!-- Coding Stats Section -->
+    <section class="py-16 bg-gray-800 slide-in">
+      <div class="container mx-auto px-4">
+        <h2 class="text-4xl font-bold text-center mb-12 text-white">
+          Coding Activity
+        </h2>
+        
+        <div class="grid md:grid-cols-2 gap-8">
+          <!-- Weekly Stats Card -->
+          <div class="bg-gray-900 p-6 rounded-lg shadow-lg transform hover:scale-[1.02] transition duration-300">
+            <h3 class="text-2xl font-semibold text-yellow-400 mb-4">All Time Activity</h3>
+            <div class="relative w-full" style="padding-top: 56.25%">
+              <embed 
+                src="https://wakatime.com/share/@patelshakil95/cbf6196f-b85a-4230-83eb-f6bfb672af39.svg"
+                class="absolute top-0 left-0 w-full h-full"
+                style="filter: invert(1) hue-rotate(180deg);"
+              >
+            </div>
+          </div>
+
+          <!-- Languages Card -->
+          <div class="bg-gray-900 p-6 rounded-lg shadow-lg transform hover:scale-[1.02] transition duration-300">
+            <h3 class="text-2xl font-semibold text-yellow-400 mb-4">Language Distribution</h3>
+            <div class="relative w-full" style="padding-top: 56.25%">
+              <embed 
+                src="https://wakatime.com/share/@patelshakil95/48a4771e-3ee1-4113-a103-b74d2229d5c4.svg"
+                class="absolute top-0 left-0 w-full h-full"
+                style="filter: invert(1) hue-rotate(180deg);"
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- Additional Stats -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
+          <div class="bg-gray-900 p-4 rounded-lg text-center">
+            <h4 class="text-yellow-400 text-lg font-semibold">Total Coding Hours</h4>
+            <p class="text-3xl font-bold" id="totalHours">Loading...</p>
+            <p class="text-sm text-gray-400">All time</p>
+          </div>
+          <div class="bg-gray-900 p-4 rounded-lg text-center">
+            <h4 class="text-yellow-400 text-lg font-semibold">Daily Average</h4>
+            <p class="text-3xl font-bold" id="dailyAverage">Loading...</p>
+            <p class="text-sm text-gray-400">Hours per day</p>
+          </div>
+          <div class="bg-gray-900 p-4 rounded-lg text-center">
+            <h4 class="text-yellow-400 text-lg font-semibold">Best Day</h4>
+            <p class="text-3xl font-bold" id="bestDay">Loading...</p>
+            <p class="text-sm text-gray-400" id="bestDayDate">Loading...</p>
+          </div>
+          <div class="bg-gray-900 p-4 rounded-lg text-center">
+            <h4 class="text-yellow-400 text-lg font-semibold">Days Coded</h4>
+            <p class="text-3xl font-bold" id="daysCoded">Loading...</p>
+            <p class="text-sm text-gray-400" id="daysRange">Loading...</p>
+          </div>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script>
+        $.ajax({
+          type: 'GET',
+          url: 'https://wakatime.com/share/@patelshakil95/1b750fcb-ca05-454d-a294-c5c94ec159b1.json',
+          dataType: 'jsonp',
+          success: function(response) {
+            const data = response.data;
+            
+            // Total Hours
+            const totalHours = Math.floor(data.grand_total.total_seconds_including_other_language / 3600);
+            $('#totalHours').text(totalHours);
+            
+            // Daily Average
+            const dailyAvg = Math.round(data.grand_total.daily_average_including_other_language / 3600 * 10) / 10;
+            $('#dailyAverage').text(dailyAvg);
+            
+            // Best Day
+            const bestHours = Math.round(data.best_day.total_seconds / 3600 * 10) / 10;
+            $('#bestDay').text(bestHours);
+            const bestDate = new Date(data.best_day.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+            $('#bestDayDate').text(bestDate);
+            
+            // Days Coded
+            $('#daysCoded').text(data.range.days_minus_holidays);
+            const startDate = new Date(data.range.start).toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
+            $('#daysRange').text(`Since ${startDate}`);
+          },
+          error: function() {
+            $('.text-3xl').text('Error loading data');
+            $('.text-sm.text-gray-400').text('Check connection');
+          }
+        });
+        </script>
+      </div>
+    </section>
 
     <!-- About Section -->
     <section id="about" class="py-16 bg-gray-900 text-white slide-in">
