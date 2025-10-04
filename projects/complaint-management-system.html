@@ -1,0 +1,1002 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GUVNL Complaint Platform — Next‑Gen Real‑Time Service</title>
+  <meta name="description" content="Enterprise-grade complaint management with microservices, Kafka event streams, smart AI-assisted routing, and real-time citizen engagement for electricity services.">
+  <meta name="keywords" content="GUVNL, complaint tracking, microservices, Kafka, event-driven, Kubernetes, Android, React, citizen engagement">
+  <meta property="og:title" content="GUVNL Complaint Platform — Real‑Time, AI‑Assisted">
+  <meta property="og:description" content="Modern complaint platform with instant acknowledgment, smart routing, live tracking, and analytics.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#7c3aed">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { 
+            brand: { DEFAULT:'#7c3aed',50:'#faf5ff',100:'#f3e8ff',200:'#e9d5ff',300:'#d8b4fe',400:'#c084fc',500:'#a855f7',600:'#9333ea',700:'#7e22ce',800:'#6b21a8',900:'#581c87'},
+            accent: { DEFAULT:'#06b6d4',50:'#ecfeff',100:'#cffafe',200:'#a5f3fc',300:'#67e8f9',400:'#22d3ee',500:'#06b6d4',600:'#0891b2',700:'#0e7490',800:'#155e75',900:'#164e63'}
+          },
+          boxShadow: { glow: '0 0 40px rgba(124,58,237,.4)', 'glow-accent': '0 0 40px rgba(6,182,212,.4)' },
+          animation: {
+            float: 'float 8s ease-in-out infinite',
+            'float-slow': 'float 12s ease-in-out infinite',
+            'spin-slow': 'spin 20s linear infinite',
+            'ping-slow': 'ping 3s cubic-bezier(0,0,.2,1) infinite',
+            'pulse-slow': 'pulse 4s cubic-bezier(.4,0,.6,1) infinite',
+            shimmer: 'shimmer 2s linear infinite',
+            fadeIn: 'fadeIn .8s ease-out forwards',
+            slideUp: 'slideUp .7s ease-out forwards',
+            scaleIn: 'scaleIn .6s ease-out forwards'
+          },
+          keyframes: {
+            float: { '0%,100%':{transform:'translateY(0px)'}, '50%':{transform:'translateY(-20px)'} },
+            shimmer: { '0%':{backgroundPosition:'200% center'}, '100%':{backgroundPosition:'-200% center'} },
+            fadeIn: { '0%':{opacity:0}, '100%':{opacity:1} },
+            slideUp: { '0%':{opacity:0,transform:'translateY(30px)'}, '100%':{opacity:1,transform:'translateY(0)'} },
+            scaleIn: { '0%':{opacity:0,transform:'scale(.9)'}, '100%':{opacity:1,transform:'scale(1)'} }
+          }
+        }
+      }
+    }
+  </script>
+  <link href="https://unpkg.com/@tabler/icons-webfont@2.47.0/tabler-icons.min.css" rel="stylesheet">
+  <style>
+
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
+
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+    .reveal{opacity:0;transform:translateY(24px);transition:all .8s cubic-bezier(.16,1,.3,1)}
+    .reveal.show{opacity:1;transform:translateY(0)}
+    .glass-strong{backdrop-filter:blur(16px) saturate(180%);background:rgba(15,15,40,.75);border:1px solid rgba(255,255,255,.15)}
+    .glass-light{backdrop-filter:blur(10px);background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1)}
+    .gradient-mesh{background:radial-gradient(at 0% 0%, rgba(124,58,237,.15) 0, transparent 50%),
+                    radial-gradient(at 100% 0%, rgba(6,182,212,.12) 0, transparent 50%),
+                    radial-gradient(at 100% 100%, rgba(236,72,153,.1) 0, transparent 50%),
+                    radial-gradient(at 0% 100%, rgba(59,130,246,.1) 0, transparent 50%)}
+    .text-gradient{background:linear-gradient(135deg,#7c3aed,#06b6d4,#ec4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .shimmer-bg{background:linear-gradient(90deg,transparent,rgba(255,255,255,.08),transparent);background-size:200% 100%;animation:shimmer 2s infinite}
+    .hover-lift{transition:transform .3s ease,box-shadow .3s ease}
+    .hover-lift:hover{transform:translateY(-4px);box-shadow:0 20px 40px rgba(124,58,237,.3)}
+    .particle{position:absolute;width:4px;height:4px;border-radius:50%;background:rgba(124,58,237,.6);pointer-events:none}
+    .line-connector{position:absolute;height:2px;background:linear-gradient(90deg,transparent,rgba(124,58,237,.6),transparent);transform-origin:left center}
+    .tooltip{position:absolute;bottom:110%;left:50%;transform:translateX(-50%) scale(0);background:rgba(0,0,0,.9);color:#fff;padding:.5rem .75rem;border-radius:.5rem;font-size:.75rem;white-space:nowrap;pointer-events:none;transition:transform .2s ease,opacity .2s ease;opacity:0;z-index:50}
+    .has-tooltip:hover .tooltip{transform:translateX(-50%) scale(1);opacity:1}
+    .split-layout{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+    @media(min-width:768px){.split-layout{grid-template-columns:1fr 1fr}}
+    .counter{font-variant-numeric:tabular-nums}
+    .perspective-card{transform-style:preserve-3d;transition:transform .4s ease}
+    .perspective-card:hover{transform:rotateY(5deg) rotateX(5deg)}
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 antialiased overflow-x-hidden selection:bg-brand-300 selection:text-slate-900">
+
+  <!-- Animated background -->
+  <div class="fixed inset-0 -z-10 gradient-mesh pointer-events-none"></div>
+  <canvas id="particles" class="fixed inset-0 -z-10 pointer-events-none"></canvas>
+
+  <!-- Nav -->
+  <header class="sticky top-0 z-50 glass-strong">
+    <nav class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <a class="flex items-center gap-3 group" href="#">
+        <span class="ti ti-topology-star-3 text-brand text-2xl group-hover:rotate-180 transition-transform duration-500"></span>
+        <span class="font-bold tracking-tight">GUVNL <span class="text-brand">CMS</span></span>
+      </a>
+      <div class="hidden lg:flex items-center gap-6 text-sm font-medium">
+        <a href="#why" class="hover:text-brand transition-colors">Why</a>
+        <a href="#journey" class="hover:text-brand transition-colors">Journey</a>
+        <a href="#architecture" class="hover:text-brand transition-colors">Architecture</a>
+        <a href="#features" class="hover:text-brand transition-colors">Features</a>
+        <a href="#tech" class="hover:text-brand transition-colors">Tech</a>
+        <a href="#screens" class="hover:text-brand transition-colors">Screens</a>
+        <a href="#about" class="hover:text-brand transition-colors">About</a>
+        <a href="#contact" class="px-4 py-2 rounded-lg bg-brand hover:bg-brand-600 text-white shadow-glow transition-all">Demo</a>
+      </div>
+      <button id="menuBtn" class="lg:hidden ti ti-menu-2 text-2xl"></button>
+    </nav>
+    <div id="mobileMenu" class="lg:hidden hidden border-t border-white/10 glass-strong">
+      <div class="px-4 py-4 grid gap-3 text-sm font-medium">
+        <a href="#why" class="py-2">Why</a>
+        <a href="#journey" class="py-2">Journey</a>
+        <a href="#architecture" class="py-2">Architecture</a>
+        <a href="#features" class="py-2">Features</a>
+        <a href="#tech" class="py-2">Tech</a>
+        <a href="#screens" class="py-2">Screens</a>
+        <a href="#about" class="py-2">About</a>
+        <a href="#contact" class="py-2">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero with stats -->
+  <section class="relative overflow-hidden py-20 sm:py-32">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-light border border-brand/30 text-sm font-medium mb-6 animate-fadeIn">
+            <span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-brand"></span></span>
+            Enterprise‑grade for citizens
+          </div>
+          <h1 class="text-4xl sm:text-6xl font-black leading-tight animate-slideUp">
+            Register.<br>Track.<br><span class="text-gradient">Resolve.</span>
+          </h1>
+          <p class="mt-6 text-lg text-slate-300 leading-relaxed animate-slideUp" style="animation-delay:.1s">
+            A cutting‑edge electricity complaint platform with instant acknowledgment, AI‑assisted assignment, real‑time tracking, and proactive insights for citizens, crews, and operations.
+          </p>
+          <div class="mt-8 flex flex-wrap gap-4 animate-slideUp" style="animation-delay:.2s">
+            <a href="#journey" class="px-6 py-3 rounded-lg bg-brand hover:bg-brand-600 text-white font-semibold shadow-glow hover-lift">Explore platform</a>
+            <a href="#architecture" class="px-6 py-3 rounded-lg glass-light border border-white/20 hover:border-brand/60 font-semibold hover-lift">See architecture</a>
+          </div>
+          <div class="mt-12 grid grid-cols-3 gap-6 animate-scaleIn" style="animation-delay:.3s">
+            <div>
+              <div class="text-3xl font-bold text-brand counter" data-target="100">0</div>
+              <div class="text-xs text-slate-400 mt-1">Sub‑second ACK</div>
+            </div>
+            <div>
+              <div class="text-3xl font-bold text-accent counter" data-target="99">0</div>
+              <div class="text-xs text-slate-400 mt-1">Uptime %</div>
+            </div>
+            <div>
+              <div class="text-3xl font-bold text-pink-400 counter" data-target="24">0</div>
+              <div class="text-xs text-slate-400 mt-1">7 Availability</div>
+            </div>
+          </div>
+        </div>
+        <div class="relative animate-scaleIn" style="animation-delay:.4s">
+          <div class="absolute -inset-8 bg-gradient-to-tr from-brand/20 via-accent/10 to-pink-500/10 rounded-3xl blur-3xl animate-pulse-slow"></div>
+          <div class="relative glass-strong rounded-3xl p-8 border border-white/10">
+            <div class="grid grid-cols-2 gap-4">
+              <div class="p-5 rounded-xl bg-slate-900/60 border border-brand/30 hover-lift">
+                <div class="flex items-center gap-2 text-brand mb-2"><span class="ti ti-shield-lock text-2xl"></span></div>
+                <h3 class="font-semibold text-sm">Gateway</h3>
+                <p class="text-xs text-slate-400 mt-1">Auth, rate‑limit, route</p>
+              </div>
+              <div class="p-5 rounded-xl bg-slate-900/60 border border-emerald-500/30 hover-lift">
+                <div class="flex items-center gap-2 text-emerald-400 mb-2"><span class="ti ti-forms text-2xl"></span></div>
+                <h3 class="font-semibold text-sm">Complaints</h3>
+                <p class="text-xs text-slate-400 mt-1">Register, track, store</p>
+              </div>
+              <div class="p-5 rounded-xl bg-slate-900/60 border border-amber-500/30 hover-lift">
+                <div class="flex items-center gap-2 text-amber-400 mb-2"><span class="ti ti-route text-2xl"></span></div>
+                <h3 class="font-semibold text-sm">Assignment</h3>
+                <p class="text-xs text-slate-400 mt-1">Smart crew routing</p>
+              </div>
+              <div class="p-5 rounded-xl bg-slate-900/60 border border-pink-500/30 hover-lift">
+                <div class="flex items-center gap-2 text-pink-400 mb-2"><span class="ti ti-bell-ringing text-2xl"></span></div>
+                <h3 class="font-semibold text-sm">Notify</h3>
+                <p class="text-xs text-slate-400 mt-1">Push, SMS, email</p>
+              </div>
+            </div>
+            <div class="mt-4 p-5 rounded-xl bg-gradient-to-r from-brand/10 via-accent/10 to-pink-500/10 border border-white/10">
+              <div class="flex items-center gap-3">
+                <span class="ti ti-topology-bus text-2xl text-accent animate-pulse-slow"></span>
+                <div>
+                  <h3 class="font-semibold text-sm">Event Backbone</h3>
+                  <p class="text-xs text-slate-400">Kafka streams for real‑time flow</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why section with comparison -->
+  <section id="why" class="py-20 border-y border-white/10">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl sm:text-4xl font-bold">Why this platform transforms service delivery</h2>
+        <p class="mt-4 text-slate-300 max-w-2xl mx-auto">Move from legacy ticket chaos to modern, event‑driven, citizen‑first operations.</p>
+      </div>
+
+      <!-- Comparison table -->
+      <div class="overflow-x-auto mb-12">
+        <table class="w-full glass-light rounded-2xl border border-white/10">
+          <thead class="bg-slate-900/60">
+            <tr>
+              <th class="px-6 py-4 text-left text-sm font-semibold">Aspect</th>
+              <th class="px-6 py-4 text-left text-sm font-semibold text-red-400">Legacy systems</th>
+              <th class="px-6 py-4 text-left text-sm font-semibold text-brand">GUVNL CMS</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-white/10">
+            <tr class="reveal">
+              <td class="px-6 py-4 font-medium">Acknowledgment</td>
+              <td class="px-6 py-4 text-slate-400">Manual, hours to days</td>
+              <td class="px-6 py-4 text-brand">Instant, under 100ms</td>
+            </tr>
+            <tr class="reveal">
+              <td class="px-6 py-4 font-medium">Assignment</td>
+              <td class="px-6 py-4 text-slate-400">Manual dispatch, delays</td>
+              <td class="px-6 py-4 text-brand">AI‑assisted, location‑aware</td>
+            </tr>
+            <tr class="reveal">
+              <td class="px-6 py-4 font-medium">Tracking</td>
+              <td class="px-6 py-4 text-slate-400">Phone calls, no visibility</td>
+              <td class="px-6 py-4 text-brand">Live timeline with ETA</td>
+            </tr>
+            <tr class="reveal">
+              <td class="px-6 py-4 font-medium">Scalability</td>
+              <td class="px-6 py-4 text-slate-400">Monolith, bottlenecks</td>
+              <td class="px-6 py-4 text-brand">Microservices, elastic</td>
+            </tr>
+            <tr class="reveal">
+              <td class="px-6 py-4 font-medium">Insights</td>
+              <td class="px-6 py-4 text-slate-400">Retrospective reports</td>
+              <td class="px-6 py-4 text-brand">Real‑time dashboards, alerts</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Benefits grid -->
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="p-6 rounded-2xl glass-light border border-white/10 hover-lift reveal">
+          <div class="w-12 h-12 rounded-xl bg-brand/20 flex items-center justify-center mb-4"><span class="ti ti-user-heart text-2xl text-brand"></span></div>
+          <h3 class="font-semibold text-lg mb-2">Citizen trust</h3>
+          <p class="text-slate-300 text-sm">Immediate ticket IDs, transparent status, and reliable ETAs reduce frustration and repeat contacts.</p>
+        </div>
+        <div class="p-6 rounded-2xl glass-light border border-white/10 hover-lift reveal">
+          <div class="w-12 h-12 rounded-xl bg-accent/20 flex items-center justify-center mb-4"><span class="ti ti-bolt text-2xl text-accent"></span></div>
+          <h3 class="font-semibold text-lg mb-2">Crew efficiency</h3>
+          <p class="text-slate-300 text-sm">Smart routing, contextual data, and mobile‑first tools reduce idle time and improve first‑time resolution.</p>
+        </div>
+        <div class="p-6 rounded-2xl glass-light border border-white/10 hover-lift reveal">
+          <div class="w-12 h-12 rounded-xl bg-pink-500/20 flex items-center justify-center mb-4"><span class="ti ti-chart-line text-2xl text-pink-400"></span></div>
+          <h3 class="font-semibold text-lg mb-2">Ops control</h3>
+          <p class="text-slate-300 text-sm">Live backlogs, SLA alarms, and heatmaps empower proactive decisions and continuous improvement.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- User journey with advanced timeline -->
+  <section id="journey" class="py-20 bg-slate-900/30">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl sm:text-4xl font-bold">The complete journey</h2>
+        <p class="mt-4 text-slate-300">From complaint submission to resolution — seamless, transparent, and fast.</p>
+      </div>
+
+      <div class="relative max-w-4xl mx-auto">
+        <!-- Central timeline -->
+        <div class="absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-brand via-accent to-pink-500 transform -translate-x-1/2 hidden md:block"></div>
+
+        <!-- Steps -->
+        <div class="space-y-12">
+          <div class="grid md:grid-cols-2 gap-8 items-center reveal">
+            <div class="md:text-right">
+              <div class="inline-block px-4 py-2 rounded-full bg-brand/20 text-brand text-xs font-semibold mb-3">Step 1</div>
+              <h3 class="text-xl font-bold mb-2">Quick registration</h3>
+              <p class="text-slate-300">Citizens submit complaints via mobile, web, or kiosk with minimal fields. Photos and location are auto‑captured.</p>
+            </div>
+            <div class="relative">
+              <div class="absolute left-0 top-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-brand shadow-glow hidden md:block" style="left:-2.1rem"></div>
+              <div class="p-6 rounded-2xl glass-strong border border-brand/30 hover-lift">
+                <span class="ti ti-forms text-4xl text-brand mb-2 block"></span>
+                <div class="text-sm text-slate-400">Instant ID issued with ETA</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-8 items-center reveal">
+            <div class="md:order-2">
+              <div class="inline-block px-4 py-2 rounded-full bg-accent/20 text-accent text-xs font-semibold mb-3">Step 2</div>
+              <h3 class="text-xl font-bold mb-2">Intelligent routing</h3>
+              <p class="text-slate-300">The system evaluates priority, crew skills, location proximity, and current load to assign the optimal team.</p>
+            </div>
+            <div class="relative md:order-1 md:text-right">
+              <div class="absolute right-0 top-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-accent shadow-glow-accent hidden md:block" style="right:-2.1rem"></div>
+              <div class="p-6 rounded-2xl glass-strong border border-accent/30 hover-lift">
+                <span class="ti ti-route text-4xl text-accent mb-2 block"></span>
+                <div class="text-sm text-slate-400">AI‑assisted assignment logic</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-8 items-center reveal">
+            <div class="md:text-right">
+              <div class="inline-block px-4 py-2 rounded-full bg-amber-500/20 text-amber-400 text-xs font-semibold mb-3">Step 3</div>
+              <h3 class="text-xl font-bold mb-2">Live notifications</h3>
+              <p class="text-slate-300">Push, SMS, and email alerts at every milestone—assigned, en‑route, on‑site, resolved—with proof attachments.</p>
+            </div>
+            <div class="relative">
+              <div class="absolute left-0 top-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-amber-400 shadow-glow hidden md:block" style="left:-2.1rem"></div>
+              <div class="p-6 rounded-2xl glass-strong border border-amber-500/30 hover-lift">
+                <span class="ti ti-bell-ringing text-4xl text-amber-400 mb-2 block"></span>
+                <div class="text-sm text-slate-400">Multi‑channel delivery</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-8 items-center reveal">
+            <div class="md:order-2">
+              <div class="inline-block px-4 py-2 rounded-full bg-pink-500/20 text-pink-400 text-xs font-semibold mb-3">Step 4</div>
+              <h3 class="text-xl font-bold mb-2">Real‑time tracking</h3>
+              <p class="text-slate-300">Timeline view with status chips, crew details, ETA counters, and escalation paths visible to all stakeholders.</p>
+            </div>
+            <div class="relative md:order-1 md:text-right">
+              <div class="absolute right-0 top-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-pink-400 shadow-glow hidden md:block" style="right:-2.1rem"></div>
+              <div class="p-6 rounded-2xl glass-strong border border-pink-500/30 hover-lift">
+                <span class="ti ti-timeline-event text-4xl text-pink-400 mb-2 block"></span>
+                <div class="text-sm text-slate-400">Transparent progress</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-8 items-center reveal">
+            <div class="md:text-right">
+              <div class="inline-block px-4 py-2 rounded-full bg-emerald-500/20 text-emerald-400 text-xs font-semibold mb-3">Step 5</div>
+              <h3 class="text-xl font-bold mb-2">Analytics & insights</h3>
+              <p class="text-slate-300">Operations teams see live KPIs, backlog trends, locality heatmaps, and SLA violations for data‑driven intervention.</p>
+            </div>
+            <div class="relative">
+              <div class="absolute left-0 top-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-emerald-400 shadow-glow hidden md:block" style="left:-2.1rem"></div>
+              <div class="p-6 rounded-2xl glass-strong border border-emerald-500/30 hover-lift">
+                <span class="ti ti-report-analytics text-4xl text-emerald-400 mb-2 block"></span>
+                <div class="text-sm text-slate-400">Actionable dashboards</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Architecture deep dive -->
+  <section id="architecture" class="py-20 border-y border-white/10">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <div class="flex items-center justify-center gap-3 mb-4">
+          <span class="ti ti-topology-star-ring-3 text-brand text-3xl animate-spin-slow"></span>
+          <h2 class="text-3xl sm:text-4xl font-bold">Architecture at scale</h2>
+        </div>
+        <p class="text-slate-300 max-w-3xl mx-auto">Microservices communicate through Kafka events, fronted by an API gateway, orchestrated on Kubernetes for auto‑scaling and high availability.</p>
+      </div>
+
+      <!-- Architecture diagram slot -->
+      <div class="mb-12 rounded-3xl overflow-hidden border border-white/10 glass-light reveal">
+        <div class="aspect-[16/9] relative">
+          <img src="../assets/cms-architecture-diagram.png" alt="Microservices architecture" class="w-full h-full object-cover opacity-80">
+          <div class="absolute inset-0 bg-gradient-to-t from-gray-slate/90  via-slate-950/10 to-transparent"></div>
+          <div class="absolute bottom-0 hidden left-0 right-0 p-8">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="px-3 py-1 rounded-full bg-brand/20 border border-brand/40 text-brand text-xs font-semibold">Event‑driven</span>
+              <span class="px-3 py-1 rounded-full bg-accent/20 border border-accent/40 text-accent text-xs font-semibold">Scalable</span>
+              <span class="px-3 py-1 rounded-full bg-pink-500/20 border border-pink-500/40 text-pink-400 text-xs font-semibold">Resilient</span>
+            </div>
+            <h3 class="text-xl font-bold">Distributed microservices with async messaging</h3>
+          </div>
+        </div>
+      </div>
+
+      <!-- Service cards with tooltips -->
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+        <div class="p-6 rounded-2xl glass-light border border-white/10 hover-lift reveal perspective-card">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="ti ti-shield-lock text-2xl text-brand"></span>
+            <h3 class="font-semibold">Authentication</h3>
+          </div>
+          <p class="text-sm text-slate-300">Unified JWT validation, RBAC enforcement, and rate‑limiting for citizens, field crews, and admins.</p>
+        </div>
+        <div class="p-6 rounded-2xl glass-light border border-white/10 hover-lift reveal perspective-card">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="ti ti-file-like text-2xl text-emerald-400"></span>
+            <h3 class="font-semibold">Complaint Service</h3>
+          </div>
+          <p class="text-sm text-slate-300">Register, validate, persist to MySQL, and publish complaint.registered event to Kafka topic.</p>
+        </div>
+        <div class="p-6 rounded-2xl glass-light border border-white/10 hover-lift reveal perspective-card">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="ti ti-user-cog text-2xl text-amber-400"></span>
+            <h3 class="font-semibold">Assignment Service</h3>
+          </div>
+          <p class="text-sm text-slate-300">Consume events, compute best‑fit crew via logic engine, store assignment, publish assignment.created.</p>
+        </div>
+        <div class="p-6 rounded-2xl glass-light border border-white/10 hover-lift reveal perspective-card">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="ti ti-bell-ringing text-2xl text-pink-400"></span>
+            <h3 class="font-semibold">Notification Service</h3>
+          </div>
+          <p class="text-sm text-slate-300">Multi‑channel push via FCM, SMS gateway, email SMTP with delivery logs and retry logic.</p>
+        </div>
+        <div class="p-6 rounded-2xl glass-light border border-white/10 hover-lift reveal perspective-card">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="ti ti-activity-heartbeat text-2xl text-cyan-400"></span>
+            <h3 class="font-semibold">Updates Service</h3>
+          </div>
+          <p class="text-sm text-slate-300">CQRS read model in MongoDB for fast, flexible status timelines optimized for high‑frequency queries.</p>
+        </div>
+        <div class="p-6 rounded-2xl glass-light border border-white/10 hover-lift reveal perspective-card">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="ti ti-database-cog text-2xl text-violet-400"></span>
+            <h3 class="font-semibold">Data Stores</h3>
+          </div>
+          <p class="text-sm text-slate-300">MySQL for transactional integrity; MongoDB for flexible, schema‑less audit and update streams.</p>
+        </div>
+      </div>
+
+      <!-- Event flow -->
+      <div class="p-8 rounded-3xl glass-strong border border-white/10 reveal">
+        <h3 class="text-xl font-bold mb-6 flex items-center gap-3"><span class="ti ti-topology-bus text-brand"></span> Event flow sequence</h3>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 text-sm">
+          <div class="p-4 rounded-xl bg-slate-900/60 border border-brand/20">
+            <div class="font-semibold text-brand mb-1">1. Client → Gateway</div>
+            <div class="text-slate-400">Validate JWT, route request</div>
+          </div>
+          <div class="p-4 rounded-xl bg-slate-900/60 border border-emerald-500/20">
+            <div class="font-semibold text-emerald-400 mb-1">2. Complaint → DB</div>
+            <div class="text-slate-400">Persist + publish event</div>
+          </div>
+          <div class="p-4 rounded-xl bg-slate-900/60 border border-amber-500/20">
+            <div class="font-semibold text-amber-400 mb-1">3. Assignment → Consume</div>
+            <div class="text-slate-400">Compute crew + publish</div>
+          </div>
+          <div class="p-4 rounded-xl bg-slate-900/60 border border-pink-500/20">
+            <div class="font-semibold text-pink-400 mb-1">4. Notify → Push</div>
+            <div class="text-slate-400">Send alerts, log delivery</div>
+          </div>
+          <div class="p-4 rounded-xl bg-slate-900/60 border border-cyan-500/20">
+            <div class="font-semibold text-cyan-400 mb-1">5. Updates → Timeline</div>
+            <div class="text-slate-400">Maintain live status view</div>
+          </div>
+          <div class="p-4 rounded-xl bg-slate-900/60 border border-violet-500/20">
+            <div class="font-semibold text-violet-400 mb-1">6. Ops → Dashboards</div>
+            <div class="text-slate-400">Visualize KPIs, alerts</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features spotlight -->
+  <section id="features" class="py-20 bg-slate-900/30">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl sm:text-4xl font-bold">Platform capabilities</h2>
+        <p class="mt-4 text-slate-300">Built for citizens, crews, and operations teams.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="p-6 rounded-2xl glass-light border border-white/10 hover-lift reveal">
+          <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-brand to-brand-700 flex items-center justify-center mb-4">
+            <span class="ti ti-clock-bolt text-2xl text-white"></span>
+          </div>
+          <h3 class="font-bold mb-2">Instant ACK</h3>
+          <p class="text-sm text-slate-300">Sub‑100ms ticket generation with unique ID and expected resolution window.</p>
+        </div>
+        <div class="p-6 rounded-2xl glass-light border border-white/10 hover-lift reveal">
+          <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-accent to-accent-700 flex items-center justify-center mb-4">
+            <span class="ti ti-map-pin text-2xl text-white"></span>
+          </div>
+          <h3 class="font-bold mb-2">Geo‑aware</h3>
+          <p class="text-sm text-slate-300">Location‑based crew assignment with skill matching and workload balancing.</p>
+        </div>
+        <div class="p-6 rounded-2xl glass-light border border-white/10 hover-lift reveal">
+          <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-amber-500 to-amber-700 flex items-center justify-center mb-4">
+            <span class="ti ti-lock text-2xl text-white"></span>
+          </div>
+          <h3 class="font-bold mb-2">Secure</h3>
+          <p class="text-sm text-slate-300">End‑to‑end encryption, role‑based access, and tamper‑proof audit trails.</p>
+        </div>
+        <div class="p-6 rounded-2xl glass-light border border-white/10 hover-lift reveal">
+          <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-pink-500 to-pink-700 flex items-center justify-center mb-4">
+            <span class="ti ti-chart-line text-2xl text-white"></span>
+          </div>
+          <h3 class="font-bold mb-2">Insights</h3>
+          <p class="text-sm text-slate-300">Real‑time KPIs, heatmaps, and predictive SLA breach alerts.</p>
+        </div>
+        <div class="p-6 rounded-2xl glass-light border border-white/10 hover-lift reveal">
+          <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-emerald-500 to-emerald-700 flex items-center justify-center mb-4">
+            <span class="ti ti-device-mobile text-2xl text-white"></span>
+          </div>
+          <h3 class="font-bold mb-2">Mobile‑first</h3>
+          <p class="text-sm text-slate-300">Native Android with Jetpack Compose for smooth, offline‑capable UX.</p>
+        </div>
+        <div class="p-6 rounded-2xl glass-light border border-white/10 hover-lift reveal">
+          <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-cyan-500 to-cyan-700 flex items-center justify-center mb-4">
+            <span class="ti ti-scale text-2xl text-white"></span>
+          </div>
+          <h3 class="font-bold mb-2">Elastic</h3>
+          <p class="text-sm text-slate-300">Kubernetes orchestration with auto‑scaling pods and load balancing.</p>
+        </div>
+        <div class="p-6 rounded-2xl glass-light border border-white/10 hover-lift reveal">
+          <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-violet-500 to-violet-700 flex items-center justify-center mb-4">
+            <span class="ti ti-refresh text-2xl text-white"></span>
+          </div>
+          <h3 class="font-bold mb-2">Fault‑tolerant</h3>
+          <p class="text-sm text-slate-300">Kafka replication, circuit breakers, retries, and idempotent consumers.</p>
+        </div>
+        <div class="p-6 rounded-2xl glass-light border border-white/10 hover-lift reveal">
+          <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-orange-500 to-orange-700 flex items-center justify-center mb-4">
+            <span class="ti ti-eye text-2xl text-white"></span>
+          </div>
+          <h3 class="font-bold mb-2">Observable</h3>
+          <p class="text-sm text-slate-300">Prometheus metrics, Grafana dashboards, distributed tracing with Jaeger.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tech stack badges -->
+  <section id="tech" class="py-20 border-y border-white/10">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl sm:text-4xl font-bold">Technology ecosystem</h2>
+        <p class="mt-4 text-slate-300">Production‑proven tools for backend, frontend, orchestration, and observability.</p>
+      </div>
+
+      <div class="grid lg:grid-cols-3 gap-8">
+        <div class="p-8 rounded-3xl glass-light border border-white/10 reveal">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="ti ti-server-2 text-2xl text-brand"></span>
+            <h3 class="text-xl font-bold">Backend</h3>
+          </div>
+          <div class="flex flex-wrap gap-3">
+            <span class="px-4 py-2 rounded-lg bg-slate-900/60 border border-brand/30 text-sm font-medium has-tooltip relative">Java <div class="tooltip">MicroProfile microservices</div></span>
+            <span class="px-4 py-2 rounded-lg bg-slate-900/60 border border-brand/30 text-sm font-medium has-tooltip relative">Kafka <div class="tooltip">Event streaming backbone</div></span>
+            <span class="px-4 py-2 rounded-lg bg-slate-900/60 border border-brand/30 text-sm font-medium has-tooltip relative">MySQL <div class="tooltip">Relational persistence</div></span>
+            <span class="px-4 py-2 rounded-lg bg-slate-900/60 border border-brand/30 text-sm font-medium has-tooltip relative">MongoDB <div class="tooltip">Flexible updates store</div></span>
+            <span class="px-4 py-2 rounded-lg bg-slate-900/60 border border-brand/30 text-sm font-medium has-tooltip relative">Kubernetes <div class="tooltip">Container orchestration</div></span>
+          </div>
+        </div>
+
+        <div class="p-8 rounded-3xl glass-light border border-white/10 reveal">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="ti ti-devices-pc text-2xl text-accent"></span>
+            <h3 class="text-xl font-bold">Frontend</h3>
+          </div>
+          <div class="flex flex-wrap gap-3">
+            <span class="px-4 py-2 rounded-lg bg-slate-900/60 border border-accent/30 text-sm font-medium has-tooltip relative">Jetpack Compose <div class="tooltip">Android native UI</div></span>
+            <span class="px-4 py-2 rounded-lg bg-slate-900/60 border border-accent/30 text-sm font-medium has-tooltip relative">Kotlin <div class="tooltip">Modern, concise language</div></span>
+            <span class="px-4 py-2 rounded-lg bg-slate-900/60 border border-accent/30 text-sm font-medium has-tooltip relative">React <div class="tooltip">Admin dashboard PWA</div></span>
+            <span class="px-4 py-2 rounded-lg bg-slate-900/60 border border-accent/30 text-sm font-medium has-tooltip relative">Hilt <div class="tooltip">Dependency injection</div></span>
+          </div>
+        </div>
+
+        <div class="p-8 rounded-3xl glass-light border border-white/10 reveal">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="ti ti-chart-dots text-2xl text-pink-400"></span>
+            <h3 class="text-xl font-bold">DevOps</h3>
+          </div>
+          <div class="flex flex-wrap gap-3">
+            <span class="px-4 py-2 rounded-lg bg-slate-900/60 border border-pink-500/30 text-sm font-medium has-tooltip relative">Docker <div class="tooltip">Containerization</div></span>
+            <span class="px-4 py-2 rounded-lg bg-slate-900/60 border border-pink-500/30 text-sm font-medium has-tooltip relative">Prometheus <div class="tooltip">Metrics collection</div></span>
+            <span class="px-4 py-2 rounded-lg bg-slate-900/60 border border-pink-500/30 text-sm font-medium has-tooltip relative">Grafana <div class="tooltip">Visualization dashboards</div></span>
+            <span class="px-4 py-2 rounded-lg bg-slate-900/60 border border-pink-500/30 text-sm font-medium has-tooltip relative">FCM <div class="tooltip">Push notifications</div></span>
+            <span class="px-4 py-2 rounded-lg bg-slate-900/60 border border-pink-500/30 text-sm font-medium has-tooltip relative">GitHub <div class="tooltip">Version control + CI/CD</div></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-12 grid md:grid-cols-2 gap-8">
+        <div class="p-8 rounded-3xl glass-light border border-white/10 reveal">
+          <h3 class="text-lg font-bold mb-4 flex items-center gap-2"><span class="ti ti-category-2 text-brand"></span> Design patterns</h3>
+          <ul class="space-y-3 text-sm text-slate-300">
+            <li class="flex items-start gap-3"><span class="ti ti-point-filled text-brand"></span><span><strong>Domain Driven Design:</strong> Bounded contexts for each service</span></li>
+            <li class="flex items-start gap-3"><span class="ti ti-point-filled text-brand"></span><span><strong>CQRS:</strong> Read/write separation for performance</span></li>
+            <li class="flex items-start gap-3"><span class="ti ti-point-filled text-brand"></span><span><strong>Event Sourcing:</strong> Immutable event logs</span></li>
+            <li class="flex items-start gap-3"><span class="ti ti-point-filled text-brand"></span><span><strong>MVVM:</strong> Android architecture with ViewModel</span></li>
+          </ul>
+        </div>
+        <div class="p-8 rounded-3xl glass-light border border-white/10 reveal">
+          <h3 class="text-lg font-bold mb-4 flex items-center gap-2"><span class="ti ti-shield-check text-accent"></span> Non‑functionals</h3>
+          <ul class="space-y-3 text-sm text-slate-300">
+            <li class="flex items-start gap-3"><span class="ti ti-point-filled text-accent"></span><span><strong>High Availability:</strong> Multi‑zone deployments, zero‑downtime</span></li>
+            <li class="flex items-start gap-3"><span class="ti ti-point-filled text-accent"></span><span><strong>Low Latency:</strong> HTTP 202 acknowledgment under 100ms</span></li>
+            <li class="flex items-start gap-3"><span class="ti ti-point-filled text-accent"></span><span><strong>Security:</strong> JWT, SSL/TLS, RBAC, audit logs</span></li>
+            <li class="flex items-start gap-3"><span class="ti ti-point-filled text-accent"></span><span><strong>Observability:</strong> Metrics, logs, traces, alerts</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- App screens showcase - Enhanced Version -->
+<section id="screens" class="py-20 bg-slate-900/30 relative overflow-hidden">
+  <!-- Animated background accents -->
+  <div class="absolute top-0 right-0 w-96 h-96 bg-brand/5 rounded-full blur-3xl animate-pulse-slow"></div>
+  <div class="absolute bottom-0 left-0 w-80 h-80 bg-accent/5 rounded-full blur-3xl animate-pulse-slow" style="animation-delay:1s"></div>
+  
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <!-- Section header -->
+    <div class="text-center mb-8 reveal">
+      <div class="inline-flex items-center gap-3 mb-6 px-5 py-2 rounded-full glass-light border border-brand/30">
+        <span class="ti ti-device-mobile text-brand text-2xl"></span>
+        <span class="text-sm font-semibold">Native Android Experience</span>
+      </div>
+      <h2 class="text-3xl sm:text-5xl font-black mb-4">
+        Built with <span class="text-gradient">Jetpack Compose</span>
+      </h2>
+      <p class="text-lg text-slate-300 max-w-2xl mx-auto">
+        Clean, intuitive, and powerful interfaces designed for citizens and field crews with modern Material Design 3.
+      </p>
+    </div>
+
+   <section id="screens" class="">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-14 reveal">
+      <h2 class="text-3xl sm:text-5xl font-black mb-3">App Screenshots</h2>
+      <p class="text-lg text-slate-300 max-w-2xl mx-auto">
+        Directly from the real app—no mockups, just authentic UI feel.
+      </p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-10 mb-16">
+      <!-- Registration -->
+      <div class="flex flex-col items-center group reveal">
+        <div class="relative w-full flex justify-center">
+          <img src="../assets/register-complaint-image.png" alt="Registration screen" class="rounded-2xl shadow-2xl transition-transform duration-400 group-hover:scale-[1.02] group-hover:shadow-purple-300/40" style="max-width: 320px; width:100%; aspect-ratio:9/19.5;">
+          <span class="absolute top-5 right-5 px-3 py-1.5 rounded-full glass-light border border-brand/40 text-xs font-bold text-brand animate-float">Instant Ticket</span>
+        </div>
+        <div class="mt-6 text-center px-2">
+          <div class="inline-block px-3 py-1 rounded-full bg-brand/20 border border-brand/30 text-xs font-bold text-brand mb-2">Citizen App</div>
+          <h3 class="font-bold text-lg mb-2">Quick Registration</h3>
+          <p class="text-slate-300 text-sm">Smart forms, location detection, upload, real-time ticket ID.</p>
+        </div>
+      </div>
+      <!-- Timeline/Updates -->
+      <div class="flex flex-col items-center group reveal">
+        <div class="relative w-full flex justify-center">
+          <img src="../assets/complaint-updates.png" alt="Timeline updates screen" class="rounded-2xl shadow-2xl transition-transform duration-400 group-hover:scale-[1.02] group-hover:shadow-cyan-300/40" style="max-width: 320px; width:100%; aspect-ratio:9/19.5;">
+          <span class="absolute top-5 right-5 px-3 py-1.5 rounded-full glass-light border border-cyan-400/40 text-xs font-bold text-cyan-400 animate-float">Live Timeline</span>
+        </div>
+        <div class="mt-6 text-center px-2">
+          <div class="inline-block px-3 py-1 rounded-full bg-cyan-400/10 border border-cyan-400/20 text-xs font-bold text-cyan-400 mb-2">Citizen App</div>
+          <h3 class="font-bold text-lg mb-2">Complaint Updates</h3>
+          <p class="text-slate-300 text-sm">Full status history from registration to closure, milestones and timestamps.</p>
+        </div>
+      </div>
+      <!-- Crew workspace/login -->
+      <div class="flex flex-col items-center group reveal">
+        <div class="relative w-full flex justify-center">
+          <img src="../assets/login-image.png" alt="Crew login screen" class="rounded-2xl shadow-2xl transition-transform duration-400 group-hover:scale-[1.02] group-hover:shadow-pink-300/40" style="max-width: 320px; width:100%; aspect-ratio:9/19.5;">
+          <span class="absolute top-5 right-5 px-3 py-1.5 rounded-full glass-light border border-pink-400/40 text-xs font-bold text-pink-400 animate-float">Crew Portal</span>
+        </div>
+        <div class="mt-6 text-center px-2">
+          <div class="inline-block px-3 py-1 rounded-full bg-pink-500/20 border border-pink-500/20 text-xs font-bold text-pink-400 mb-2">Field Staff</div>
+          <h3 class="font-bold text-lg mb-2">Workspace & Login</h3>
+          <p class="text-slate-300 text-sm">Role-driven login, job assignment, resolution workflow.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+@keyframes float { 
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+</style>
+
+
+      <!-- Feature highlights bar -->
+      <div class="mt-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-6 reveal">
+        <div class="p-6 rounded-2xl glass-light border border-white/10 text-center hover-lift">
+          <div class="w-12 h-12 rounded-xl bg-brand/20 flex items-center justify-center mx-auto mb-3">
+            <span class="ti ti-code text-2xl text-brand"></span>
+          </div>
+          <h4 class="font-semibold mb-1">Jetpack Compose</h4>
+          <p class="text-xs text-slate-400">Modern declarative UI</p>
+        </div>
+        <div class="p-6 rounded-2xl glass-light border border-white/10 text-center hover-lift">
+          <div class="w-12 h-12 rounded-xl bg-accent/20 flex items-center justify-center mx-auto mb-3">
+            <span class="ti ti-palette text-2xl text-accent"></span>
+          </div>
+          <h4 class="font-semibold mb-1">Material Design 3</h4>
+          <p class="text-xs text-slate-400">Dynamic theming support</p>
+        </div>
+        <div class="p-6 rounded-2xl glass-light border border-white/10 text-center hover-lift">
+          <div class="w-12 h-12 rounded-xl bg-emerald-500/20 flex items-center justify-center mx-auto mb-3">
+            <span class="ti ti-cloud-off text-2xl text-emerald-400"></span>
+          </div>
+          <h4 class="font-semibold mb-1">Offline Mode</h4>
+          <p class="text-xs text-slate-400">Local caching & sync</p>
+        </div>
+        <div class="p-6 rounded-2xl glass-light border border-white/10 text-center hover-lift">
+          <div class="w-12 h-12 rounded-xl bg-pink-500/20 flex items-center justify-center mx-auto mb-3">
+            <span class="ti ti-accessible text-2xl text-pink-400"></span>
+          </div>
+          <h4 class="font-semibold mb-1">Accessible</h4>
+          <p class="text-xs text-slate-400">WCAG compliant UI</p>
+        </div>
+      </div>
+
+      <!-- CTA section -->
+      <div class="mt-16 text-center reveal">
+        <div class="inline-block p-8 rounded-3xl glass-strong border border-white/10 max-w-2xl">
+          <h3 class="text-2xl font-bold mb-3">Experience it yourself</h3>
+          <p class="text-slate-300 mb-6">Download the APK or scan the QR code to try the live demo on your Android device.</p>
+          <div class="flex flex-wrap items-center justify-center gap-4">
+            <a href="#contact" class="px-6 py-3 rounded-xl bg-brand hover:bg-brand-600 text-white font-semibold shadow-glow hover-lift flex items-center gap-2">
+              <span class="ti ti-download"></span>
+              Download APK
+            </a>
+            <a href="#contact" class="px-6 py-3 rounded-xl glass-light border border-white/20 hover:border-brand/60 font-semibold hover-lift flex items-center gap-2">
+              <span class="ti ti-qrcode"></span>
+              Scan QR Code
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+/* Additional styles for phone mockup enhancements */
+.hover-lift {
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+.hover-lift:hover {
+  transform: translateY(-4px);
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .lg\:grid-cols-3 > div {
+    max-width: 320px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .group .relative[style*="width: 280px"] {
+    width: 240px !important;
+  }
+}
+</style>
+
+
+  <!-- FAQ accordion -->
+  <section class="py-20 border-y border-white/10">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl sm:text-4xl font-bold">Common questions</h2>
+      </div>
+      <div class="space-y-4">
+        <details class="p-6 rounded-2xl glass-light border border-white/10 reveal group">
+          <summary class="cursor-pointer font-semibold flex items-center justify-between">
+            <span class="flex items-center gap-3"><span class="ti ti-lock"></span> How is data secured?</span>
+            <span class="ti ti-chevron-down group-open:rotate-180 transition-transform"></span>
+          </summary>
+          <p class="mt-4 text-slate-300 text-sm pl-8">All endpoints enforce JWT authentication, data is encrypted in transit (TLS) and at rest, RBAC controls access, and audit logs track every action for compliance.</p>
+        </details>
+        <details class="p-6 rounded-2xl glass-light border border-white/10 reveal group">
+          <summary class="cursor-pointer font-semibold flex items-center justify-between">
+            <span class="flex items-center gap-3"><span class="ti ti-bolt"></span> What happens if a service fails?</span>
+            <span class="ti ti-chevron-down group-open:rotate-180 transition-transform"></span>
+          </summary>
+          <p class="mt-4 text-slate-300 text-sm pl-8">Kafka retains events, consumers are idempotent, circuit breakers prevent cascades, and Kubernetes restarts failed pods automatically. No data is lost.</p>
+        </details>
+        <details class="p-6 rounded-2xl glass-light border border-white/10 reveal group">
+          <summary class="cursor-pointer font-semibold flex items-center justify-between">
+            <span class="flex items-center gap-3"><span class="ti ti-scale"></span> Can it handle millions of complaints?</span>
+            <span class="ti ti-chevron-down group-open:rotate-180 transition-transform"></span>
+          </summary>
+          <p class="mt-4 text-slate-300 text-sm pl-8">Yes. Horizontal scaling via Kubernetes, Kafka partitioning, and async processing allow the system to handle massive spikes without degradation.</p>
+        </details>
+        <details class="p-6 rounded-2xl glass-light border border-white/10 reveal group">
+          <summary class="cursor-pointer font-semibold flex items-center justify-between">
+            <span class="flex items-center gap-3"><span class="ti ti-plug"></span> Does it integrate with legacy systems?</span>
+            <span class="ti ti-chevron-down group-open:rotate-180 transition-transform"></span>
+          </summary>
+          <p class="mt-4 text-slate-300 text-sm pl-8">Yes. The API gateway exposes REST endpoints, and adapters can bridge SOAP, FTP, or database sync for gradual migration.</p>
+        </details>
+        <details class="p-6 rounded-2xl glass-light border border-white/10 reveal group">
+          <summary class="cursor-pointer font-semibold flex items-center justify-between">
+            <span class="flex items-center gap-3"><span class="ti ti-clock"></span> How fast is acknowledgment?</span>
+            <span class="ti ti-chevron-down group-open:rotate-180 transition-transform"></span>
+          </summary>
+          <p class="mt-4 text-slate-300 text-sm pl-8">Under 100ms. The system immediately returns HTTP 202 with a ticket ID while background services handle async processing.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- About us section -->
+<section id="about" class="py-20 border-y border-white/10 bg-slate-950/40">
+  <div class="text-center mb-12">
+        <h2 class="text-3xl sm:text-4xl font-bold">The Brains Behind the Build</h2>
+      </div>
+  <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+    <div class="grid gap-12 md:grid-cols-2 items-center">
+      <!-- Shakil's Card -->
+      <div class="flex flex-col items-center text-center md:items-start md:text-left reveal">
+        <img src="https://media.licdn.com/dms/image/v2/D4D03AQH-XUx45xanLw/profile-displayphoto-scale_200_200/B4DZh_yASPGsAg-/0/1754490473147?e=1762387200&v=beta&t=HbFCmqhfezwd21gRgaeCjGqIWFn63_f8gnV0viF-kJY" alt="MuhammadShakil Patel" class="w-36 h-36 rounded-full border-4 border-brand/60 shadow-lg mb-5 object-cover">
+        <h3 class="text-2xl font-bold mb-2">MuhammadShakil Patel</h3>
+        <p class="mb-3 text-brand font-medium">Software Engineer, Project Lead</p>
+        <p class="text-slate-300 mb-3">
+          Award-winning software developer passionate about building impactful digital solutions. 
+          Strong expertise in System Design, Microservices Architecture, Android Jetpack Compose, React, and scalable backend development. 
+          Young Developer 2024 Award Winner.
+        </p>
+        <ul class="mb-3 text-sm text-slate-400">
+          <li><strong>Education:</strong> M.Sc. ICT, Veer Narmad South Gujarat University</li>
+          <li><strong>Email:</strong> <a href="mailto:patelshakil.dev@gmail.com" class="underline text-brand">patelshakil.dev@gmail.com</a></li>
+          <li><strong>Location:</strong> Surat, Gujarat, India</li>
+        </ul>
+        <div class="flex flex-row gap-3 mt-2">
+          <a href="https://patelshakil.tech" target="_blank" rel="noopener" class="px-3 py-2 rounded-lg bg-brand/20 border border-brand/40 text-brand hover:bg-brand/30 text-xs font-semibold">Portfolio</a>
+          <a href="https://in.linkedin.com/in/patelshakil" target="_blank" rel="noopener" class="px-3 py-2 rounded-lg bg-blue-800/20 border border-blue-500/40 text-blue-400 hover:bg-blue-600/20 text-xs font-semibold">LinkedIn</a>
+        </div>
+      </div>
+
+      <!-- Mentor's Card -->
+      <div class="flex flex-col items-center text-center md:items-start md:text-left reveal">
+        <img src="https://media.licdn.com/dms/image/v2/C4E03AQFC3e6Ua9dJMw/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1632943069894?e=1762387200&v=beta&t=CP_KJfuVivBIiKHO9pWp8pCQScLaUAcaPSpIax-7MRw" alt="Dr. Kamlendu Pandey" class="w-36 h-36 rounded-full border-4 border-accent/60 shadow-lg mb-5 object-cover">
+        <h3 class="text-2xl font-bold mb-2">Dr. Kamlendu Pandey</h3>
+        <p class="mb-3 text-accent font-medium">Associate Professor, Project Mentor</p>
+        <p class="text-slate-300 mb-3">
+          Faculty mentor with extensive experience in computer science, cloud computing, and sensor networks. 
+          Guides students at Veer Narmad South Gujarat University and is known for advancing microservices and SOA in academic research.
+        </p>
+        <ul class="mb-3 text-sm text-slate-400">
+          <li><strong>Department:</strong> Department of ICT, VNSGU</li>
+          <li><strong>Email:</strong> <a href="mailto:kspandey@vnsgu.ac.in" class="underline text-accent">kspandey@vnsgu.ac.in</a></li>
+          <li><strong>Location:</strong> Surat, Gujarat, India</li>
+        </ul>
+        <div class="flex flex-row gap-3 mt-2">
+          <a href="https://scholar.google.com/citations?user=oux2vIAAAAAJ" target="_blank" rel="noopener" class="px-3 py-2 rounded-lg bg-accent/20 border border-accent/40 text-accent hover:bg-accent/30 text-xs font-semibold">Google Scholar</a>
+          <a href="https://www.linkedin.com/in/dr-kamlendu-p-5a587513/" target="_blank" rel="noopener" class="px-3 py-2 rounded-lg bg-blue-800/20 border border-blue-500/40 text-blue-400 hover:bg-blue-600/20 text-xs font-semibold">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+    <div class="text-center mt-16 text-slate-400 text-sm reveal">
+      Building the future of citizen solutions together — powered by skill, research, and technology.
+    </div>
+  </div>
+</section>
+
+
+  <!-- Contact -->
+  <section id="contact" class="py-20 bg-slate-900/30">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-5 gap-12 items-center">
+        <div class="lg:col-span-2">
+          <h2 class="text-3xl sm:text-4xl font-bold mb-6">Request a walkthrough</h2>
+          <p class="text-slate-300 mb-6">See the platform in action. Schedule a personalized demo with the engineering team.</p>
+          <div class="p-6 rounded-2xl glass-light border border-white/10">
+            <div class="flex items-center gap-3 mb-4">
+              <!-- <span class="ti ti-users-group text-2xl text-brand"></span> -->
+              <img class="h-12 w-12 rounded-full object-center object-crop"  src="../assets/profile-white.jpg">
+              <div>
+                <div class="font-semibold">MuhammadShakil Patel</div>
+                <div class="text-sm text-slate-400">VNSGU, Surat</div>
+              </div>
+            </div>
+            <ul class="space-y-2 text-sm text-slate-300">
+              <li class="flex items-center gap-2"><span class="ti ti-mail"></span> patelshakil.dev@gmail.com</li>
+              <li class="flex items-center gap-2"><span class="ti ti-phone"></span> +91 9510634082</li>
+              <li class="flex items-center gap-2"><span class="ti ti-map-pin"></span> Surat Gujarat, India</li>
+            </ul>
+          </div>
+        </div>
+        <form class="lg:col-span-3 space-y-4" onsubmit="event.preventDefault(); handleSubmit();">
+          <div class="grid sm:grid-cols-2 gap-4">
+            <input class="w-full px-5 py-4 rounded-xl glass-light border border-white/10 focus:outline-none focus:border-brand transition-colors" placeholder="Full name" required>
+            <input type="email" class="w-full px-5 py-4 rounded-xl glass-light border border-white/10 focus:outline-none focus:border-brand transition-colors" placeholder="Email address" required>
+          </div>
+          <input class="w-full px-5 py-4 rounded-xl glass-light border border-white/10 focus:outline-none focus:border-brand transition-colors" placeholder="Organization">
+          <textarea rows="5" class="w-full px-5 py-4 rounded-xl glass-light border border-white/10 focus:outline-none focus:border-brand transition-colors" placeholder="Tell us about your requirements"></textarea>
+          <button class="px-6 py-4 rounded-xl bg-brand hover:bg-brand-600 text-white font-semibold shadow-glow hover-lift w-full sm:w-auto">Send request</button>
+          <p id="formMsg" class="text-sm text-emerald-400 hidden">Thanks! We'll reach out soon.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-12 border-t border-white/10 text-center text-sm text-slate-400">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-wrap justify-center gap-6 mb-6">
+        <a href="#why" class="hover:text-brand transition-colors">Why</a>
+        <a href="#journey" class="hover:text-brand transition-colors">Journey</a>
+        <a href="#architecture" class="hover:text-brand transition-colors">Architecture</a>
+        <a href="#features" class="hover:text-brand transition-colors">Features</a>
+        <a href="#tech" class="hover:text-brand transition-colors">Tech</a>
+        <a href="#screens" class="hover:text-brand transition-colors">Screens</a>
+        <a href="#about" class="hover:text-brand transition-colors">About</a>
+        <a href="#contact" class="hover:text-brand transition-colors">Contact</a>
+      </div>
+      <p>© 2025 MuhammadShakil Patel . All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    menuBtn?.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+
+    // Scroll reveal
+    const revealEls = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('show'); io.unobserve(e.target); } });
+    }, {threshold: .1});
+    revealEls.forEach(el => io.observe(el));
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        const id = a.getAttribute('href').slice(1);
+        const el = document.getElementById(id);
+        if(el){ e.preventDefault(); el.scrollIntoView({behavior:'smooth', block:'start'}); }
+      });
+    });
+
+    // Counter animation
+    const counters = document.querySelectorAll('.counter');
+    const animateCounter = (el) => {
+      const target = +el.dataset.target;
+      const increment = target / 100;
+      let current = 0;
+      const update = () => {
+        current += increment;
+        if(current < target){ el.textContent = Math.ceil(current); requestAnimationFrame(update); }
+        else { el.textContent = target; }
+      };
+      update();
+    };
+    const counterIo = new IntersectionObserver(entries => {
+      entries.forEach(e => { if(e.isIntersecting){ animateCounter(e.target); counterIo.unobserve(e.target); } });
+    }, {threshold:.5});
+    counters.forEach(c => counterIo.observe(c));
+
+    // Particle canvas
+    const canvas = document.getElementById('particles');
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    const particles = [];
+    for(let i=0; i<50; i++){
+      particles.push({
+        x: Math.random()*canvas.width,
+        y: Math.random()*canvas.height,
+        vx: (Math.random()-.5)*.5,
+        vy: (Math.random()-.5)*.5,
+        r: Math.random()*2+1
+      });
+    }
+    function draw(){
+      ctx.clearRect(0,0,canvas.width,canvas.height);
+      particles.forEach(p=>{
+        p.x += p.vx; p.y += p.vy;
+        if(p.x<0||p.x>canvas.width) p.vx*=-1;
+        if(p.y<0||p.y>canvas.height) p.vy*=-1;
+        ctx.beginPath();
+        ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+        ctx.fillStyle='rgba(124,58,237,.4)';
+        ctx.fill();
+      });
+      requestAnimationFrame(draw);
+    }
+    draw();
+    window.addEventListener('resize',()=>{canvas.width=window.innerWidth;canvas.height=window.innerHeight;});
+
+    // Form submit
+    function handleSubmit(){ const msg = document.getElementById('formMsg'); msg.classList.remove('hidden'); setTimeout(()=>msg.classList.add('hidden'), 4000); }
+    window.handleSubmit = handleSubmit;
+  </script>
+</body>
+</html>
