@@ -3,172 +3,1224 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ByteBuddy - The EduCollab Center</title>
+  
+  <!-- SEO Meta Tags -->
+  <title>ByteBuddy - The Ultimate EduCollab Learning Platform for BCA, MSC ICT & Programming</title>
+  <meta name="description" content="ByteBuddy is the leading collaborative learning platform for BCA, MSC ICT, and programming students. Access comprehensive notes, participate in community Q&A forums, share knowledge, and connect with learners worldwide. Download the app now or stay tuned for Google Play Store launch!">
+  <meta name="keywords" content="ByteBuddy, EduCollab, BCA learning app, MSC ICT notes, programming education, student collaboration, study notes app, Q&A platform, Android learning app, educational technology">
+  <meta name="author" content="Muhammad Shakil Patel">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:url" content="https://patelshakil.tech/bytebuddy.html">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="ByteBuddy - The Ultimate EduCollab Learning Platform">
+  <meta property="og:description" content="Revolutionary Android learning platform for BCA, MSC ICT & programming students. Access notes, Q&A forums, real-time chat, and collaborative learning features. Download now or wait for Play Store launch!">
+  <meta property="og:image" content="https://tech-savvy-solution.web.app/assets/bytebuddy_banner.jpg">
+  
+  <!-- Twitter Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta property="twitter:domain" content="patelshakil.tech">
+  <meta property="twitter:url" content="https://patelshakil.tech/bytebuddy.html">
+  <meta name="twitter:title" content="ByteBuddy - The Ultimate EduCollab Learning Platform">
+  <meta name="twitter:description" content="Revolutionary Android learning platform for BCA, MSC ICT & programming students. Access notes, Q&A forums, real-time chat, and collaborative learning features.">
+  <meta name="twitter:image" content="https://tech-savvy-solution.web.app/assets/bytebuddy_banner.jpg">
+  
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
+    
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
 
     body {
       font-family: 'Poppins', sans-serif;
     }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-    .animate-fade-in {
-      animation: fadeIn 1s ease-in-out;
+    body {
+      background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+      color: #ffffff;
+      overflow-x: hidden;
+    }
+
+    /* Animated Gradient Background */
+    .gradient-bg {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      background-size: 400% 400%;
+      animation: gradientShift 15s ease infinite;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Smooth Fade In Animation */
+    .fade-in {
+      animation: fadeIn 1.2s ease-in-out;
     }
 
     @keyframes fadeIn {
       from {
         opacity: 0;
+        transform: translateY(30px);
       }
       to {
         opacity: 1;
+        transform: translateY(0);
       }
     }
 
-    .animate-slide-in-left {
-      animation: slideInLeft 0.5s ease-out;
+    /* Slide In From Left */
+    .slide-in-left {
+      animation: slideInLeft 0.8s ease-out;
     }
 
     @keyframes slideInLeft {
       from {
-        transform: translateX(-100%);
         opacity: 0;
+        transform: translateX(-100px);
       }
       to {
-        transform: translateX(0);
         opacity: 1;
+        transform: translateX(0);
       }
     }
 
-    .animate-pulse {
-      animation: pulse 2s infinite;
+    /* Slide In From Right */
+    .slide-in-right {
+      animation: slideInRight 0.8s ease-out;
+    }
+
+    @keyframes slideInRight {
+      from {
+        opacity: 0;
+        transform: translateX(100px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    /* Scale Up Animation */
+    .scale-up {
+      animation: scaleUp 0.6s ease-out;
+    }
+
+    @keyframes scaleUp {
+      from {
+        opacity: 0;
+        transform: scale(0.8);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    /* Pulse Animation */
+    .pulse-animate {
+      animation: pulse 2s ease-in-out infinite;
     }
 
     @keyframes pulse {
       0%, 100% {
         transform: scale(1);
+        opacity: 1;
       }
       50% {
         transform: scale(1.05);
+        opacity: 0.9;
       }
     }
+
+    /* Floating Animation */
+    .float {
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-20px);
+      }
+    }
+
+    /* Glow Effect */
+    .glow {
+      box-shadow: 0 0 20px rgba(102, 126, 234, 0.5);
+      transition: box-shadow 0.3s ease;
+    }
+
+    .glow:hover {
+      box-shadow: 0 0 40px rgba(102, 126, 234, 0.8);
+    }
+
+    /* Card Hover Effect */
+    .card-hover {
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .card-hover:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    }
+
+    /* Gradient Text */
+    .gradient-text {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Coming Soon Badge */
+    .badge-pulse {
+      animation: badgePulse 2s ease-in-out infinite;
+    }
+
+    @keyframes badgePulse {
+      0%, 100% {
+        box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7);
+      }
+      50% {
+        box-shadow: 0 0 0 10px rgba(239, 68, 68, 0);
+      }
+    }
+
+    /* Icon Spin on Hover */
+    .icon-spin:hover {
+      animation: spin 1s linear;
+    }
+
+    @keyframes spin {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    /* Scroll Reveal */
+    .scroll-reveal {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.6s ease-out;
+    }
+
+    .scroll-reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #1a1a2e;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border-radius: 5px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+    }
+
+    /* Button Styles */
+    .btn-primary {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-primary::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+      transition: left 0.3s ease;
+    }
+
+    .btn-primary:hover::before {
+      left: 0;
+    }
+
+    .btn-primary span {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Section Divider */
+    .section-divider {
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #667eea, transparent);
+      margin: 4rem 0;
+    }
+
+    /* Stats Counter Animation */
+    .stat-number {
+      font-size: 3rem;
+      font-weight: 900;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
   </style>
-
-
-<!-- HTML Meta Tags -->
-<title>ByteBuddy - The EduCollab Center</title>
-<meta name="description" content="ByteBuddy is The EduCollab Center – a smart, collaborative learning platform for BCA, MSC ICT, and programming languages. Features include in-depth notes, real-time chat, community-driven FAQs, note sharing, and secure, scalable cloud infrastructure for students worldwide.">
-
-<!-- Facebook Meta Tags -->
-<meta property="og:url" content="https://patelshakil.tech/bytebuddy.html">
-<meta property="og:type" content="website">
-<meta property="og:title" content="ByteBuddy - The EduCollab Center">
-<meta property="og:description" content="ByteBuddy is The EduCollab Center – a smart, collaborative learning platform for BCA, MSC ICT, and programming languages. Features include in-depth notes, real-time chat, community-driven FAQs, note sharing, and secure, scalable cloud infrastructure for students worldwide.">
-<meta property="og:image" content="https://tech-savvy-solution.web.app/assets/bytebuddy_banner.jpg">
-
-<!-- Twitter Meta Tags -->
-<meta name="twitter:card" content="https://tech-savvy-solution.web.app/assets/bytebuddy_banner.jpg">
-<meta property="twitter:domain" content="patelshakil.tech">
-<meta property="twitter:url" content="https://patelshakil.tech/bytebuddy.html">
-<meta name="twitter:title" content="ByteBuddy - The EduCollab Center">
-<meta name="twitter:description" content="ByteBuddy is The EduCollab Center – a smart, collaborative learning platform for BCA, MSC ICT, and programming languages. Features include in-depth notes, real-time chat, community-driven FAQs, note sharing, and secure, scalable cloud infrastructure for students worldwide.">
-<meta name="twitter:image" content="https://tech-savvy-solution.web.app/assets/bytebuddy_banner.jpg">
-
-<!-- Meta Tags Generated via https://www.opengraph.xyz -->
-
 </head>
-<body class="bg-black text-white">
-  <div class="flex flex-col mt-16 pt-4 mb-10">
-    <!-- Banner Section -->
-    <div class="mx-2 justify-center w-fit mx-auto rounded-lg shadow-lg bg-black mb-5">
-      <img class="object-contain rounded-lg animate-fade-in" src="https://tech-savvy-solution.web.app/assets/bytebuddy_banner.jpg" alt="ByteBuddy Banner" />
+
+<body>
+  <!-- Hero Section -->
+  <!-- Enhanced Hero Section with Feature Graphics -->
+<!-- Ultra Compact Hero Section -->
+<section class="relative py-16 overflow-hidden">
+  <!-- Animated Background -->
+  <div class="absolute inset-0 gradient-bg opacity-10"></div>
+  
+  <!-- Floating Particles -->
+  <div class="absolute inset-0 overflow-hidden">
+    <div class="absolute w-2 h-2 bg-blue-500 rounded-full animate-ping" style="top: 20%; left: 10%; animation-delay: 0s;"></div>
+    <div class="absolute w-3 h-3 bg-purple-500 rounded-full animate-ping" style="top: 60%; left: 80%; animation-delay: 1s;"></div>
+    <div class="absolute w-2 h-2 bg-pink-500 rounded-full animate-ping" style="top: 40%; left: 50%; animation-delay: 2s;"></div>
+  </div>
+
+  <div class="container mx-auto px-6 relative z-10">
+    <div class="max-w-7xl mx-auto">
+      
+      <!-- Top Bar - Logo + Title + CTAs -->
+      <div class="bg-gray-900/50 backdrop-blur-lg rounded-2xl p-6 mb-10 border border-gray-800 fade-in">
+        <div class="flex flex-col lg:flex-row items-center justify-between gap-6">
+          
+          <!-- Left: Logo & Title -->
+          <div class="flex items-center gap-5">
+            <img src="https://tech-savvy-solution.web.app/assets/bytebuddy_logo.png" 
+                 alt="ByteBuddy Logo" 
+                 class="w-16 h-16 rounded-xl shadow-xl glow flex-shrink-0">
+            <div>
+              <h1 class="text-3xl md:text-4xl font-black">
+                <span class="gradient-text">ByteBuddy</span>
+              </h1>
+              <p class="text-base text-gray-300 font-semibold">The EduCollab Center</p>
+              <p class="text-xs text-gray-400 mt-1">BCA, MSC ICT & Programming Platform</p>
+            </div>
+          </div>
+
+          <!-- Right: CTAs + Stats -->
+          <div class="flex flex-col sm:flex-row items-center gap-4">
+            <a href="./assets/ByteBuddy.apk" 
+               download 
+               class="btn-primary px-6 py-3 rounded-full font-bold text-sm flex items-center gap-2 shadow-xl transform hover:scale-105 transition-all">
+              <span><i class="fas fa-download"></i> Download APK</span>
+            </a>
+            <div class="relative">
+              <button class="bg-gray-800 px-6 py-3 rounded-full font-bold text-sm flex items-center gap-2 shadow-lg cursor-not-allowed opacity-75">
+                <i class="fab fa-google-play"></i> Play Store
+              </button>
+              <span class="absolute -top-1 -right-1 bg-red-500 text-white text-xs px-2 py-0.5 rounded-full badge-pulse text-[10px]">
+                Soon
+              </span>
+            </div>
+            <div class="hidden md:flex items-center gap-3 pl-4 border-l border-gray-700">
+              <div class="text-center">
+                <div class="text-xl font-black gradient-text">300+</div>
+                <p class="text-xs text-gray-400">Users</p>
+              </div>
+              <div class="text-center">
+                <div class="text-xl font-black gradient-text">6</div>
+                <p class="text-xs text-gray-400">Features</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Feature Graphics - Main Focus -->
+      <div class="scale-up">
+        <div class="relative">
+          <div class="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-3xl blur-3xl"></div>
+          <img src="assets/full_combined_ss.png" 
+               alt="ByteBuddy Features - Zoom, Listen & Translate, Chat, Upload Notes" 
+               class="relative w-full rounded-3xl shadow-2xl border border-gray-800/50 glow">
+        </div>
+      </div>
+
+      <!-- Bottom Stats Bar -->
+      <div class="grid grid-cols-4 gap-4 mt-10 fade-in">
+        <div class="text-center p-4 bg-gray-900/30 backdrop-blur-lg rounded-xl border border-gray-800 hover:border-blue-500/50 transition-all">
+          <div class="text-2xl font-black gradient-text">300+</div>
+          <p class="text-xs text-gray-400 mt-1">Daily Users</p>
+        </div>
+        <div class="text-center p-4 bg-gray-900/30 backdrop-blur-lg rounded-xl border border-gray-800 hover:border-purple-500/50 transition-all">
+          <div class="text-2xl font-black gradient-text">6</div>
+          <p class="text-xs text-gray-400 mt-1">Features</p>
+        </div>
+        <div class="text-center p-4 bg-gray-900/30 backdrop-blur-lg rounded-xl border border-gray-800 hover:border-green-500/50 transition-all">
+          <div class="text-2xl font-black gradient-text">100%</div>
+          <p class="text-xs text-gray-400 mt-1">Open Source</p>
+        </div>
+        <div class="text-center p-4 bg-gray-900/30 backdrop-blur-lg rounded-xl border border-gray-800 hover:border-orange-500/50 transition-all">
+          <div class="text-2xl font-black gradient-text">2023</div>
+          <p class="text-xs text-gray-400 mt-1">Launched</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Individual Feature Highlights Section -->
+<section class="py-20 px-6 bg-gradient-to-b from-gray-900 to-black">
+  <div class="container mx-auto max-w-7xl">
+    <div class="text-center mb-16 scroll-reveal">
+      <h2 class="text-5xl md:text-6xl font-black mb-6">
+        <span class="gradient-text">Powerful Features</span>
+      </h2>
+      <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+        Everything you need for collaborative learning, all in one place
+      </p>
     </div>
 
-    <!-- Header Section -->
-    <div class="flex flex-col px-6">
-      <div class="flex mt-5 bg-[#111] rounded-lg w-full items-center justify-start p-4 lg:p-10 gap-x-5">
-        <img src="https://tech-savvy-solution.web.app/assets/bytebuddy_logo.png" alt="ByteBuddy Logo" class="rounded-full w-24 shadow-2xl" />
-        <p class="lg:text-3xl text-2xl font-semibold">
-          ByteBuddy <br />
-          <span class="text-blue-400">The EduCollab Center</span>
+    <!-- Feature Cards Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      
+      <!-- Feature 1: Zoom In Your Books -->
+      <div class="group bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-2xl border border-gray-700 hover:border-blue-500/50 transition-all duration-300 card-hover scroll-reveal">
+        <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform icon-spin">
+          <i class="fas fa-search-plus text-3xl"></i>
+        </div>
+        <h3 class="text-2xl font-bold mb-3 group-hover:text-blue-400 transition-colors">
+          Zoom In Your Books
+        </h3>
+        <p class="text-gray-400 leading-relaxed">
+          Read like a physical book with pinch-to-zoom functionality for better readability. Navigate through notes naturally.
+        </p>
+      </div>
+
+      <!-- Feature 2: Listen & Translate -->
+      <div class="group bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-2xl border border-gray-700 hover:border-purple-500/50 transition-all duration-300 card-hover scroll-reveal">
+        <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform icon-spin">
+          <i class="fas fa-volume-up text-3xl"></i>
+        </div>
+        <h3 class="text-2xl font-bold mb-3 group-hover:text-purple-400 transition-colors">
+          Listen & Translate
+        </h3>
+        <p class="text-gray-400 leading-relaxed">
+          Convert your notes to audio and translate them into multiple languages instantly with a single click.
+        </p>
+      </div>
+
+      <!-- Feature 3: Chat with Anyone -->
+      <div class="group bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-2xl border border-gray-700 hover:border-green-500/50 transition-all duration-300 card-hover scroll-reveal">
+        <div class="w-16 h-16 bg-gradient-to-br from-green-500 to-teal-500 rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform icon-spin">
+          <i class="fas fa-comments text-3xl"></i>
+        </div>
+        <h3 class="text-2xl font-bold mb-3 group-hover:text-green-400 transition-colors">
+          Chat with Anyone
+        </h3>
+        <p class="text-gray-400 leading-relaxed">
+          Connect with peers instantly and collaborate on studies with real-time messaging. Edit and delete messages anytime.
+        </p>
+      </div>
+
+      <!-- Feature 4: Upload Your Own Notes -->
+      <div class="group bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-2xl border border-gray-700 hover:border-orange-500/50 transition-all duration-300 card-hover scroll-reveal">
+        <div class="w-16 h-16 bg-gradient-to-br from-orange-500 to-red-500 rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform icon-spin">
+          <i class="fas fa-cloud-upload-alt text-3xl"></i>
+        </div>
+        <h3 class="text-2xl font-bold mb-3 group-hover:text-orange-400 transition-colors">
+          Upload Your Own Notes
+        </h3>
+        <p class="text-gray-400 leading-relaxed">
+          Share your knowledge by uploading PDF notes and contributing to the community. Help others learn.
+        </p>
+      </div>
+
+      <!-- Feature 5: Ask Questions -->
+      <div class="group bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-2xl border border-gray-700 hover:border-yellow-500/50 transition-all duration-300 card-hover scroll-reveal">
+        <div class="w-16 h-16 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform icon-spin">
+          <i class="fas fa-question-circle text-3xl"></i>
+        </div>
+        <h3 class="text-2xl font-bold mb-3 group-hover:text-yellow-400 transition-colors">
+          Ask Errors & Questions
+        </h3>
+        <p class="text-gray-400 leading-relaxed">
+          Post doubts with code snippets and screenshots. Get expert answers from talented community with upvoting system.
+        </p>
+      </div>
+
+      <!-- Feature 6: Organized Content -->
+      <div class="group bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-2xl border border-gray-700 hover:border-indigo-500/50 transition-all duration-300 card-hover scroll-reveal">
+        <div class="w-16 h-16 bg-gradient-to-br from-indigo-500 to-purple-500 rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform icon-spin">
+          <i class="fas fa-layer-group text-3xl"></i>
+        </div>
+        <h3 class="text-2xl font-bold mb-3 group-hover:text-indigo-400 transition-colors">
+          Organized by Semester
+        </h3>
+        <p class="text-gray-400 leading-relaxed">
+          Navigate through BCA and MSC ICT semesters with organized subject-wise content. Find what you need instantly.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+  <!-- Features Section -->
+  <section class="py-20 px-6 relative">
+    <div class="container mx-auto max-w-7xl">
+      <div class="text-center mb-16 scroll-reveal">
+        <h2 class="text-5xl md:text-6xl font-black mb-6">
+          <span class="gradient-text">Why Choose ByteBuddy?</span>
+        </h2>
+        <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+          Experience the future of collaborative learning with cutting-edge features designed for modern students
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Feature 1 -->
+        <div class="bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-2xl card-hover border border-gray-700 scroll-reveal">
+          <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center mb-6 icon-spin">
+            <i class="fas fa-book-open text-3xl"></i>
+          </div>
+          <h3 class="text-2xl font-bold mb-4">Smart Learning Module</h3>
+          <p class="text-gray-400 leading-relaxed mb-4">
+            Access comprehensive course materials for BCA, MSC ICT, and multiple programming languages. Upload notes, extract text from PDFs, translate content, and listen to audio versions.
+          </p>
+          <ul class="space-y-2 text-gray-300">
+            <li class="flex items-start gap-2">
+              <i class="fas fa-check-circle text-green-500 mt-1"></i>
+              <span>In-depth categorized notes</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <i class="fas fa-check-circle text-green-500 mt-1"></i>
+              <span>Text extraction & translation</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <i class="fas fa-check-circle text-green-500 mt-1"></i>
+              <span>Audio playback support</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <i class="fas fa-check-circle text-green-500 mt-1"></i>
+              <span>Community note sharing</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-2xl card-hover border border-gray-700 scroll-reveal">
+          <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-600 rounded-xl flex items-center justify-center mb-6 icon-spin">
+            <i class="fas fa-code text-3xl"></i>
+          </div>
+          <h3 class="text-2xl font-bold mb-4">Interactive FAQ Forum</h3>
+          <p class="text-gray-400 leading-relaxed mb-4">
+            StackOverflow-inspired Q&A platform where students ask questions, share code snippets, upload screenshots, and get community-driven answers with voting system.
+          </p>
+          <ul class="space-y-2 text-gray-300">
+            <li class="flex items-start gap-2">
+              <i class="fas fa-check-circle text-green-500 mt-1"></i>
+              <span>Post questions with code</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <i class="fas fa-check-circle text-green-500 mt-1"></i>
+              <span>Image & screenshot support</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <i class="fas fa-check-circle text-green-500 mt-1"></i>
+              <span>Upvote/downvote answers</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <i class="fas fa-check-circle text-green-500 mt-1"></i>
+              <span>Save favorite discussions</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-2xl card-hover border border-gray-700 scroll-reveal">
+          <div class="w-16 h-16 bg-gradient-to-br from-pink-500 to-red-600 rounded-xl flex items-center justify-center mb-6 icon-spin">
+            <i class="fas fa-comments text-3xl"></i>
+          </div>
+          <h3 class="text-2xl font-bold mb-4">Real-Time Chat Module</h3>
+          <p class="text-gray-400 leading-relaxed mb-4">
+            Connect with peers through one-to-one messaging with advanced features including message editing, deletion, and online status tracking. Group chat coming soon!
+          </p>
+          <ul class="space-y-2 text-gray-300">
+            <li class="flex items-start gap-2">
+              <i class="fas fa-check-circle text-green-500 mt-1"></i>
+              <span>Peer-to-peer messaging</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <i class="fas fa-check-circle text-green-500 mt-1"></i>
+              <span>Edit & delete messages</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <i class="fas fa-check-circle text-green-500 mt-1"></i>
+              <span>Online status indicators</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <i class="fas fa-clock text-yellow-500 mt-1"></i>
+              <span>Group chat (Coming Soon)</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- Technology Stack Section -->
+  <section class="py-20 px-6">
+    <div class="container mx-auto max-w-7xl">
+      <div class="text-center mb-16 scroll-reveal">
+        <h2 class="text-5xl md:text-6xl font-black mb-6">
+          <span class="gradient-text">Built with Modern Tech</span>
+        </h2>
+        <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+          Powered by cutting-edge technologies for optimal performance, security, and user experience
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <!-- Frontend Stack -->
+        <div class="bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-2xl border border-gray-700 scroll-reveal">
+          <div class="flex items-center gap-4 mb-6">
+            <div class="w-14 h-14 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-lg flex items-center justify-center">
+              <i class="fas fa-mobile-alt text-2xl"></i>
+            </div>
+            <h3 class="text-3xl font-bold">Frontend</h3>
+          </div>
+          <div class="space-y-4">
+            <div class="flex items-center gap-4 p-4 bg-gray-800/50 rounded-lg">
+              <i class="fab fa-android text-3xl text-green-500"></i>
+              <div>
+                <h4 class="font-semibold text-lg">Android Studio Giraffe</h4>
+                <p class="text-sm text-gray-400">Official IDE for Android development</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-4 p-4 bg-gray-800/50 rounded-lg">
+              <i class="fas fa-layer-group text-3xl text-purple-500"></i>
+              <div>
+                <h4 class="font-semibold text-lg">Jetpack Compose</h4>
+                <p class="text-sm text-gray-400">Modern declarative UI toolkit</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-4 p-4 bg-gray-800/50 rounded-lg">
+              <i class="fas fa-code text-3xl text-orange-500"></i>
+              <div>
+                <h4 class="font-semibold text-lg">Kotlin</h4>
+                <p class="text-sm text-gray-400">Primary development language</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-4 p-4 bg-gray-800/50 rounded-lg">
+              <i class="fas fa-plug text-3xl text-yellow-500"></i>
+              <div>
+                <h4 class="font-semibold text-lg">Dagger Hilt</h4>
+                <p class="text-sm text-gray-400">Dependency injection framework</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Backend Stack -->
+        <div class="bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-2xl border border-gray-700 scroll-reveal">
+          <div class="flex items-center gap-4 mb-6">
+            <div class="w-14 h-14 bg-gradient-to-br from-orange-500 to-red-500 rounded-lg flex items-center justify-center">
+              <i class="fas fa-database text-2xl"></i>
+            </div>
+            <h3 class="text-3xl font-bold">Backend</h3>
+          </div>
+          <div class="space-y-4">
+            <div class="flex items-center gap-4 p-4 bg-gray-800/50 rounded-lg">
+              <i class="fas fa-fire text-3xl text-orange-500"></i>
+              <div>
+                <h4 class="font-semibold text-lg">Firebase Firestore</h4>
+                <p class="text-sm text-gray-400">NoSQL cloud database</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-4 p-4 bg-gray-800/50 rounded-lg">
+              <i class="fas fa-bolt text-3xl text-yellow-500"></i>
+              <div>
+                <h4 class="font-semibold text-lg">Firebase Realtime Database</h4>
+                <p class="text-sm text-gray-400">Real-time data synchronization</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-4 p-4 bg-gray-800/50 rounded-lg">
+              <i class="fas fa-cloud-upload-alt text-3xl text-blue-500"></i>
+              <div>
+                <h4 class="font-semibold text-lg">Firebase Storage</h4>
+                <p class="text-sm text-gray-400">Scalable cloud file storage</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-4 p-4 bg-gray-800/50 rounded-lg">
+              <i class="fas fa-shield-alt text-3xl text-green-500"></i>
+              <div>
+                <h4 class="font-semibold text-lg">Firebase Authentication</h4>
+                <p class="text-sm text-gray-400">Secure user management</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Security & Performance -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+        <div class="bg-gradient-to-br from-green-900/30 to-green-800/30 p-6 rounded-xl border border-green-700 scroll-reveal">
+          <i class="fas fa-lock text-4xl text-green-400 mb-4"></i>
+          <h4 class="text-xl font-bold mb-2">End-to-End Encryption</h4>
+          <p class="text-gray-400 text-sm">Secure chat and data transfer with robust authentication</p>
+        </div>
+        <div class="bg-gradient-to-br from-blue-900/30 to-blue-800/30 p-6 rounded-xl border border-blue-700 scroll-reveal">
+          <i class="fas fa-tachometer-alt text-4xl text-blue-400 mb-4"></i>
+          <h4 class="text-xl font-bold mb-2">High Performance</h4>
+          <p class="text-gray-400 text-sm">Fast response times with minimal latency worldwide</p>
+        </div>
+        <div class="bg-gradient-to-br from-purple-900/30 to-purple-800/30 p-6 rounded-xl border border-purple-700 scroll-reveal">
+          <i class="fas fa-expand-arrows-alt text-4xl text-purple-400 mb-4"></i>
+          <h4 class="text-xl font-bold mb-2">Scalable Infrastructure</h4>
+          <p class="text-gray-400 text-sm">Cloud-based architecture ensuring high availability</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- About Section -->
+  <section class="py-20 px-6">
+    <div class="container mx-auto max-w-7xl">
+      <div class="text-center mb-16 scroll-reveal">
+        <h2 class="text-5xl md:text-6xl font-black mb-6">
+          <span class="gradient-text">Meet the Creators</span>
+        </h2>
+        <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+          Passionate minds dedicated to transforming education through technology
+        </p>
+      </div>
+
+      <div class="flex justify-center">
+        <!-- Developer Profile -->
+        <div class="bg-gradient-to-br max-w-4xl from-gray-900 to-gray-800 p-10 rounded-2xl border border-gray-700 scroll-reveal">
+          <div class="flex items-center gap-6 mb-6">
+                    <img src="https://media.licdn.com/dms/image/v2/D4D03AQH-XUx45xanLw/profile-displayphoto-scale_200_200/B4DZh_yASPGsAg-/0/1754490473147?e=1762387200&v=beta&t=HbFCmqhfezwd21gRgaeCjGqIWFn63_f8gnV0viF-kJY" alt="MuhammadShakil Patel" class="w-24 h-24 rounded-full border-4 border-brand/60 shadow-lg mb-5 object-cover">
+
+            <div>
+              <h3 class="md:text-3xl text-md font-bold">MuhammadShakil Patel</h3>
+              <p class="text-gray-400 text-sm md:text-lg">Developer & Creator</p>
+              <div class="flex gap-2 mt-2">
+                <span class="bg-yellow-500/20 text-yellow-400 px-3 py-1 rounded-full text-sm font-semibold">
+                  Young Developer 2024 Winner
+                </span>
+              </div>
+            </div>
+          </div>
+          <p class="text-gray-300 leading-relaxed mb-6">
+            A passionate software engineer and full-stack enthusiast specializing in Android development with Jetpack Compose, Flutter, and modern web technologies. Currently pursuing M.Sc. in ICT at Veer Narmad South Gujarat University, Surat.
+          </p>
+          <div class="space-y-3">
+            <div class="flex items-center gap-3 text-gray-400">
+              <i class="fas fa-graduation-cap text-blue-400"></i>
+              <span>Founder & CEO <b>Tech Savvy Solution</b></span>
+            </div>
+            <div class="flex items-center gap-3 text-gray-400">
+              <i class="fas fa-trophy text-yellow-400"></i>
+              <span>Young Developer 2024 Award Winner</span>
+            </div>
+            <div class="flex items-center gap-3 text-gray-400">
+              <i class="fas fa-code text-green-400"></i>
+              <span>Software Engineer | Tech Enthusiast</span>
+            </div>
+            <div class="flex items-center gap-3 text-gray-400">
+              <i class="fab fa-github text-gray-400"></i>
+              <a href="https://github.com/PatelShakil" target="_blank" class="hover:text-blue-400 transition-colors">
+                github.com/PatelShakil
+              </a>
+            </div>
+          </div>
+        </div>
+
+        
+      </div>
+
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+ <!-- Features Showcase Section with Graphics -->
+<section class="py-20 px-6 bg-gradient-to-b from-black to-gray-900">
+  <div class="container mx-auto max-w-7xl">
+    <div class="text-center mb-16 scroll-reveal">
+      <h2 class="text-5xl md:text-6xl font-black mb-6">
+        <span class="gradient-text">Experience ByteBuddy</span>
+      </h2>
+      <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+        See how ByteBuddy transforms your learning experience with powerful features
+      </p>
+    </div>
+
+    <!-- Full Feature Graphic Showcase -->
+    <div class="scroll-reveal mb-12">
+      <img src="assets/full_combined_ss.png" 
+           alt="ByteBuddy Features Overview" 
+           class="w-full rounded-2xl shadow-2xl glow">
+    </div>
+
+    <!-- Individual Feature Highlights -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
+      <!-- Feature 1: Zoom In Your Books -->
+      <div class="bg-gradient-to-br from-gray-900 to-gray-800 p-6 rounded-2xl border border-gray-700 card-hover scroll-reveal">
+        <div class="mb-4">
+          <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-lg flex items-center justify-center mb-4">
+            <i class="fas fa-search-plus text-2xl"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-2">Zoom In Your Books</h3>
+          <p class="text-gray-400 text-sm">
+            Read like a physical book with pinch-to-zoom functionality for better readability
+          </p>
+        </div>
+      </div>
+
+      <!-- Feature 2: Listen & Translate -->
+      <div class="bg-gradient-to-br from-gray-900 to-gray-800 p-6 rounded-2xl border border-gray-700 card-hover scroll-reveal">
+        <div class="mb-4">
+          <div class="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg flex items-center justify-center mb-4">
+            <i class="fas fa-volume-up text-2xl"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-2">Listen & Translate</h3>
+          <p class="text-gray-400 text-sm">
+            Convert your notes to audio and translate them into multiple languages instantly
+          </p>
+        </div>
+      </div>
+
+      <!-- Feature 3: Chat with Anyone -->
+      <div class="bg-gradient-to-br from-gray-900 to-gray-800 p-6 rounded-2xl border border-gray-700 card-hover scroll-reveal">
+        <div class="mb-4">
+          <div class="w-12 h-12 bg-gradient-to-br from-green-500 to-teal-500 rounded-lg flex items-center justify-center mb-4">
+            <i class="fas fa-comments text-2xl"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-2">Chat with Anyone</h3>
+          <p class="text-gray-400 text-sm">
+            Connect with peers instantly and collaborate on studies with real-time messaging
+          </p>
+        </div>
+      </div>
+
+      <!-- Feature 4: Upload Your Own Notes -->
+      <div class="bg-gradient-to-br from-gray-900 to-gray-800 p-6 rounded-2xl border border-gray-700 card-hover scroll-reveal">
+        <div class="mb-4">
+          <div class="w-12 h-12 bg-gradient-to-br from-orange-500 to-red-500 rounded-lg flex items-center justify-center mb-4">
+            <i class="fas fa-cloud-upload-alt text-2xl"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-2">Upload Your Own Notes</h3>
+          <p class="text-gray-400 text-sm">
+            Share your knowledge by uploading PDF notes and contributing to the community
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Additional Feature Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+      <!-- Feature 5: Ask Questions -->
+      <div class="bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-2xl border border-gray-700 card-hover scroll-reveal">
+        <div class="flex items-start gap-6">
+          <div class="w-16 h-16 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-xl flex items-center justify-center flex-shrink-0">
+            <i class="fas fa-question-circle text-3xl"></i>
+          </div>
+          <div>
+            <h3 class="text-2xl font-bold mb-3">Ask Any Errors & Questions</h3>
+            <p class="text-gray-400 leading-relaxed">
+              Through this section you can ask or guide any suggestions from our talented community. Post your doubts with code snippets and get expert answers.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Feature 6: Semester Navigation -->
+      <div class="bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-2xl border border-gray-700 card-hover scroll-reveal">
+        <div class="flex items-start gap-6">
+          <div class="w-16 h-16 bg-gradient-to-br from-indigo-500 to-purple-500 rounded-xl flex items-center justify-center flex-shrink-0">
+            <i class="fas fa-layer-group text-3xl"></i>
+          </div>
+          <div>
+            <h3 class="text-2xl font-bold mb-3">Organized by Semester</h3>
+            <p class="text-gray-400 leading-relaxed">
+              Navigate through BCA and MSC ICT semesters with organized subject-wise content. Find exactly what you need, when you need it.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+  <div class="section-divider"></div>
+
+  <!-- Future Features Section -->
+  <section class="py-20 px-6">
+    <div class="container mx-auto max-w-7xl">
+      <div class="text-center mb-16 scroll-reveal">
+        <h2 class="text-5xl md:text-6xl font-black mb-6">
+          <span class="gradient-text">Coming Soon</span>
+        </h2>
+        <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+          Exciting new features in development to enhance your learning experience
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-2xl border border-gray-700 card-hover scroll-reveal">
+          <div class="flex items-center gap-3 mb-4">
+            <i class="fas fa-users text-3xl text-purple-400"></i>
+            <h3 class="text-2xl font-bold">Group Chat</h3>
+          </div>
+          <p class="text-gray-400 mb-4">
+            Create study groups, share resources, and collaborate with multiple students simultaneously.
+          </p>
+          <span class="inline-block bg-purple-500/20 text-purple-400 px-4 py-2 rounded-full text-sm font-semibold">
+            In Development
+          </span>
+        </div>
+
+        <div class="bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-2xl border border-gray-700 card-hover scroll-reveal">
+          <div class="flex items-center gap-3 mb-4">
+            <i class="fas fa-project-diagram text-3xl text-blue-400"></i>
+            <h3 class="text-2xl font-bold">Project Marketplace</h3>
+          </div>
+          <p class="text-gray-400 mb-4">
+            Browse and purchase programming projects in Kotlin, Java, Python, React, Flutter, and more.
+          </p>
+          <span class="inline-block bg-blue-500/20 text-blue-400 px-4 py-2 rounded-full text-sm font-semibold">
+            Planned
+          </span>
+        </div>
+
+        <div class="bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-2xl border border-gray-700 card-hover scroll-reveal">
+          <div class="flex items-center gap-3 mb-4">
+            <i class="fab fa-google-play text-3xl text-green-400"></i>
+            <h3 class="text-2xl font-bold">Play Store Launch</h3>
+          </div>
+          <p class="text-gray-400 mb-4">
+            Download ByteBuddy directly from Google Play Store for easier access and automatic updates.
+          </p>
+          <span class="inline-block bg-green-500/20 text-green-400 px-4 py-2 rounded-full text-sm font-semibold">
+            Coming Soon
+          </span>
+        </div>
+
+        <div class="bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-2xl border border-gray-700 card-hover scroll-reveal">
+          <div class="flex items-center gap-3 mb-4">
+            <i class="fas fa-smile text-3xl text-yellow-400"></i>
+            <h3 class="text-2xl font-bold">Rich Media Chat</h3>
+          </div>
+          <p class="text-gray-400 mb-4">
+            Send emojis, GIFs, images, and share notes directly in conversations for richer communication.
+          </p>
+          <span class="inline-block bg-yellow-500/20 text-yellow-400 px-4 py-2 rounded-full text-sm font-semibold">
+            In Development
+          </span>
+        </div>
+
+        <div class="bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-2xl border border-gray-700 card-hover scroll-reveal">
+          <div class="flex items-center gap-3 mb-4">
+            <i class="fas fa-user-shield text-3xl text-red-400"></i>
+            <h3 class="text-2xl font-bold">Faculty Roles</h3>
+          </div>
+          <p class="text-gray-400 mb-4">
+            Dedicated faculty accounts for content moderation, verification, and community management.
+          </p>
+          <span class="inline-block bg-red-500/20 text-red-400 px-4 py-2 rounded-full text-sm font-semibold">
+            Planned
+          </span>
+        </div>
+
+        <div class="bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-2xl border border-gray-700 card-hover scroll-reveal">
+          <div class="flex items-center gap-3 mb-4">
+            <i class="fas fa-share-alt text-3xl text-pink-400"></i>
+            <h3 class="text-2xl font-bold">Social Sharing</h3>
+          </div>
+          <p class="text-gray-400 mb-4">
+            Share notes, FAQs, and discussions across social platforms and within the ByteBuddy community.
+          </p>
+          <span class="inline-block bg-pink-500/20 text-pink-400 px-4 py-2 rounded-full text-sm font-semibold">
+            In Development
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- Contact Section -->
+  <section class="py-20 px-6">
+    <div class="container mx-auto max-w-4xl">
+      <div class="text-center mb-16 scroll-reveal">
+        <h2 class="text-5xl md:text-6xl font-black mb-6">
+          <span class="gradient-text">Get In Touch</span>
+        </h2>
+        <p class="text-xl text-gray-400">
+          Have questions or feedback? We'd love to hear from you!
+        </p>
+      </div>
+
+      <div class="bg-gradient-to-br from-gray-900 to-gray-800 p-10 rounded-2xl border border-gray-700 scroll-reveal">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="space-y-6">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                <i class="fas fa-envelope text-blue-400 text-xl"></i>
+              </div>
+              <div>
+                <h4 class="font-semibold text-lg mb-1">Email</h4>
+                <a href="mailto:patelshakil.dev@gmail.com" class="text-gray-400 hover:text-blue-400 transition-colors">
+                  patelshakil.dev@gmail.com
+                </a>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                <i class="fas fa-phone text-green-400 text-xl"></i>
+              </div>
+              <div>
+                <h4 class="font-semibold text-lg mb-1">Phone</h4>
+                <a href="tel:+919510634082" class="text-gray-400 hover:text-green-400 transition-colors">
+                  +91 9510634082
+                </a>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 bg-purple-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                <i class="fab fa-github text-purple-400 text-xl"></i>
+              </div>
+              <div>
+                <h4 class="font-semibold text-lg mb-1">GitHub</h4>
+                <a href="https://github.com/PatelShakil" target="_blank" class="text-gray-400 hover:text-purple-400 transition-colors">
+                  github.com/PatelShakil
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="space-y-6">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 bg-red-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                <i class="fas fa-map-marker-alt text-red-400 text-xl"></i>
+              </div>
+              <div>
+                <h4 class="font-semibold text-lg mb-1">Location</h4>
+                <p class="text-gray-400">
+                  Surat, Gujarat India
+                </p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 bg-orange-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                <i class="fas fa-university text-orange-400 text-xl"></i>
+              </div>
+              <div>
+                <h4 class="font-semibold text-lg mb-1">Institution</h4>
+                <p class="text-gray-400">
+                  Tech Savvy Solution
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-20 px-6">
+    <div class="container mx-auto max-w-5xl">
+      <div class="bg-gradient-to-br from-blue-600 to-purple-600 p-12 rounded-3xl text-center shadow-2xl scroll-reveal">
+        <h2 class="text-4xl md:text-5xl font-black mb-6">
+          Ready to Transform Your Learning?
+        </h2>
+        <p class="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
+          Join 60+ students already using ByteBuddy for collaborative learning and academic excellence
+        </p>
+        <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
+          <a href="./assets/ByteBuddy.apk" 
+             download 
+             class="bg-white text-blue-600 px-10 py-5 rounded-full font-bold text-lg flex items-center gap-3 shadow-2xl transform hover:scale-105 transition-all hover:shadow-white/20">
+            <i class="fas fa-download"></i>
+            <span>Download Now (APK)</span>
+          </a>
+          <button class="bg-gray-900 px-10 py-5 rounded-full font-bold text-lg flex items-center gap-3 shadow-xl opacity-75 cursor-not-allowed">
+            <i class="fab fa-google-play"></i>
+            <span>Play Store (Coming Soon)</span>
+          </button>
+        </div>
+        <p class="text-sm mt-6 opacity-75">
+          <i class="fas fa-shield-alt mr-2"></i>
+          Secure • Free • Open Source
         </p>
       </div>
     </div>
+  </section>
 
-    <!-- Key Features Section -->
-    <section class="mt-10 px-6">
-      <h2 class="text-center text-4xl font-bold mb-6 animate-slide-in-left">Why ByteBuddy?</h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-        <div class="bg-[#222] p-6 rounded-lg shadow-lg hover:shadow-xl transform transition duration-300 hover:scale-105">
-          <i class="fas fa-book-open text-blue-400 text-3xl mb-4"></i>
-          <h3 class="text-xl font-semibold">Learning Module</h3>
-          <p class="mt-2">Offers in-depth course material, including BCA, MSC ICT, and multiple programming languages. Users can upload and access notes.</p>
+  <!-- Footer -->
+  <footer class="bg-gray-900/50 border-t border-gray-800 py-12 px-6">
+    <div class="container mx-auto max-w-7xl">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <img src="https://tech-savvy-solution.web.app/assets/bytebuddy_logo.png" 
+                 alt="ByteBuddy Logo" 
+                 class="w-12 h-12 rounded-full">
+            <span class="text-xl font-bold gradient-text">ByteBuddy</span>
+          </div>
+          <p class="text-gray-400 text-sm">
+            The ultimate collaborative learning platform for modern students.
+          </p>
         </div>
-        <div class="bg-[#222] p-6 rounded-lg shadow-lg hover:shadow-xl transform transition duration-300 hover:scale-105">
-          <i class="fas fa-code text-blue-400 text-3xl mb-4"></i>
-          <h3 class="text-xl font-semibold">FAQ Module</h3>
-          <p class="mt-2">Post questions with code, images, or screenshots, similar to Stack Overflow. Answers can be upvoted, downvoted, or saved.</p>
+
+        <div>
+          <h4 class="font-bold mb-4">Quick Links</h4>
+          <ul class="space-y-2 text-gray-400 text-sm">
+            <li><a href="#features" class="hover:text-blue-400 transition-colors">Features</a></li>
+            <li><a href="#technology" class="hover:text-blue-400 transition-colors">Technology</a></li>
+            <li><a href="#about" class="hover:text-blue-400 transition-colors">About Us</a></li>
+            <li><a href="#contact" class="hover:text-blue-400 transition-colors">Contact</a></li>
+          </ul>
         </div>
-        <div class="bg-[#222] p-6 rounded-lg shadow-lg hover:shadow-xl transform transition duration-300 hover:scale-105">
-          <i class="fas fa-comments text-blue-400 text-3xl mb-4"></i>
-          <h3 class="text-xl font-semibold">Chat Module</h3>
-          <p class="mt-2">Enables one-to-one chat, including features like message deletion, editing, and more.</p>
+
+        <div>
+          <h4 class="font-bold mb-4">Features</h4>
+          <ul class="space-y-2 text-gray-400 text-sm">
+            <li>Learning Module</li>
+            <li>FAQ Forum</li>
+            <li>Chat System</li>
+            <li>Note Sharing</li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-bold mb-4">Connect</h4>
+          <div class="flex gap-4">
+            <a href="https://github.com/PatelShakil" target="_blank" class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-blue-500 transition-colors">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="mailto:patelshakil.dev@gmail.com" class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-red-500 transition-colors">
+              <i class="fas fa-envelope"></i>
+            </a>
+            <a href="tel:+919510634082" class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-green-500 transition-colors">
+              <i class="fas fa-phone"></i>
+            </a>
+          </div>
         </div>
       </div>
-    </section>
 
-    <!-- Technical Approach Section -->
-    <section class="mt-10 px-6 bg-[#111] py-10 rounded-lg">
-      <h2 class="text-center text-4xl font-bold mb-6 animate-pulse">What We Have ?</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div class="bg-[#222] p-6 rounded-lg shadow-lg">
-          <h3 class="text-xl font-semibold text-blue-400 mb-2">Smart Learning</h3>
-          <ul class="list-disc ml-5">
-            <li>In-depth notes for BCA, MSC ICT, and programming languages.</li>
-            <li>Listen to notes, translate them, and save them for future use.</li>
-            <li>Upload custom notes and share knowledge with peers.</li>
-          </ul>
-        </div>
-        <div class="bg-[#222] p-6 rounded-lg shadow-lg">
-          <h3 class="text-xl font-semibold text-blue-400 mb-2">Real-time Collaboration</h3>
-          <ul class="list-disc ml-5">
-            <li>Peer-to-peer chat for real-time discussions.</li>
-            <li>FAQs with community-driven upvotes and code discussions.</li>
-            <li>Interactive discussions for deeper understanding.</li>
-          </ul>
-        </div>
-        <div class="bg-[#222] p-6 rounded-lg shadow-lg">
-          <h3 class="text-xl font-semibold text-blue-400 mb-2">Scalable Infrastructure</h3>
-          <ul class="list-disc ml-5">
-            <li>Cloud-based infrastructure ensuring high availability.</li>
-            <li>Fast response time for quick access to learning materials.</li>
-            <li>Global reach and minimal latency for students across the world.</li>
-          </ul>
-        </div>
-        <div class="bg-[#222] p-6 rounded-lg shadow-lg">
-          <h3 class="text-xl font-semibold text-blue-400 mb-2">Security</h3>
-          <ul class="list-disc ml-5">
-            <li>End-to-end encrypted chat and data transfer.</li>
-            <li>Robust authentication and user data privacy protection.</li>
-            <li>Periodic security audits to ensure the highest standard.</li>
-          </ul>
-        </div>
+      <div class="border-t border-gray-800 pt-8 text-center">
+        <p class="text-gray-400 text-sm mb-2">
+          &copy; 2025 ByteBuddy - The EduCollab Center. All rights reserved.
+        </p>
+        <p class="text-gray-500 text-xs">
+          Developed by MuhammadShakil Patel
+        </p>
       </div>
-    </section>
+    </div>
+  </footer>
 
-    <!-- Footer Section -->
-    <footer class="mt-10 justify-center flex flex-col items-center gap-y-6 bg-[#111] text-gray-400 py-6">
-      <a href="./assets/ByteBuddy.apk"
-          download 
-      class="inline-flex items-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-  <svg class="fill-current w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z"/></svg>
-  <span>Download App</span>
-</a>
-      <div class="container mx-auto text-center">
-        <p>&copy; 2025 ByteBuddy | All rights reserved</p>
-      </div>
-    </footer>
-  </div>
+  <!-- Scroll Reveal Script -->
+  <script>
+    // Scroll Reveal Animation
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.scroll-reveal').forEach(el => {
+      observer.observe(el);
+    });
+
+    // Smooth Scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Stats Counter Animation
+    const animateCounter = (element, target, duration = 2000) => {
+      let current = 0;
+      const increment = target / (duration / 16);
+      const timer = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+          element.textContent = target + '+';
+          clearInterval(timer);
+        } else {
+          element.textContent = Math.floor(current) + '+';
+        }
+      }, 16);
+    };
+
+    // Trigger counter animation when stats section is visible
+    const statsObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const counters = entry.target.querySelectorAll('.stat-number');
+          counters.forEach(counter => {
+            const target = parseInt(counter.textContent);
+            if (!isNaN(target)) {
+              animateCounter(counter, target);
+            }
+          });
+          statsObserver.unobserve(entry.target);
+        }
+      });
+    });
+
+    document.querySelectorAll('.stat-number').forEach(el => {
+      statsObserver.observe(el.closest('.fade-in'));
+    });
+  </script>
 </body>
 </html>
