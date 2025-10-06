@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>ShowCaseMe</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- HTML Meta Tags -->
+<title>ShowCaseMe</title>
+<meta name="description" content="ShowCaseMe is a powerful personal portfolio and branding platform that allows users to create, customize, and share their digital identity with ease. Featuring social links, blogs, projects, products, analytics, QR sharing, and more — all built with .NET Core, SQL Server, and React. Seamlessly optimized for web and mobile.">
+
+<!-- Facebook Meta Tags -->
+<meta property="og:url" content="https://patelshakil.tech/showcaseme.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ShowCaseMe">
+<meta property="og:description" content="ShowCaseMe is a powerful personal portfolio and branding platform that allows users to create, customize, and share their digital identity with ease. Featuring social links, blogs, projects, products, analytics, QR sharing, and more — all built with .NET Core, SQL Server, and React. Seamlessly optimized for web and mobile.">
+<meta property="og:image" content="https://opengraph.b-cdn.net/production/images/8ee6208f-eff9-448d-b0eb-0b895d1a6ce3.png?token=s1HRlzbMNSllpBRyFqSHunxz-9PpgggexbBxlWKv-14&height=684&width=1200&expires=33284886280">
+
+<!-- Twitter Meta Tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta property="twitter:domain" content="patelshakil.tech">
+<meta property="twitter:url" content="https://patelshakil.tech/showcaseme.html">
+<meta name="twitter:title" content="ShowCaseMe">
+<meta name="twitter:description" content="ShowCaseMe is a powerful personal portfolio and branding platform that allows users to create, customize, and share their digital identity with ease. Featuring social links, blogs, projects, products, analytics, QR sharing, and more — all built with .NET Core, SQL Server, and React. Seamlessly optimized for web and mobile.">
+<meta name="twitter:image" content="https://opengraph.b-cdn.net/production/images/8ee6208f-eff9-448d-b0eb-0b895d1a6ce3.png?token=s1HRlzbMNSllpBRyFqSHunxz-9PpgggexbBxlWKv-14&height=684&width=1200&expires=33284886280">
+
+<!-- Meta Tags Generated via https://www.opengraph.xyz -->
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Poppins Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <style>
+      body {
+        font-family: "Poppins", sans-serif;
+      }
+      .default-bg {
+        background: linear-gradient(to bottom, white, #cee9fe) fixed;
+      }
+      .navbar {
+        position: sticky;
+        top: 0;
+        width: 100%;
+        padding: 0.75rem 1.5rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        z-index: 50;
+        background-color: #f9fafb; /* or your custom default-bg */
+      }
+
+      .menu-btn {
+        color: black;
+        font-size: 1.5rem;
+        padding: 0 0.5rem;
+        cursor: pointer;
+        border-radius: 0.5rem;
+        margin-right: 0.5rem;
+        padding-bottom: 2px;
+        background-color: transparent;
+        transition: background-color 0.3s ease;
+        border: none;
+      }
+
+      .menu-btn:hover {
+        background-color: #e5e7eb; /* Tailwind gray-200 */
+      }
+
+      .nav-right {
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+      }
+
+      .brand-title {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: black;
+      }
+
+      .user-actions {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body class="min-h-screen default-bg text-black">
+    <nav class="navbar">
+      <button class="menu-btn">☰</button>
+
+      <div class="nav-right">
+        <p class="brand-title">ShowCaseMe</p>
+        <div class="user-actions"></div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="text-center mt-16 px-5">
+      <h2 class="text-5xl font-extrabold">Your Digital Identity, Simplified</h2>
+      <p class="mt-4 text-lg">
+        Create, customize, and share your profile with a single QR code.
+      </p>
+    </header>
+
+    <!-- Features Section -->
+    <section class="mt-20 lg:px-8 px-2 text-center">
+      <h3 class="text-4xl font-bold mb-10">Comprehensive Features</h3>
+      <div class="grid md:grid-cols-3 lg:grid-cols-4 gap-8">
+        <div class="feature-card">
+          <i class="fas fa-users"></i>
+          <h4>User Management</h4>
+          <p>Secure authentication, profile management, and settings.</p>
+        </div>
+        <div class="feature-card">
+          <i class="fas fa-laptop-code"></i>
+          <h4>Web & Mobile Access</h4>
+          <p>Manage your profile from any device seamlessly.</p>
+        </div>
+        <div class="feature-card">
+          <i class="fas fa-qrcode"></i>
+          <h4>QR Code Sharing</h4>
+          <p>Generate and share your profile using QR codes instantly.</p>
+        </div>
+        <div class="feature-card">
+          <i class="fas fa-cloud"></i>
+          <h4>Cloud Synced</h4>
+          <p>Access your profile and data from anywhere securely.</p>
+        </div>
+        <div class="feature-card">
+          <i class="fas fa-link"></i>
+          <h4>Social Links</h4>
+          <p>Add and customize your social media presence with analytics.</p>
+        </div>
+        <div class="feature-card">
+          <i class="fas fa-project-diagram"></i>
+          <h4>Projects Showcase</h4>
+          <p>Display your work with detailed descriptions and images.</p>
+        </div>
+        <div class="feature-card">
+          <i class="fas fa-shopping-cart"></i>
+          <h4>Products & Services</h4>
+          <p>Showcase your products and handle inquiries with ease.</p>
+        </div>
+        <div class="feature-card">
+          <i class="fas fa-comments"></i>
+          <h4>Guest Comments & Testimonials</h4>
+          <p>Receive feedback and engage with your audience.</p>
+        </div>
+        <div class="feature-card">
+          <i class="fas fa-chart-bar"></i>
+          <h4>Analytics & Insights</h4>
+          <p>Track profile views, link clicks, and QR scans.</p>
+        </div>
+        <div class="feature-card">
+          <i class="fas fa-cogs"></i>
+          <h4>Customization & Themes</h4>
+          <p>Personalize your profile with unique themes and styles.</p>
+        </div>
+        <div class="feature-card">
+          <i class="fas fa-bullhorn"></i>
+          <h4>Announcements & Blogs</h4>
+          <p>Post updates, articles, and news for your audience.</p>
+        </div>
+        <div class="feature-card">
+          <i class="fas fa-lock"></i>
+          <h4>Security & Access Control</h4>
+          <p>Manage user roles, permissions, and account security.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="mt-20 lg:px-10 px-2 text-center">
+      <h3 class="text-4xl font-bold mb-10">How It Works</h3>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="workflow-step">
+          <span>1</span>
+          <h4>Sign Up & Log In</h4>
+          <p>Secure authentication and profile setup.</p>
+        </div>
+        <div class="workflow-step">
+          <span>2</span>
+          <h4>Customize Your Profile</h4>
+          <p>Add social links, projects, products, and more.</p>
+        </div>
+        <div class="workflow-step">
+          <span>3</span>
+          <h4>Share & Track</h4>
+          <p>Use your unique link or QR code to share and track insights.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tech Stack Section -->
+    <section class="mt-20 px-10 text-center">
+      <h3 class="text-4xl font-bold mb-10">Tech Stack</h3>
+      <p class="text-lg">
+        Built with cutting-edge technologies for a seamless experience.
+      </p>
+      <div class="flex justify-center gap-4 mt-5 flex-wrap">
+        <span class="badge">React.js</span>
+        <span class="badge">.NET Core</span>
+        <span class="badge">SQL Server</span>
+        <span class="badge">Tailwind CSS</span>
+        <span class="badge">Jetpack Compose</span>
+        <span class="badge">SwiftUI</span>
+        <span class="badge">React Icons</span>
+        <span class="badge">JWT Authentication</span>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="mt-20 py-5 text-center bg-opacity-20 backdrop-blur-lg">
+      <p>&copy; 2025 ShowCaseMe. All rights reserved.</p>
+    </footer>
+
+    <!-- Additional Styles -->
+    <style>
+      /* Feature Card & Workflow Step shared styles */
+      .feature-card,
+      .workflow-step {
+        padding: 1.5rem;
+        background-color: white;
+        color: black;
+        border-radius: 0.5rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        text-align: center;
+      }
+
+      .feature-card:hover,
+      .workflow-step:hover {
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        transform: scale(1.05);
+      }
+
+      /* Icon style inside feature card */
+      .feature-card i {
+        font-size: 3rem;
+        color: #2563eb; /* Tailwind blue-600 */
+        margin-bottom: 1rem;
+      }
+
+      /* Title styling */
+      .feature-card h4,
+      .workflow-step h4 {
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin-top: 0.5rem;
+      }
+
+      /* Paragraph styling */
+      .feature-card p,
+      .workflow-step p {
+        margin-top: 0.5rem;
+        color: #4b5563; /* Tailwind gray-600 */
+      }
+
+      /* Workflow number */
+      .workflow-step span {
+        font-size: 2.25rem;
+        font-weight: bold;
+        color: #2563eb; /* Tailwind blue-600 */
+      }
+
+      /* Tech badge styling */
+      .badge {
+        padding: 0.5rem 1rem;
+        background-color: white;
+        color: black;
+        font-weight: 600;
+        border-radius: 9999px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: background-color 0.3s ease;
+        display: inline-block;
+        margin: 0.5rem;
+      }
+
+      .badge:hover {
+        background-color: #f3f4f6; /* Tailwind gray-100 */
+      }
+    </style>
+  </body>
+</html>
