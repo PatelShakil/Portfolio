@@ -1,42 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+
   <!-- SEO Meta Tags -->
   <title>ByteBuddy - The Ultimate EduCollab Learning Platform for BCA, MSC ICT & Programming</title>
-  <meta name="description" content="ByteBuddy is the leading collaborative learning platform for BCA, MSC ICT, and programming students. Access comprehensive notes, participate in community Q&A forums, share knowledge, and connect with learners worldwide. Download the app now or stay tuned for Google Play Store launch!">
-  <meta name="keywords" content="ByteBuddy, EduCollab, BCA learning app, MSC ICT notes, programming education, student collaboration, study notes app, Q&A platform, Android learning app, educational technology">
+  <meta name="description"
+    content="ByteBuddy is the leading collaborative learning platform for BCA, MSC ICT, and programming students. Access comprehensive notes, participate in community Q&A forums, share knowledge, and connect with learners worldwide. Download the app now or stay tuned for Google Play Store launch!">
+  <meta name="keywords"
+    content="ByteBuddy, EduCollab, BCA learning app, MSC ICT notes, programming education, student collaboration, study notes app, Q&A platform, Android learning app, educational technology">
   <meta name="author" content="Muhammad Shakil Patel">
   <meta name="robots" content="index, follow">
-  
+
   <!-- Open Graph Meta Tags -->
   <meta property="og:url" content="https://patelshakil.tech/bytebuddy.html">
   <meta property="og:type" content="website">
   <meta property="og:title" content="ByteBuddy - The Ultimate EduCollab Learning Platform">
-  <meta property="og:description" content="Revolutionary Android learning platform for BCA, MSC ICT & programming students. Access notes, Q&A forums, real-time chat, and collaborative learning features. Download now or wait for Play Store launch!">
+  <meta property="og:description"
+    content="Revolutionary Android learning platform for BCA, MSC ICT & programming students. Access notes, Q&A forums, real-time chat, and collaborative learning features. Download now or wait for Play Store launch!">
   <meta property="og:image" content="https://tech-savvy-solution.web.app/assets/bytebuddy_banner.jpg">
-  
+
   <!-- Twitter Meta Tags -->
   <meta name="twitter:card" content="summary_large_image">
   <meta property="twitter:domain" content="patelshakil.tech">
   <meta property="twitter:url" content="https://patelshakil.tech/bytebuddy.html">
   <meta name="twitter:title" content="ByteBuddy - The Ultimate EduCollab Learning Platform">
-  <meta name="twitter:description" content="Revolutionary Android learning platform for BCA, MSC ICT & programming students. Access notes, Q&A forums, real-time chat, and collaborative learning features.">
+  <meta name="twitter:description"
+    content="Revolutionary Android learning platform for BCA, MSC ICT & programming students. Access notes, Q&A forums, real-time chat, and collaborative learning features.">
   <meta name="twitter:image" content="https://tech-savvy-solution.web.app/assets/bytebuddy_banner.jpg">
-  
+
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-  
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+
   <style>
-    
-      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
 
     body {
       font-family: 'Poppins', sans-serif;
     }
+
     * {
       margin: 0;
       padding: 0;
@@ -57,9 +63,17 @@
     }
 
     @keyframes gradientShift {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+      0% {
+        background-position: 0% 50%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
+
+      100% {
+        background-position: 0% 50%;
+      }
     }
 
     /* Smooth Fade In Animation */
@@ -72,6 +86,7 @@
         opacity: 0;
         transform: translateY(30px);
       }
+
       to {
         opacity: 1;
         transform: translateY(0);
@@ -88,6 +103,7 @@
         opacity: 0;
         transform: translateX(-100px);
       }
+
       to {
         opacity: 1;
         transform: translateX(0);
@@ -104,6 +120,7 @@
         opacity: 0;
         transform: translateX(100px);
       }
+
       to {
         opacity: 1;
         transform: translateX(0);
@@ -120,6 +137,7 @@
         opacity: 0;
         transform: scale(0.8);
       }
+
       to {
         opacity: 1;
         transform: scale(1);
@@ -132,10 +150,13 @@
     }
 
     @keyframes pulse {
-      0%, 100% {
+
+      0%,
+      100% {
         transform: scale(1);
         opacity: 1;
       }
+
       50% {
         transform: scale(1.05);
         opacity: 0.9;
@@ -148,9 +169,12 @@
     }
 
     @keyframes float {
-      0%, 100% {
+
+      0%,
+      100% {
         transform: translateY(0);
       }
+
       50% {
         transform: translateY(-20px);
       }
@@ -190,9 +214,12 @@
     }
 
     @keyframes badgePulse {
-      0%, 100% {
+
+      0%,
+      100% {
         box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7);
       }
+
       50% {
         box-shadow: 0 0 0 10px rgba(239, 68, 68, 0);
       }
@@ -207,6 +234,7 @@
       from {
         transform: rotate(0deg);
       }
+
       to {
         transform: rotate(360deg);
       }
@@ -292,201 +320,224 @@
 <body>
   <!-- Hero Section -->
   <!-- Enhanced Hero Section with Feature Graphics -->
-<!-- Ultra Compact Hero Section -->
-<section class="relative py-16 overflow-hidden">
-  <!-- Animated Background -->
-  <div class="absolute inset-0 gradient-bg opacity-10"></div>
-  
-  <!-- Floating Particles -->
-  <div class="absolute inset-0 overflow-hidden">
-    <div class="absolute w-2 h-2 bg-blue-500 rounded-full animate-ping" style="top: 20%; left: 10%; animation-delay: 0s;"></div>
-    <div class="absolute w-3 h-3 bg-purple-500 rounded-full animate-ping" style="top: 60%; left: 80%; animation-delay: 1s;"></div>
-    <div class="absolute w-2 h-2 bg-pink-500 rounded-full animate-ping" style="top: 40%; left: 50%; animation-delay: 2s;"></div>
-  </div>
+  <!-- Ultra Compact Hero Section -->
+  <section class="relative py-16 overflow-hidden">
+    <!-- Animated Background -->
+    <div class="absolute inset-0 gradient-bg opacity-10"></div>
 
-  <div class="container mx-auto px-6 relative z-10">
-    <div class="max-w-7xl mx-auto">
-      
-      <!-- Top Bar - Logo + Title + CTAs -->
-      <div class="bg-gray-900/50 backdrop-blur-lg rounded-2xl p-6 mb-10 border border-gray-800 fade-in">
-        <div class="flex flex-col lg:flex-row items-center justify-between gap-6">
-          
-          <!-- Left: Logo & Title -->
-          <div class="flex items-center gap-5">
-            <img src="https://tech-savvy-solution.web.app/assets/bytebuddy_logo.png" 
-                 alt="ByteBuddy Logo" 
-                 class="w-16 h-16 rounded-xl shadow-xl glow flex-shrink-0">
-            <div>
-              <h1 class="text-3xl md:text-4xl font-black">
-                <span class="gradient-text">ByteBuddy</span>
-              </h1>
-              <p class="text-base text-gray-300 font-semibold">The EduCollab Center</p>
-              <p class="text-xs text-gray-400 mt-1">BCA, MSC ICT & Programming Platform</p>
+    <!-- Floating Particles -->
+    <div class="absolute inset-0 overflow-hidden">
+      <div class="absolute w-2 h-2 bg-blue-500 rounded-full animate-ping"
+        style="top: 20%; left: 10%; animation-delay: 0s;"></div>
+      <div class="absolute w-3 h-3 bg-purple-500 rounded-full animate-ping"
+        style="top: 60%; left: 80%; animation-delay: 1s;"></div>
+      <div class="absolute w-2 h-2 bg-pink-500 rounded-full animate-ping"
+        style="top: 40%; left: 50%; animation-delay: 2s;"></div>
+    </div>
+
+    <div class="container mx-auto px-6 relative z-10">
+      <div class="max-w-7xl mx-auto">
+
+        <!-- Top Bar - Logo + Title + CTAs -->
+        <div class="bg-gray-900/50 backdrop-blur-lg rounded-2xl p-6 mb-10 border border-gray-800 fade-in">
+          <div class="flex flex-col lg:flex-row items-center justify-between gap-6">
+
+            <!-- Left: Logo & Title -->
+            <div class="flex items-center gap-5">
+              <img src="https://tech-savvy-solution.web.app/assets/bytebuddy_logo.png" alt="ByteBuddy Logo"
+                class="w-16 h-16 rounded-xl shadow-xl glow flex-shrink-0">
+              <div>
+                <h1 class="text-3xl md:text-4xl font-black">
+                  <span class="gradient-text">ByteBuddy</span>
+                </h1>
+                <p class="text-base text-gray-300 font-semibold">The EduCollab Center</p>
+                <p class="text-xs text-gray-400 mt-1">BCA, MSC ICT & Programming Platform</p>
+              </div>
             </div>
-          </div>
 
-          <!-- Right: CTAs + Stats -->
-          <div class="flex flex-col sm:flex-row items-center gap-4">
-            <!-- <a href="./assets/ByteBuddy.apk" 
+            <!-- Right: CTAs + Stats -->
+            <div class="flex flex-col sm:flex-row items-center gap-4">
+              <!-- <a href="./assets/ByteBuddy.apk" 
                download 
                class="btn-primary px-6 py-3 rounded-full font-bold text-sm flex items-center gap-2 shadow-xl transform hover:scale-105 transition-all">
               <span><i class="fas fa-download"></i> Download APK</span>
             </a> -->
-            <div class="relative">
-              <a href="https://play.google.com/store/apps/details?id=com.shakilpatel.bytebuddy" 
-               >
-                <!-- <i class="fab fa-google-play"></i> Play Store -->
-                 <img src="https://static.vecteezy.com/system/resources/previews/012/871/364/non_2x/google-play-store-download-button-in-white-colors-download-on-the-google-play-store-free-png.png" alt="" 
-                 class="h-16 w-fit" />
-              </a>
-              <span class="absolute -top-1 -right-1 bg-red-500 text-white text-xs px-2 py-0.5 rounded-full badge-pulse text-[10px]">
-                New
-              </span>
-            </div>
-            <div class="hidden md:flex items-center gap-3 pl-4 border-l border-gray-700">
-              <div class="text-center">
-                <div class="text-xl font-black gradient-text">300+</div>
-                <p class="text-xs text-gray-400">Users</p>
+              <div class="relative">
+                <a href="https://play.google.com/store/apps/details?id=com.shakilpatel.bytebuddy">
+                  <!-- <i class="fab fa-google-play"></i> Play Store -->
+                  <img
+                    src="https://static.vecteezy.com/system/resources/previews/012/871/364/non_2x/google-play-store-download-button-in-white-colors-download-on-the-google-play-store-free-png.png"
+                    alt="" class="h-16 w-fit" />
+                </a>
+                <span
+                  class="absolute -top-1 -right-1 bg-red-500 text-white text-xs px-2 py-0.5 rounded-full badge-pulse text-[10px]">
+                  New
+                </span>
               </div>
-              <div class="text-center">
-                <div class="text-xl font-black gradient-text">6</div>
-                <p class="text-xs text-gray-400">Features</p>
+              <div class="hidden md:flex items-center gap-3 pl-4 border-l border-gray-700">
+                <div class="text-center">
+                  <div class="text-xl font-black gradient-text">300+</div>
+                  <p class="text-xs text-gray-400">Users</p>
+                </div>
+                <div class="text-center">
+                  <div class="text-xl font-black gradient-text">6</div>
+                  <p class="text-xs text-gray-400">Features</p>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <!-- Feature Graphics - Main Focus -->
-      <div class="scale-up">
-        <div class="relative">
-          <div class="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-3xl blur-3xl"></div>
-          <img src="assets/full_combined_ss.png" 
-               alt="ByteBuddy Features - Zoom, Listen & Translate, Chat, Upload Notes" 
-               class="relative w-full rounded-3xl shadow-2xl border border-gray-800/50 glow">
+        <!-- Feature Graphics - Main Focus -->
+        <div class="scale-up">
+          <div class="relative">
+            <div class="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-3xl blur-3xl"></div>
+            <img src="assets/full_combined_ss.png"
+              alt="ByteBuddy Features - Zoom, Listen & Translate, Chat, Upload Notes"
+              class="relative w-full rounded-3xl shadow-2xl border border-gray-800/50 glow">
+          </div>
         </div>
-      </div>
 
-      <!-- Bottom Stats Bar -->
-      <div class="grid grid-cols-4 gap-4 mt-10 fade-in">
-        <div class="text-center p-4 bg-gray-900/30 backdrop-blur-lg rounded-xl border border-gray-800 hover:border-blue-500/50 transition-all">
-          <div class="text-2xl font-black gradient-text">300+</div>
-          <p class="text-xs text-gray-400 mt-1">Daily Users</p>
+        <!-- Bottom Stats Bar -->
+        <div class="grid grid-cols-4 gap-4 mt-10 fade-in">
+          <div
+            class="text-center p-4 bg-gray-900/30 backdrop-blur-lg rounded-xl border border-gray-800 hover:border-blue-500/50 transition-all">
+            <div class="text-2xl font-black gradient-text">300+</div>
+            <p class="text-xs text-gray-400 mt-1">Daily Users</p>
+          </div>
+          <div
+            class="text-center p-4 bg-gray-900/30 backdrop-blur-lg rounded-xl border border-gray-800 hover:border-purple-500/50 transition-all">
+            <div class="text-2xl font-black gradient-text">6</div>
+            <p class="text-xs text-gray-400 mt-1">Features</p>
+          </div>
+          <div
+            class="text-center p-4 bg-gray-900/30 backdrop-blur-lg rounded-xl border border-gray-800 hover:border-green-500/50 transition-all">
+            <div class="text-2xl font-black gradient-text">100%</div>
+            <p class="text-xs text-gray-400 mt-1">Open Source</p>
+          </div>
+          <div
+            class="text-center p-4 bg-gray-900/30 backdrop-blur-lg rounded-xl border border-gray-800 hover:border-orange-500/50 transition-all">
+            <div class="text-2xl font-black gradient-text">2023</div>
+            <p class="text-xs text-gray-400 mt-1">Launched</p>
+          </div>
         </div>
-        <div class="text-center p-4 bg-gray-900/30 backdrop-blur-lg rounded-xl border border-gray-800 hover:border-purple-500/50 transition-all">
-          <div class="text-2xl font-black gradient-text">6</div>
-          <p class="text-xs text-gray-400 mt-1">Features</p>
-        </div>
-        <div class="text-center p-4 bg-gray-900/30 backdrop-blur-lg rounded-xl border border-gray-800 hover:border-green-500/50 transition-all">
-          <div class="text-2xl font-black gradient-text">100%</div>
-          <p class="text-xs text-gray-400 mt-1">Open Source</p>
-        </div>
-        <div class="text-center p-4 bg-gray-900/30 backdrop-blur-lg rounded-xl border border-gray-800 hover:border-orange-500/50 transition-all">
-          <div class="text-2xl font-black gradient-text">2023</div>
-          <p class="text-xs text-gray-400 mt-1">Launched</p>
-        </div>
-      </div>
 
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Individual Feature Highlights Section -->
-<section class="py-20 px-6 bg-gradient-to-b from-gray-900 to-black">
-  <div class="container mx-auto max-w-7xl">
-    <div class="text-center mb-16 scroll-reveal">
-      <h2 class="text-5xl md:text-6xl font-black mb-6">
-        <span class="gradient-text">Powerful Features</span>
-      </h2>
-      <p class="text-xl text-gray-400 max-w-3xl mx-auto">
-        Everything you need for collaborative learning, all in one place
-      </p>
+  <!-- Individual Feature Highlights Section -->
+  <section class="py-20 px-6 bg-gradient-to-b from-gray-900 to-black">
+    <div class="container mx-auto max-w-7xl">
+      <div class="text-center mb-16 scroll-reveal">
+        <h2 class="text-5xl md:text-6xl font-black mb-6">
+          <span class="gradient-text">Powerful Features</span>
+        </h2>
+        <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+          Everything you need for collaborative learning, all in one place
+        </p>
+      </div>
+
+      <!-- Feature Cards Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+        <!-- Feature 1: Zoom In Your Books -->
+        <div
+          class="group bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-2xl border border-gray-700 hover:border-blue-500/50 transition-all duration-300 card-hover scroll-reveal">
+          <div
+            class="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform icon-spin">
+            <i class="fas fa-search-plus text-3xl"></i>
+          </div>
+          <h3 class="text-2xl font-bold mb-3 group-hover:text-blue-400 transition-colors">
+            Zoom In Your Books
+          </h3>
+          <p class="text-gray-400 leading-relaxed">
+            Read like a physical book with pinch-to-zoom functionality for better readability. Navigate through notes
+            naturally.
+          </p>
+        </div>
+
+        <!-- Feature 2: Listen & Translate -->
+        <div
+          class="group bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-2xl border border-gray-700 hover:border-purple-500/50 transition-all duration-300 card-hover scroll-reveal">
+          <div
+            class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform icon-spin">
+            <i class="fas fa-volume-up text-3xl"></i>
+          </div>
+          <h3 class="text-2xl font-bold mb-3 group-hover:text-purple-400 transition-colors">
+            Listen & Translate
+          </h3>
+          <p class="text-gray-400 leading-relaxed">
+            Convert your notes to audio and translate them into multiple languages instantly with a single click.
+          </p>
+        </div>
+
+        <!-- Feature 3: Chat with Anyone -->
+        <div
+          class="group bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-2xl border border-gray-700 hover:border-green-500/50 transition-all duration-300 card-hover scroll-reveal">
+          <div
+            class="w-16 h-16 bg-gradient-to-br from-green-500 to-teal-500 rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform icon-spin">
+            <i class="fas fa-comments text-3xl"></i>
+          </div>
+          <h3 class="text-2xl font-bold mb-3 group-hover:text-green-400 transition-colors">
+            Chat with Anyone
+          </h3>
+          <p class="text-gray-400 leading-relaxed">
+            Connect with peers instantly and collaborate on studies with real-time messaging. Edit and delete messages
+            anytime.
+          </p>
+        </div>
+
+        <!-- Feature 4: Upload Your Own Notes -->
+        <div
+          class="group bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-2xl border border-gray-700 hover:border-orange-500/50 transition-all duration-300 card-hover scroll-reveal">
+          <div
+            class="w-16 h-16 bg-gradient-to-br from-orange-500 to-red-500 rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform icon-spin">
+            <i class="fas fa-cloud-upload-alt text-3xl"></i>
+          </div>
+          <h3 class="text-2xl font-bold mb-3 group-hover:text-orange-400 transition-colors">
+            Upload Your Own Notes
+          </h3>
+          <p class="text-gray-400 leading-relaxed">
+            Share your knowledge by uploading PDF notes and contributing to the community. Help others learn.
+          </p>
+        </div>
+
+        <!-- Feature 5: Ask Questions -->
+        <div
+          class="group bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-2xl border border-gray-700 hover:border-yellow-500/50 transition-all duration-300 card-hover scroll-reveal">
+          <div
+            class="w-16 h-16 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform icon-spin">
+            <i class="fas fa-question-circle text-3xl"></i>
+          </div>
+          <h3 class="text-2xl font-bold mb-3 group-hover:text-yellow-400 transition-colors">
+            Ask Errors & Questions
+          </h3>
+          <p class="text-gray-400 leading-relaxed">
+            Post doubts with code snippets and screenshots. Get expert answers from talented community with upvoting
+            system.
+          </p>
+        </div>
+
+        <!-- Feature 6: Organized Content -->
+        <div
+          class="group bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-2xl border border-gray-700 hover:border-indigo-500/50 transition-all duration-300 card-hover scroll-reveal">
+          <div
+            class="w-16 h-16 bg-gradient-to-br from-indigo-500 to-purple-500 rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform icon-spin">
+            <i class="fas fa-layer-group text-3xl"></i>
+          </div>
+          <h3 class="text-2xl font-bold mb-3 group-hover:text-indigo-400 transition-colors">
+            Organized by Semester
+          </h3>
+          <p class="text-gray-400 leading-relaxed">
+            Navigate through BCA and MSC ICT semesters with organized subject-wise content. Find what you need
+            instantly.
+          </p>
+        </div>
+
+      </div>
     </div>
-
-    <!-- Feature Cards Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      
-      <!-- Feature 1: Zoom In Your Books -->
-      <div class="group bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-2xl border border-gray-700 hover:border-blue-500/50 transition-all duration-300 card-hover scroll-reveal">
-        <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform icon-spin">
-          <i class="fas fa-search-plus text-3xl"></i>
-        </div>
-        <h3 class="text-2xl font-bold mb-3 group-hover:text-blue-400 transition-colors">
-          Zoom In Your Books
-        </h3>
-        <p class="text-gray-400 leading-relaxed">
-          Read like a physical book with pinch-to-zoom functionality for better readability. Navigate through notes naturally.
-        </p>
-      </div>
-
-      <!-- Feature 2: Listen & Translate -->
-      <div class="group bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-2xl border border-gray-700 hover:border-purple-500/50 transition-all duration-300 card-hover scroll-reveal">
-        <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform icon-spin">
-          <i class="fas fa-volume-up text-3xl"></i>
-        </div>
-        <h3 class="text-2xl font-bold mb-3 group-hover:text-purple-400 transition-colors">
-          Listen & Translate
-        </h3>
-        <p class="text-gray-400 leading-relaxed">
-          Convert your notes to audio and translate them into multiple languages instantly with a single click.
-        </p>
-      </div>
-
-      <!-- Feature 3: Chat with Anyone -->
-      <div class="group bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-2xl border border-gray-700 hover:border-green-500/50 transition-all duration-300 card-hover scroll-reveal">
-        <div class="w-16 h-16 bg-gradient-to-br from-green-500 to-teal-500 rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform icon-spin">
-          <i class="fas fa-comments text-3xl"></i>
-        </div>
-        <h3 class="text-2xl font-bold mb-3 group-hover:text-green-400 transition-colors">
-          Chat with Anyone
-        </h3>
-        <p class="text-gray-400 leading-relaxed">
-          Connect with peers instantly and collaborate on studies with real-time messaging. Edit and delete messages anytime.
-        </p>
-      </div>
-
-      <!-- Feature 4: Upload Your Own Notes -->
-      <div class="group bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-2xl border border-gray-700 hover:border-orange-500/50 transition-all duration-300 card-hover scroll-reveal">
-        <div class="w-16 h-16 bg-gradient-to-br from-orange-500 to-red-500 rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform icon-spin">
-          <i class="fas fa-cloud-upload-alt text-3xl"></i>
-        </div>
-        <h3 class="text-2xl font-bold mb-3 group-hover:text-orange-400 transition-colors">
-          Upload Your Own Notes
-        </h3>
-        <p class="text-gray-400 leading-relaxed">
-          Share your knowledge by uploading PDF notes and contributing to the community. Help others learn.
-        </p>
-      </div>
-
-      <!-- Feature 5: Ask Questions -->
-      <div class="group bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-2xl border border-gray-700 hover:border-yellow-500/50 transition-all duration-300 card-hover scroll-reveal">
-        <div class="w-16 h-16 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform icon-spin">
-          <i class="fas fa-question-circle text-3xl"></i>
-        </div>
-        <h3 class="text-2xl font-bold mb-3 group-hover:text-yellow-400 transition-colors">
-          Ask Errors & Questions
-        </h3>
-        <p class="text-gray-400 leading-relaxed">
-          Post doubts with code snippets and screenshots. Get expert answers from talented community with upvoting system.
-        </p>
-      </div>
-
-      <!-- Feature 6: Organized Content -->
-      <div class="group bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-2xl border border-gray-700 hover:border-indigo-500/50 transition-all duration-300 card-hover scroll-reveal">
-        <div class="w-16 h-16 bg-gradient-to-br from-indigo-500 to-purple-500 rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform icon-spin">
-          <i class="fas fa-layer-group text-3xl"></i>
-        </div>
-        <h3 class="text-2xl font-bold mb-3 group-hover:text-indigo-400 transition-colors">
-          Organized by Semester
-        </h3>
-        <p class="text-gray-400 leading-relaxed">
-          Navigate through BCA and MSC ICT semesters with organized subject-wise content. Find what you need instantly.
-        </p>
-      </div>
-
-    </div>
-  </div>
-</section>
+  </section>
 
 
   <!-- Features Section -->
@@ -503,13 +554,16 @@
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         <!-- Feature 1 -->
-        <div class="bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-2xl card-hover border border-gray-700 scroll-reveal">
-          <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center mb-6 icon-spin">
+        <div
+          class="bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-2xl card-hover border border-gray-700 scroll-reveal">
+          <div
+            class="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center mb-6 icon-spin">
             <i class="fas fa-book-open text-3xl"></i>
           </div>
           <h3 class="text-2xl font-bold mb-4">Smart Learning Module</h3>
           <p class="text-gray-400 leading-relaxed mb-4">
-            Access comprehensive course materials for BCA, MSC ICT, and multiple programming languages. Upload notes, extract text from PDFs, translate content, and listen to audio versions.
+            Access comprehensive course materials for BCA, MSC ICT, and multiple programming languages. Upload notes,
+            extract text from PDFs, translate content, and listen to audio versions.
           </p>
           <ul class="space-y-2 text-gray-300">
             <li class="flex items-start gap-2">
@@ -532,13 +586,16 @@
         </div>
 
         <!-- Feature 2 -->
-        <div class="bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-2xl card-hover border border-gray-700 scroll-reveal">
-          <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-600 rounded-xl flex items-center justify-center mb-6 icon-spin">
+        <div
+          class="bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-2xl card-hover border border-gray-700 scroll-reveal">
+          <div
+            class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-600 rounded-xl flex items-center justify-center mb-6 icon-spin">
             <i class="fas fa-code text-3xl"></i>
           </div>
           <h3 class="text-2xl font-bold mb-4">Interactive FAQ Forum</h3>
           <p class="text-gray-400 leading-relaxed mb-4">
-            StackOverflow-inspired Q&A platform where students ask questions, share code snippets, upload screenshots, and get community-driven answers with voting system.
+            StackOverflow-inspired Q&A platform where students ask questions, share code snippets, upload screenshots,
+            and get community-driven answers with voting system.
           </p>
           <ul class="space-y-2 text-gray-300">
             <li class="flex items-start gap-2">
@@ -561,13 +618,16 @@
         </div>
 
         <!-- Feature 3 -->
-        <div class="bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-2xl card-hover border border-gray-700 scroll-reveal">
-          <div class="w-16 h-16 bg-gradient-to-br from-pink-500 to-red-600 rounded-xl flex items-center justify-center mb-6 icon-spin">
+        <div
+          class="bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-2xl card-hover border border-gray-700 scroll-reveal">
+          <div
+            class="w-16 h-16 bg-gradient-to-br from-pink-500 to-red-600 rounded-xl flex items-center justify-center mb-6 icon-spin">
             <i class="fas fa-comments text-3xl"></i>
           </div>
           <h3 class="text-2xl font-bold mb-4">Real-Time Chat Module</h3>
           <p class="text-gray-400 leading-relaxed mb-4">
-            Connect with peers through one-to-one messaging with advanced features including message editing, deletion, and online status tracking. Group chat coming soon!
+            Connect with peers through one-to-one messaging with advanced features including message editing, deletion,
+            and online status tracking. Group chat coming soon!
           </p>
           <ul class="space-y-2 text-gray-300">
             <li class="flex items-start gap-2">
@@ -610,7 +670,8 @@
         <!-- Frontend Stack -->
         <div class="bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-2xl border border-gray-700 scroll-reveal">
           <div class="flex items-center gap-4 mb-6">
-            <div class="w-14 h-14 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-lg flex items-center justify-center">
+            <div
+              class="w-14 h-14 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-lg flex items-center justify-center">
               <i class="fas fa-mobile-alt text-2xl"></i>
             </div>
             <h3 class="text-3xl font-bold">Frontend</h3>
@@ -650,7 +711,8 @@
         <!-- Backend Stack -->
         <div class="bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-2xl border border-gray-700 scroll-reveal">
           <div class="flex items-center gap-4 mb-6">
-            <div class="w-14 h-14 bg-gradient-to-br from-orange-500 to-red-500 rounded-lg flex items-center justify-center">
+            <div
+              class="w-14 h-14 bg-gradient-to-br from-orange-500 to-red-500 rounded-lg flex items-center justify-center">
               <i class="fas fa-database text-2xl"></i>
             </div>
             <h3 class="text-3xl font-bold">Backend</h3>
@@ -690,17 +752,20 @@
 
       <!-- Security & Performance -->
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
-        <div class="bg-gradient-to-br from-green-900/30 to-green-800/30 p-6 rounded-xl border border-green-700 scroll-reveal">
+        <div
+          class="bg-gradient-to-br from-green-900/30 to-green-800/30 p-6 rounded-xl border border-green-700 scroll-reveal">
           <i class="fas fa-lock text-4xl text-green-400 mb-4"></i>
           <h4 class="text-xl font-bold mb-2">End-to-End Encryption</h4>
           <p class="text-gray-400 text-sm">Secure chat and data transfer with robust authentication</p>
         </div>
-        <div class="bg-gradient-to-br from-blue-900/30 to-blue-800/30 p-6 rounded-xl border border-blue-700 scroll-reveal">
+        <div
+          class="bg-gradient-to-br from-blue-900/30 to-blue-800/30 p-6 rounded-xl border border-blue-700 scroll-reveal">
           <i class="fas fa-tachometer-alt text-4xl text-blue-400 mb-4"></i>
           <h4 class="text-xl font-bold mb-2">High Performance</h4>
           <p class="text-gray-400 text-sm">Fast response times with minimal latency worldwide</p>
         </div>
-        <div class="bg-gradient-to-br from-purple-900/30 to-purple-800/30 p-6 rounded-xl border border-purple-700 scroll-reveal">
+        <div
+          class="bg-gradient-to-br from-purple-900/30 to-purple-800/30 p-6 rounded-xl border border-purple-700 scroll-reveal">
           <i class="fas fa-expand-arrows-alt text-4xl text-purple-400 mb-4"></i>
           <h4 class="text-xl font-bold mb-2">Scalable Infrastructure</h4>
           <p class="text-gray-400 text-sm">Cloud-based architecture ensuring high availability</p>
@@ -725,9 +790,13 @@
 
       <div class="flex justify-center">
         <!-- Developer Profile -->
-        <div class="bg-gradient-to-br max-w-4xl from-gray-900 to-gray-800 p-10 rounded-2xl border border-gray-700 scroll-reveal">
+        <div
+          class="bg-gradient-to-br max-w-4xl from-gray-900 to-gray-800 p-10 rounded-2xl border border-gray-700 scroll-reveal">
           <div class="flex items-center gap-6 mb-6">
-                    <img src="https://media.licdn.com/dms/image/v2/D4D03AQH-XUx45xanLw/profile-displayphoto-scale_200_200/B4DZh_yASPGsAg-/0/1754490473147?e=1762387200&v=beta&t=HbFCmqhfezwd21gRgaeCjGqIWFn63_f8gnV0viF-kJY" alt="MuhammadShakil Patel" class="w-24 h-24 rounded-full border-4 border-brand/60 shadow-lg mb-5 object-cover">
+            <img
+              src="https://media.licdn.com/dms/image/v2/D4D03AQH-XUx45xanLw/profile-displayphoto-scale_200_200/B4DZh_yASPGsAg-/0/1754490473147?e=1762387200&v=beta&t=HbFCmqhfezwd21gRgaeCjGqIWFn63_f8gnV0viF-kJY"
+              alt="MuhammadShakil Patel"
+              class="w-24 h-24 rounded-full border-4 border-brand/60 shadow-lg mb-5 object-cover">
 
             <div>
               <h3 class="md:text-3xl text-md font-bold">MuhammadShakil Patel</h3>
@@ -740,7 +809,9 @@
             </div>
           </div>
           <p class="text-gray-300 leading-relaxed mb-6">
-            A passionate software engineer and full-stack enthusiast specializing in Android development with Jetpack Compose, Flutter, and modern web technologies. Currently pursuing M.Sc. in ICT at Veer Narmad South Gujarat University, Surat.
+            A passionate software engineer and full-stack enthusiast specializing in Android development with Jetpack
+            Compose, Flutter, and modern web technologies. Currently pursuing M.Sc. in ICT at Veer Narmad South Gujarat
+            University, Surat.
           </p>
           <div class="space-y-3">
             <div class="flex items-center gap-3 text-gray-400">
@@ -764,7 +835,7 @@
           </div>
         </div>
 
-        
+
       </div>
 
     </div>
@@ -772,114 +843,127 @@
 
   <div class="section-divider"></div>
 
- <!-- Features Showcase Section with Graphics -->
-<section class="py-20 px-6 bg-gradient-to-b from-black to-gray-900">
-  <div class="container mx-auto max-w-7xl">
-    <div class="text-center mb-16 scroll-reveal">
-      <h2 class="text-5xl md:text-6xl font-black mb-6">
-        <span class="gradient-text">Experience ByteBuddy</span>
-      </h2>
-      <p class="text-xl text-gray-400 max-w-3xl mx-auto">
-        See how ByteBuddy transforms your learning experience with powerful features
-      </p>
-    </div>
-
-    <!-- Full Feature Graphic Showcase -->
-    <div class="scroll-reveal mb-12">
-      <img src="assets/full_combined_ss.png" 
-           alt="ByteBuddy Features Overview" 
-           class="w-full rounded-2xl shadow-2xl glow">
-    </div>
-
-    <!-- Individual Feature Highlights -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
-      <!-- Feature 1: Zoom In Your Books -->
-      <div class="bg-gradient-to-br from-gray-900 to-gray-800 p-6 rounded-2xl border border-gray-700 card-hover scroll-reveal">
-        <div class="mb-4">
-          <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-lg flex items-center justify-center mb-4">
-            <i class="fas fa-search-plus text-2xl"></i>
-          </div>
-          <h3 class="text-xl font-bold mb-2">Zoom In Your Books</h3>
-          <p class="text-gray-400 text-sm">
-            Read like a physical book with pinch-to-zoom functionality for better readability
-          </p>
-        </div>
+  <!-- Features Showcase Section with Graphics -->
+  <section class="py-20 px-6 bg-gradient-to-b from-black to-gray-900">
+    <div class="container mx-auto max-w-7xl">
+      <div class="text-center mb-16 scroll-reveal">
+        <h2 class="text-5xl md:text-6xl font-black mb-6">
+          <span class="gradient-text">Experience ByteBuddy</span>
+        </h2>
+        <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+          See how ByteBuddy transforms your learning experience with powerful features
+        </p>
       </div>
 
-      <!-- Feature 2: Listen & Translate -->
-      <div class="bg-gradient-to-br from-gray-900 to-gray-800 p-6 rounded-2xl border border-gray-700 card-hover scroll-reveal">
-        <div class="mb-4">
-          <div class="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg flex items-center justify-center mb-4">
-            <i class="fas fa-volume-up text-2xl"></i>
-          </div>
-          <h3 class="text-xl font-bold mb-2">Listen & Translate</h3>
-          <p class="text-gray-400 text-sm">
-            Convert your notes to audio and translate them into multiple languages instantly
-          </p>
-        </div>
+      <!-- Full Feature Graphic Showcase -->
+      <div class="scroll-reveal mb-12">
+        <img src="assets/full_combined_ss.png" alt="ByteBuddy Features Overview"
+          class="w-full rounded-2xl shadow-2xl glow">
       </div>
 
-      <!-- Feature 3: Chat with Anyone -->
-      <div class="bg-gradient-to-br from-gray-900 to-gray-800 p-6 rounded-2xl border border-gray-700 card-hover scroll-reveal">
-        <div class="mb-4">
-          <div class="w-12 h-12 bg-gradient-to-br from-green-500 to-teal-500 rounded-lg flex items-center justify-center mb-4">
-            <i class="fas fa-comments text-2xl"></i>
+      <!-- Individual Feature Highlights -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
+        <!-- Feature 1: Zoom In Your Books -->
+        <div
+          class="bg-gradient-to-br from-gray-900 to-gray-800 p-6 rounded-2xl border border-gray-700 card-hover scroll-reveal">
+          <div class="mb-4">
+            <div
+              class="w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-lg flex items-center justify-center mb-4">
+              <i class="fas fa-search-plus text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-2">Zoom In Your Books</h3>
+            <p class="text-gray-400 text-sm">
+              Read like a physical book with pinch-to-zoom functionality for better readability
+            </p>
           </div>
-          <h3 class="text-xl font-bold mb-2">Chat with Anyone</h3>
-          <p class="text-gray-400 text-sm">
-            Connect with peers instantly and collaborate on studies with real-time messaging
-          </p>
         </div>
-      </div>
 
-      <!-- Feature 4: Upload Your Own Notes -->
-      <div class="bg-gradient-to-br from-gray-900 to-gray-800 p-6 rounded-2xl border border-gray-700 card-hover scroll-reveal">
-        <div class="mb-4">
-          <div class="w-12 h-12 bg-gradient-to-br from-orange-500 to-red-500 rounded-lg flex items-center justify-center mb-4">
-            <i class="fas fa-cloud-upload-alt text-2xl"></i>
+        <!-- Feature 2: Listen & Translate -->
+        <div
+          class="bg-gradient-to-br from-gray-900 to-gray-800 p-6 rounded-2xl border border-gray-700 card-hover scroll-reveal">
+          <div class="mb-4">
+            <div
+              class="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg flex items-center justify-center mb-4">
+              <i class="fas fa-volume-up text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-2">Listen & Translate</h3>
+            <p class="text-gray-400 text-sm">
+              Convert your notes to audio and translate them into multiple languages instantly
+            </p>
           </div>
-          <h3 class="text-xl font-bold mb-2">Upload Your Own Notes</h3>
-          <p class="text-gray-400 text-sm">
-            Share your knowledge by uploading PDF notes and contributing to the community
-          </p>
         </div>
-      </div>
-    </div>
 
-    <!-- Additional Feature Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
-      <!-- Feature 5: Ask Questions -->
-      <div class="bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-2xl border border-gray-700 card-hover scroll-reveal">
-        <div class="flex items-start gap-6">
-          <div class="w-16 h-16 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-xl flex items-center justify-center flex-shrink-0">
-            <i class="fas fa-question-circle text-3xl"></i>
+        <!-- Feature 3: Chat with Anyone -->
+        <div
+          class="bg-gradient-to-br from-gray-900 to-gray-800 p-6 rounded-2xl border border-gray-700 card-hover scroll-reveal">
+          <div class="mb-4">
+            <div
+              class="w-12 h-12 bg-gradient-to-br from-green-500 to-teal-500 rounded-lg flex items-center justify-center mb-4">
+              <i class="fas fa-comments text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-2">Chat with Anyone</h3>
+            <p class="text-gray-400 text-sm">
+              Connect with peers instantly and collaborate on studies with real-time messaging
+            </p>
           </div>
-          <div>
-            <h3 class="text-2xl font-bold mb-3">Ask Any Errors & Questions</h3>
-            <p class="text-gray-400 leading-relaxed">
-              Through this section you can ask or guide any suggestions from our talented community. Post your doubts with code snippets and get expert answers.
+        </div>
+
+        <!-- Feature 4: Upload Your Own Notes -->
+        <div
+          class="bg-gradient-to-br from-gray-900 to-gray-800 p-6 rounded-2xl border border-gray-700 card-hover scroll-reveal">
+          <div class="mb-4">
+            <div
+              class="w-12 h-12 bg-gradient-to-br from-orange-500 to-red-500 rounded-lg flex items-center justify-center mb-4">
+              <i class="fas fa-cloud-upload-alt text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-2">Upload Your Own Notes</h3>
+            <p class="text-gray-400 text-sm">
+              Share your knowledge by uploading PDF notes and contributing to the community
             </p>
           </div>
         </div>
       </div>
 
-      <!-- Feature 6: Semester Navigation -->
-      <div class="bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-2xl border border-gray-700 card-hover scroll-reveal">
-        <div class="flex items-start gap-6">
-          <div class="w-16 h-16 bg-gradient-to-br from-indigo-500 to-purple-500 rounded-xl flex items-center justify-center flex-shrink-0">
-            <i class="fas fa-layer-group text-3xl"></i>
+      <!-- Additional Feature Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+        <!-- Feature 5: Ask Questions -->
+        <div
+          class="bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-2xl border border-gray-700 card-hover scroll-reveal">
+          <div class="flex items-start gap-6">
+            <div
+              class="w-16 h-16 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-xl flex items-center justify-center flex-shrink-0">
+              <i class="fas fa-question-circle text-3xl"></i>
+            </div>
+            <div>
+              <h3 class="text-2xl font-bold mb-3">Ask Any Errors & Questions</h3>
+              <p class="text-gray-400 leading-relaxed">
+                Through this section you can ask or guide any suggestions from our talented community. Post your doubts
+                with code snippets and get expert answers.
+              </p>
+            </div>
           </div>
-          <div>
-            <h3 class="text-2xl font-bold mb-3">Organized by Semester</h3>
-            <p class="text-gray-400 leading-relaxed">
-              Navigate through BCA and MSC ICT semesters with organized subject-wise content. Find exactly what you need, when you need it.
-            </p>
+        </div>
+
+        <!-- Feature 6: Semester Navigation -->
+        <div
+          class="bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-2xl border border-gray-700 card-hover scroll-reveal">
+          <div class="flex items-start gap-6">
+            <div
+              class="w-16 h-16 bg-gradient-to-br from-indigo-500 to-purple-500 rounded-xl flex items-center justify-center flex-shrink-0">
+              <i class="fas fa-layer-group text-3xl"></i>
+            </div>
+            <div>
+              <h3 class="text-2xl font-bold mb-3">Organized by Semester</h3>
+              <p class="text-gray-400 leading-relaxed">
+                Navigate through BCA and MSC ICT semesters with organized subject-wise content. Find exactly what you
+                need, when you need it.
+              </p>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
 
 
@@ -898,7 +982,8 @@
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div class="bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-2xl border border-gray-700 card-hover scroll-reveal">
+        <div
+          class="bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-2xl border border-gray-700 card-hover scroll-reveal">
           <div class="flex items-center gap-3 mb-4">
             <i class="fas fa-users text-3xl text-purple-400"></i>
             <h3 class="text-2xl font-bold">Group Chat</h3>
@@ -911,7 +996,8 @@
           </span>
         </div>
 
-        <div class="bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-2xl border border-gray-700 card-hover scroll-reveal">
+        <div
+          class="bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-2xl border border-gray-700 card-hover scroll-reveal">
           <div class="flex items-center gap-3 mb-4">
             <i class="fas fa-project-diagram text-3xl text-blue-400"></i>
             <h3 class="text-2xl font-bold">Project Marketplace</h3>
@@ -924,7 +1010,8 @@
           </span>
         </div>
 
-        <div class="bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-2xl border border-gray-700 card-hover scroll-reveal">
+        <div
+          class="bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-2xl border border-gray-700 card-hover scroll-reveal">
           <div class="flex items-center gap-3 mb-4">
             <i class="fab fa-google-play text-3xl text-green-400"></i>
             <h3 class="text-2xl font-bold">Play Store Launch</h3>
@@ -937,7 +1024,8 @@
           </span>
         </div>
 
-        <div class="bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-2xl border border-gray-700 card-hover scroll-reveal">
+        <div
+          class="bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-2xl border border-gray-700 card-hover scroll-reveal">
           <div class="flex items-center gap-3 mb-4">
             <i class="fas fa-smile text-3xl text-yellow-400"></i>
             <h3 class="text-2xl font-bold">Rich Media Chat</h3>
@@ -950,7 +1038,8 @@
           </span>
         </div>
 
-        <div class="bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-2xl border border-gray-700 card-hover scroll-reveal">
+        <div
+          class="bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-2xl border border-gray-700 card-hover scroll-reveal">
           <div class="flex items-center gap-3 mb-4">
             <i class="fas fa-user-shield text-3xl text-red-400"></i>
             <h3 class="text-2xl font-bold">Faculty Roles</h3>
@@ -963,7 +1052,8 @@
           </span>
         </div>
 
-        <div class="bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-2xl border border-gray-700 card-hover scroll-reveal">
+        <div
+          class="bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-2xl border border-gray-700 card-hover scroll-reveal">
           <div class="flex items-center gap-3 mb-4">
             <i class="fas fa-share-alt text-3xl text-pink-400"></i>
             <h3 class="text-2xl font-bold">Social Sharing</h3>
@@ -1026,7 +1116,8 @@
               </div>
               <div>
                 <h4 class="font-semibold text-lg mb-1">GitHub</h4>
-                <a href="https://github.com/PatelShakil" target="_blank" class="text-gray-400 hover:text-purple-400 transition-colors">
+                <a href="https://github.com/PatelShakil" target="_blank"
+                  class="text-gray-400 hover:text-purple-400 transition-colors">
                   github.com/PatelShakil
                 </a>
               </div>
@@ -1080,12 +1171,11 @@
             <i class="fas fa-download"></i>
             <span>Download Now (APK)</span>
           </a> -->
-          <a 
-          href="https://play.google.com/store/apps/details?id=com.shakilpatel.bytebuddy"
-          >
-<img src="https://static.vecteezy.com/system/resources/previews/012/871/364/non_2x/google-play-store-download-button-in-white-colors-download-on-the-google-play-store-free-png.png" alt="" 
-                 class="h-24 w-auto" />          
-        </a>
+          <a href="https://play.google.com/store/apps/details?id=com.shakilpatel.bytebuddy">
+            <img
+              src="https://static.vecteezy.com/system/resources/previews/012/871/364/non_2x/google-play-store-download-button-in-white-colors-download-on-the-google-play-store-free-png.png"
+              alt="" class="h-24 w-auto" />
+          </a>
         </div>
         <p class="text-sm mt-6 opacity-75">
           <i class="fas fa-shield-alt mr-2"></i>
@@ -1101,9 +1191,8 @@
       <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
         <div>
           <div class="flex items-center gap-3 mb-4">
-            <img src="https://tech-savvy-solution.web.app/assets/bytebuddy_logo.png" 
-                 alt="ByteBuddy Logo" 
-                 class="w-12 h-12 rounded-full">
+            <img src="https://tech-savvy-solution.web.app/assets/bytebuddy_logo.png" alt="ByteBuddy Logo"
+              class="w-12 h-12 rounded-full">
             <span class="text-xl font-bold gradient-text">ByteBuddy</span>
           </div>
           <p class="text-gray-400 text-sm">
@@ -1134,13 +1223,16 @@
         <div>
           <h4 class="font-bold mb-4">Connect</h4>
           <div class="flex gap-4">
-            <a href="https://github.com/PatelShakil" target="_blank" class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-blue-500 transition-colors">
+            <a href="https://github.com/PatelShakil" target="_blank"
+              class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-blue-500 transition-colors">
               <i class="fab fa-github"></i>
             </a>
-            <a href="mailto:patelshakil.dev@gmail.com" class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-red-500 transition-colors">
+            <a href="mailto:patelshakil.dev@gmail.com"
+              class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-red-500 transition-colors">
               <i class="fas fa-envelope"></i>
             </a>
-            <a href="tel:+919510634082" class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-green-500 transition-colors">
+            <a href="tel:+919510634082"
+              class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-green-500 transition-colors">
               <i class="fas fa-phone"></i>
             </a>
           </div>
@@ -1228,4 +1320,5 @@
     });
   </script>
 </body>
+
 </html>
