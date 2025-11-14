@@ -43,6 +43,39 @@
   }
 }
 </script>
+<!-- Google Analytics 4 (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WR844JDW3L"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    
+    gtag('config', 'G-WR844JDW3L', {
+        'page_title': 'Bihar Election Results 2025 Dashboard',
+        'anonymize_ip': true,
+        'send_page_view': true
+    });
+    
+    function trackEvent(eventName, eventParams) {
+        gtag('event', eventName, eventParams);
+    }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css">
+<script>
+window.cookieconsent.initialise({
+  "palette": {
+    "popup": {"background": "#1d4354"},
+    "button": {"background": "#3b82f6"}
+  },
+  "content": {
+    "message": "This website uses cookies to analyze traffic and improve user experience.",
+    "dismiss": "Got it!"
+  }
+});
+</script>
+
+
 
 
     <!-- Tailwind CSS -->
@@ -94,7 +127,10 @@
             <div class="flex items-center justify-between">
                 <div class="flex items-center gap-4">
                     <label class="text-sm font-medium text-gray-700">Auto Refresh:</label>
-                    <select x-model="refreshInterval" @change="updateRefreshInterval()" 
+                    <select x-model="refreshInterval" @change="updateRefreshInterval(); trackEvent('refresh_interval_changed', {
+            event_category: 'settings',
+            value: parseInt(refreshInterval)
+        })"
                             class="px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
                         <option value="0">Disabled</option>
                         <option value="60">1 minute</option>
@@ -115,7 +151,9 @@
                         </div>
                     </template>
                 </div>
-                <button @click="loadData()" class="px-4 py-2 bg-blue-600 text-white rounded-lg text-sm font-medium hover:bg-blue-700 transition">
+                <button @click="loadData(); trackEvent('manual_refresh', {
+            event_category: 'user_interaction'
+        })" class="px-4 py-2 bg-blue-600 text-white rounded-lg text-sm font-medium hover:bg-blue-700 transition">
                     Refresh Now
                 </button>
             </div>
@@ -297,10 +335,19 @@
                 <div class="flex justify-between items-center mb-4">
                     <h2 class="text-xl font-bold text-gray-800">Constituency-wise Results</h2>
                     <div class="flex gap-2">
-                        <input type="text" x-model="searchQuery" @input="filterConstituencies()" 
+                        <input type="text" x-model="searchQuery" @input="filterConstituencies(); 
+               if(searchQuery.length >= 3) {
+                   trackEvent('search_performed', {
+                       event_category: 'search',
+                       search_term: searchQuery.substring(0, 50)
+                   });
+               }" 
                                placeholder="Search constituency or candidate..." 
                                class="px-4 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
-                        <select x-model="filterParty" @change="filterConstituencies()" 
+                        <select x-model="filterParty" @change="filterConstituencies(); trackEvent('filter_applied', {
+            event_category: 'filtering',
+            value: filterParty || 'all_parties'
+        })" 
                                 class="px-4 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
                             <option value="">All Parties</option>
                             <template x-for="party in Object.keys(partyData).sort()" :key="party">
@@ -383,6 +430,12 @@
                 init() {
                     this.loadData();
                     this.updateRefreshInterval();
+                    // ADD THIS:
+    if (typeof trackEvent === 'function') {
+        trackEvent('page_initialized', {
+            event_category: 'engagement'
+        });
+    }
                 },
 
                 async loadData() {
@@ -397,8 +450,22 @@
                             minute: '2-digit',
                             second: '2-digit'
                         });
+                        // ADD THIS:
+        if (typeof trackEvent === 'function') {
+            trackEvent('data_loaded', {
+                event_category: 'data',
+                total_seats: this.stats.totalSeats,
+                declared_seats: this.stats.declaredSeats
+            });
+        }
                     } catch (error) {
                         console.error('Error loading data:', error);
+                        // ADD THIS:
+        if (typeof trackEvent === 'function') {
+            trackEvent('data_load_failed', {
+                event_category: 'error'
+            });
+        }
                         alert('Failed to load election data. Please try again.');
                     } finally {
                         this.loading = false;
