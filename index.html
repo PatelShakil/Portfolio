@@ -52,7 +52,7 @@
     <link rel="stylesheet" href="assets/css/font-awesome.min.css">
 
     <!-- AOS Animation -->
-    <link href="assets/css/aos.css" rel="stylesheet">
+    <!-- <link href="assets/css/aos.css" rel="stylesheet"> -->
 
     <!-- Custom Tailwind Config -->
     <script>
@@ -216,11 +216,11 @@
     </style>
 </head>
 
-<body class="bg-slate-900 text-white overflow-x-hidden">
+<body class="bg-slate-900 w-full  text-white flex flex-col justify-center">
 
     <!-- Navigation -->
-    <nav class="fixed top-0 left-0 right-0 z-50 glass-effect">
-        <div class="container mx-auto px-4 py-4">
+    <nav class="fixed top-0 w-full z-50 glass-effect">
+        <div class="px-4 py-4">
             <div class="flex justify-between items-center">
                 <!-- Logo -->
                 <a href="#home" class="text-2xl font-bold gradient-text">
@@ -289,7 +289,7 @@
             </div>
 
             <h1 class="text-3xl md:text-7xl font-bold mb-6">
-                Hi, I'm <span class="gradient-text">MuhammadShakil Patel</span>
+                Hi, I'm <br /><span class="gradient-text">MuhammadShakil Patel</span>
             </h1>
 
             <div class="text-2xl md:text-4xl font-semibold mb-8 h-16">
@@ -360,8 +360,9 @@
                 <!-- Image -->
                 <div class="relative" data-aos="fade-right">
                     <div class="relative rounded-2xl overflow-hidden shadow-2xl hover-lift">
-                        <img src="my_profile.png" alt="MuhammadShakil Patel" class="w-full h-auto">
-                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent">
+                        <img src="assets/profile-white.jpg"
+                            alt="MuhammadShakil Patel - Software Engineer & Backend Architect" class="w-full h-auto">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-800/50 to-transparent">
                         </div>
                     </div>
                     <!-- Floating Badge -->
@@ -441,7 +442,7 @@
                     </div>
 
                     <!-- Social Links -->
-                    <div class="flex gap-4">
+                    <div class="flex justify-center gap-4">
                         <a href="https://github.com/PatelShakil" target="_blank"
                             class="w-12 h-12 glass-effect rounded-full flex items-center justify-center hover:bg-primary-400 hover:text-slate-900 transition-all">
                             <i class="fab fa-github text-xl"></i>
