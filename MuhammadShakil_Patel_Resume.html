@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MuhammadShakil Patel — Software Engineer</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #0f1117;
+    --ink-muted: #3d4252;
+    --ink-faint: #7a8099;
+    --surface: #ffffff;
+    --surface-alt: #f6f7fb;
+    --accent: #1a3cff;
+    --accent-light: #e8ecff;
+    --accent-mid: #4d6bff;
+    --gold: #c8922a;
+    --gold-light: #fdf3e2;
+    --border: #e2e4ef;
+    --border-strong: #c8cce0;
+    --col-w: 780px;
+  }
+
+  @media print {
+    body { background: #fff !important; }
+    .page { box-shadow: none !important; margin: 0 !important; }
+    a { color: inherit !important; text-decoration: none !important; }
+  }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: #eef0f7;
+    color: var(--ink);
+    font-size: 13.5px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .print-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    z-index: 100;
+    letter-spacing: 0.02em;
+  }
+  .print-btn:hover { background: #0f2bcc; }
+  @media print { .print-btn { display: none; } }
+
+  .page {
+    max-width: var(--col-w);
+    margin: 32px auto;
+    background: var(--surface);
+    box-shadow: 0 4px 40px rgba(0,0,0,0.12);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    background: var(--ink);
+    color: #fff;
+    padding: 42px 48px 36px;
+    position: relative;
+    overflow: hidden;
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    top: -40px; right: -40px;
+    width: 220px; height: 220px;
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 50%;
+  }
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: -60px; right: 60px;
+    width: 140px; height: 140px;
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 50%;
+  }
+  .header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 24px;
+  }
+  .name-block {}
+  .name {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    line-height: 1.1;
+    color: #fff;
+  }
+  .title-tag {
+    margin-top: 8px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 4px;
+    padding: 4px 12px;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.85);
+  }
+  .award-badge {
+    background: var(--gold-light);
+    border: 1px solid var(--gold);
+    border-radius: 6px;
+    padding: 10px 16px;
+    text-align: center;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+  }
+  .award-icon { font-size: 20px; }
+  .award-label {
+    font-size: 9.5px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-top: 2px;
+    line-height: 1.3;
+  }
+
+  .contact-row {
+    margin-top: 22px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 20px;
+    position: relative;
+    z-index: 1;
+  }
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+  }
+  .contact-item:hover { color: #fff; }
+  .contact-dot {
+    width: 4px; height: 4px;
+    background: var(--accent-mid);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  /* ── SUMMARY BAR ── */
+  .summary {
+    background: var(--accent);
+    padding: 16px 48px;
+    color: rgba(255,255,255,0.92);
+    font-size: 12.5px;
+    line-height: 1.7;
+    font-weight: 300;
+  }
+  .summary strong { color: #fff; font-weight: 600; }
+
+  /* ── BODY ── */
+  .body {
+    display: grid;
+    grid-template-columns: 1fr 220px;
+    gap: 0;
+  }
+  .main { padding: 32px 40px 40px; border-right: 1px solid var(--border); }
+  .sidebar { padding: 32px 24px 40px; background: var(--surface-alt); }
+
+  /* ── SECTION ── */
+  .section { margin-bottom: 28px; }
+  .section:last-child { margin-bottom: 0; }
+
+  .section-label {
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--accent-light);
+  }
+
+  /* ── EXPERIENCE ── */
+  .exp-item { margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid var(--border); }
+  .exp-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+  .exp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .exp-role {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1.3;
+  }
+  .exp-company {
+    font-size: 12px;
+    color: var(--accent);
+    font-weight: 500;
+    margin-top: 2px;
+  }
+  .exp-meta {
+    text-align: right;
+    flex-shrink: 0;
+  }
+  .exp-date {
+    font-size: 11px;
+    color: var(--ink-faint);
+    font-family: 'JetBrains Mono', monospace;
+    white-space: nowrap;
+  }
+  .exp-loc {
+    font-size: 11px;
+    color: var(--ink-faint);
+    margin-top: 1px;
+  }
+  .exp-bullets {
+    margin-top: 8px;
+    padding-left: 0;
+    list-style: none;
+  }
+  .exp-bullets li {
+    position: relative;
+    padding-left: 14px;
+    font-size: 12.5px;
+    color: var(--ink-muted);
+    margin-bottom: 4px;
+    line-height: 1.55;
+  }
+  .exp-bullets li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--accent-mid);
+    font-size: 10px;
+    top: 2px;
+  }
+
+  /* ── PROJECTS ── */
+  .project-item { margin-bottom: 16px; padding-bottom: 16px; border-bottom: 1px solid var(--border); }
+  .project-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+  .project-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 4px;
+  }
+  .project-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .project-award {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: var(--gold-light);
+    border: 1px solid var(--gold);
+    border-radius: 4px;
+    padding: 2px 8px;
+    font-size: 9.5px;
+    font-weight: 600;
+    color: var(--gold);
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+  }
+  .project-period {
+    font-size: 10.5px;
+    color: var(--ink-faint);
+    font-family: 'JetBrains Mono', monospace;
+    margin-bottom: 5px;
+  }
+  .project-desc {
+    font-size: 12px;
+    color: var(--ink-muted);
+    line-height: 1.6;
+    margin-bottom: 7px;
+  }
+  .tech-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+  .tech-pill {
+    background: var(--accent-light);
+    color: var(--accent);
+    font-size: 10px;
+    font-weight: 500;
+    padding: 2px 8px;
+    border-radius: 3px;
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: 0.03em;
+  }
+  .project-link {
+    font-size: 10.5px;
+    color: var(--accent);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    margin-top: 4px;
+  }
+  .project-link:hover { text-decoration: underline; }
+
+  /* ── SIDEBAR ── */
+  .sidebar .section-label { color: var(--ink-muted); }
+  .sidebar .section-label::after { background: var(--border-strong); }
+
+  /* Skills */
+  .skill-group { margin-bottom: 14px; }
+  .skill-group-name {
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--ink-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 6px;
+  }
+  .skill-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+  .skill-tag {
+    background: var(--surface);
+    border: 1px solid var(--border-strong);
+    border-radius: 3px;
+    padding: 2px 7px;
+    font-size: 10.5px;
+    color: var(--ink-muted);
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  /* Education */
+  .edu-item { margin-bottom: 14px; }
+  .edu-degree {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1.3;
+  }
+  .edu-uni {
+    font-size: 11px;
+    color: var(--ink-faint);
+    margin-top: 2px;
+  }
+  .edu-year {
+    font-size: 10.5px;
+    color: var(--ink-faint);
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .edu-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: #eaf8f1;
+    border: 1px solid #5bcf8c;
+    border-radius: 3px;
+    padding: 1px 7px;
+    font-size: 10px;
+    font-weight: 600;
+    color: #1a7a47;
+    margin-top: 3px;
+  }
+
+  /* Stats */
+  .stat-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-bottom: 6px;
+  }
+  .stat-box {
+    background: var(--surface);
+    border: 1px solid var(--border-strong);
+    border-radius: 6px;
+    padding: 10px;
+    text-align: center;
+  }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1;
+  }
+  .stat-label {
+    font-size: 9.5px;
+    color: var(--ink-faint);
+    margin-top: 3px;
+    line-height: 1.3;
+  }
+
+  /* Language */
+  .lang-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 6px;
+    font-size: 12px;
+  }
+  .lang-name { color: var(--ink-muted); }
+  .lang-dots {
+    display: flex;
+    gap: 3px;
+  }
+  .dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--border-strong);
+  }
+  .dot.filled { background: var(--accent); }
+
+  /* Links sidebar */
+  .link-item {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 11px;
+    color: var(--accent);
+    text-decoration: none;
+    margin-bottom: 7px;
+    word-break: break-all;
+  }
+  .link-item:hover { text-decoration: underline; }
+  .link-icon {
+    width: 14px;
+    flex-shrink: 0;
+    color: var(--ink-faint);
+  }
+
+  /* Footer */
+  .footer {
+    border-top: 1px solid var(--border);
+    padding: 12px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--surface-alt);
+  }
+  .footer-left { font-size: 10.5px; color: var(--ink-faint); }
+  .footer-right { font-size: 10.5px; color: var(--ink-faint); font-family: 'JetBrains Mono', monospace; }
+</style>
+</head>
+<body>
+
+<button class="print-btn" onclick="window.print()">⬇ Save as PDF</button>
+
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-top">
+      <div class="name-block">
+        <div class="name">MuhammadShakil Patel</div>
+        <div class="title-tag">Software Engineer &amp; Backend Architect</div>
+      </div>
+      <div class="award-badge">
+        <div class="award-icon">🏆</div>
+        <div class="award-label">Young Developer<br>Award 2024</div>
+      </div>
+    </div>
+    <div class="contact-row">
+      <span class="contact-dot"></span>
+      <a class="contact-item" href="mailto:patelshakil.dev@gmail.com">patelshakil.dev@gmail.com</a>
+      <span class="contact-dot"></span>
+      <a class="contact-item" href="tel:+919510634082">+91 95106 34082</a>
+      <span class="contact-dot"></span>
+      <span class="contact-item">Surat, Gujarat, India</span>
+      <span class="contact-dot"></span>
+      <a class="contact-item" href="https://patelshakil.techsavvysolution.in" target="_blank">patelshakil.techsavvysolution.in</a>
+      <span class="contact-dot"></span>
+      <a class="contact-item" href="https://linkedin.com/in/patelshakil" target="_blank">linkedin.com/in/patelshakil</a>
+      <span class="contact-dot"></span>
+      <a class="contact-item" href="https://github.com/PatelShakil" target="_blank">github.com/PatelShakil</a>
+    </div>
+  </div>
+
+  <!-- SUMMARY -->
+  <div class="summary">
+    Results-driven Software Engineer with <strong>2+ years</strong> of professional experience delivering production-grade <strong>microservices, SaaS platforms, and mobile applications</strong>. Proven expertise in event-driven architecture handling thousands of concurrent users. Currently mastering <strong>Spring Boot &amp; enterprise Java</strong> at NJ Group. Founder of MSME-registered Tech Savvy Solution — shipped government, fintech, and edtech systems across 500+ active users. Specialized in <strong>Jakarta EE, Spring Boot, React.js, Kotlin/Jetpack Compose, PostgreSQL, MongoDB, and Apache Kafka</strong>.
+  </div>
+
+  <!-- BODY -->
+  <div class="body">
+
+    <!-- MAIN COLUMN -->
+    <div class="main">
+
+      <!-- EXPERIENCE -->
+      <div class="section">
+        <div class="section-label">Professional Experience</div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <div>
+              <div class="exp-role">Full Stack Java Developer Trainee</div>
+              <div class="exp-company">NJ Group · Surat, Gujarat (On-site)</div>
+            </div>
+            <div class="exp-meta">
+              <div class="exp-date">Jan 2026 – Present</div>
+            </div>
+          </div>
+          <ul class="exp-bullets">
+            <li>Mastering enterprise Java architecture — Spring MVC fundamentals through high-concurrency patterns with Spring Boot</li>
+            <li>Building scalable, production-grade Java applications aligned with modern microservices and DDD principles</li>
+            <li>Gaining deep exposure to enterprise-level system design, code reviews, and large-scale deployment practices</li>
+          </ul>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <div>
+              <div class="exp-role">Founder &amp; Lead Architect</div>
+              <div class="exp-company">Tech Savvy Solution (MSME Registered · UDYAM) · Surat, Hybrid</div>
+            </div>
+            <div class="exp-meta">
+              <div class="exp-date">May 2024 – Present</div>
+            </div>
+          </div>
+          <ul class="exp-bullets">
+            <li>Architected BoloIndia — a 7-microservice government feedback platform with 50+ Apache Kafka topics and sub-200ms API response times</li>
+            <li>Built ShowCaseMe — a multi-tenant SaaS for personal branding using .NET Core, React.js, and Azure with CI/CD via GitHub Actions</li>
+            <li>Developed KP CSR Portal for a large corporate group, serving 500+ active field workers, NGOs, and admins with role-based access</li>
+            <li>Delivered multi-tenant BIMS inventory SaaS with real-time barcode scanning, audit logging, and role-based data segregation</li>
+          </ul>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <div>
+              <div class="exp-role">Full-Stack Mobile Developer</div>
+              <div class="exp-company">WBVF (NGO) · Bharuch, Remote (Part-time)</div>
+            </div>
+            <div class="exp-meta">
+              <div class="exp-date">Sep 2024 – Jun 2025</div>
+            </div>
+          </div>
+          <ul class="exp-bullets">
+            <li>Architected a Flutter cross-platform mobile app (Play Store + App Store) with comprehensive state management and custom auth flows</li>
+            <li>Developed scalable Laravel backend APIs ensuring seamless, secure mobile-backend communication</li>
+            <li>Achieved 4.5+ Play Store rating with optimised performance — page loads under 3 seconds</li>
+          </ul>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <div>
+              <div class="exp-role">Android Developer (Internship)</div>
+              <div class="exp-company">myCampus · Delhi, Remote</div>
+            </div>
+            <div class="exp-meta">
+              <div class="exp-date">Feb 2023 – Apr 2024</div>
+            </div>
+          </div>
+          <ul class="exp-bullets">
+            <li>Designed and developed Android app for a school management platform serving <strong>50,000+ administrators</strong></li>
+            <li>Built a billing app integrating payment gateway management with real-time backend synchronisation</li>
+            <li>Implemented polished Material Design 3 UI with intuitive UX patterns and smooth data-sync flows</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- PROJECTS -->
+      <div class="section">
+        <div class="section-label">Key Projects &amp; Deployments</div>
+
+        <div class="project-item">
+          <div class="project-header">
+            <span class="project-name">BoloIndia — Government Feedback Platform</span>
+          </div>
+          <div class="project-period">Oct 2025 – Dec 2025 · <a class="project-link" href="https://docs.boloindia.techsavvysolution.in" target="_blank">docs.boloindia.techsavvysolution.in ↗</a></div>
+          <div class="project-desc">Citizen feedback system democratising government channels via QR codes, voice & video interfaces. Architected a 7-microservice ecosystem (auth, org, service, feedback, response, qr, analytics) with 50+ Kafka event topics, polyglot persistence (PostgreSQL + MongoDB), 2 React.js admin panels, and an Android Jetpack Compose distributor app with 4-tier RBAC. Designed for thousands of concurrent users, JWT auth, dynamic form builder (17+ field types), MinIO object storage, and Docker Compose orchestration.</div>
+          <div class="tech-pills">
+            <span class="tech-pill">Jakarta EE 10</span><span class="tech-pill">MicroProfile 6.0</span><span class="tech-pill">Node.js</span><span class="tech-pill">React.js</span><span class="tech-pill">Kotlin</span><span class="tech-pill">PostgreSQL</span><span class="tech-pill">MongoDB</span><span class="tech-pill">Apache Kafka</span><span class="tech-pill">Docker</span><span class="tech-pill">MinIO</span>
+          </div>
+        </div>
+
+        <div class="project-item">
+          <div class="project-header">
+            <span class="project-name">ShowCaseMe — Personal Branding SaaS</span>
+          </div>
+          <div class="project-period">Jan 2025 – May 2025 · <a class="project-link" href="https://patelshakil.techsavvysolution.in/showcaseme.html" target="_blank">showcaseme ↗</a></div>
+          <div class="project-desc">Multi-tenant SaaS for personal branding supporting blogs, analytics, dynamic profiles, and secure file uploads. Modular .NET Core backend with 55+ EF Core entities, JWT auth, RBAC. Deployed on Azure with GitHub Actions CI/CD pipelines ensuring production-grade availability.</div>
+          <div class="tech-pills">
+            <span class="tech-pill">.NET Core</span><span class="tech-pill">React.js</span><span class="tech-pill">Azure</span><span class="tech-pill">SQL Server</span><span class="tech-pill">GitHub Actions</span>
+          </div>
+        </div>
+
+        <div class="project-item">
+          <div class="project-header">
+            <span class="project-name">KP CSR Management Portal</span>
+          </div>
+          <div class="project-period">Apr 2025 – Jul 2025 · <a class="project-link" href="https://admin.kpgroup.co" target="_blank">admin.kpgroup.co ↗</a></div>
+          <div class="project-desc">Enterprise CSR system for a large corporate group digitising impact tracking, fund disbursement, vendor onboarding, and project planning. RESTful APIs with geotagged milestone reporting; role-based access for field workers, NGOs, and admins. Serves 500+ active users.</div>
+          <div class="tech-pills">
+            <span class="tech-pill">Laravel</span><span class="tech-pill">React.js</span><span class="tech-pill">MySQL</span><span class="tech-pill">Google Maps API</span>
+          </div>
+        </div>
+
+        <div class="project-item">
+          <div class="project-header">
+            <span class="project-name">ByteBuddy — EduCollab Platform</span>
+            <span class="project-award">🏆 Young Developer 2024 · VNSGU</span>
+          </div>
+          <div class="project-period">Nov 2023 – Dec 2024 · <a class="project-link" href="https://play.google.com/store/apps/details?id=com.shakilpatel.bytebuddy" target="_blank">Play Store ↗</a></div>
+          <div class="project-desc">Award-winning educational super-app with text-to-speech, multi-language translation, real-time chat, notes, and interactive FAQs. Native Android app in Kotlin + Jetpack Compose with Firebase Firestore real-time sync. <strong>500+ active users</strong> on Play Store.</div>
+          <div class="tech-pills">
+            <span class="tech-pill">Kotlin</span><span class="tech-pill">Jetpack Compose</span><span class="tech-pill">Firebase</span><span class="tech-pill">Firestore</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+
+      <!-- STATS -->
+      <div class="section">
+        <div class="section-label">By the Numbers</div>
+        <div class="stat-row">
+          <div class="stat-box">
+            <div class="stat-num">1768+</div>
+            <div class="stat-label">Coding Hours</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-num">10+</div>
+            <div class="stat-label">Live Projects</div>
+          </div>
+        </div>
+        <div class="stat-row">
+          <div class="stat-box">
+            <div class="stat-num">62+</div>
+            <div class="stat-label">Repositories</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-num">500+</div>
+            <div class="stat-label">App Users</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- EDUCATION -->
+      <div class="section">
+        <div class="section-label">Education</div>
+
+        <div class="edu-item">
+          <div class="edu-degree">M.Sc. Information &amp; Communication Technology</div>
+          <div class="edu-uni">VNSGU, Surat</div>
+          <div class="edu-year">2024 – 2026 (In Progress)</div>
+          <div class="edu-badge">🥇 Gold Medalist · GPA 9.01</div>
+        </div>
+
+        <div class="edu-item">
+          <div class="edu-degree">Bachelor of Computer Applications (BCA)</div>
+          <div class="edu-uni">VNSGU, Surat</div>
+          <div class="edu-year">2021 – 2024</div>
+          <div class="edu-badge">89.03% · GPA 8.93</div>
+        </div>
+      </div>
+
+      <!-- SKILLS -->
+      <div class="section">
+        <div class="section-label">Technical Skills</div>
+
+        <div class="skill-group">
+          <div class="skill-group-name">Backend</div>
+          <div class="skill-list">
+            <span class="skill-tag">Spring Boot</span>
+            <span class="skill-tag">Jakarta EE</span>
+            <span class="skill-tag">Node.js</span>
+            <span class="skill-tag">.NET Core</span>
+            <span class="skill-tag">Laravel</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group-name">Frontend &amp; Mobile</div>
+          <div class="skill-list">
+            <span class="skill-tag">React.js</span>
+            <span class="skill-tag">Jetpack Compose</span>
+            <span class="skill-tag">Flutter</span>
+            <span class="skill-tag">Kotlin</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group-name">Databases</div>
+          <div class="skill-list">
+            <span class="skill-tag">PostgreSQL</span>
+            <span class="skill-tag">MongoDB</span>
+            <span class="skill-tag">MySQL</span>
+            <span class="skill-tag">SQL Server</span>
+            <span class="skill-tag">Firebase</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group-name">Architecture</div>
+          <div class="skill-list">
+            <span class="skill-tag">Microservices</span>
+            <span class="skill-tag">Apache Kafka</span>
+            <span class="skill-tag">Event-Driven</span>
+            <span class="skill-tag">DDD</span>
+            <span class="skill-tag">CQRS</span>
+            <span class="skill-tag">Multi-Tenant</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group-name">DevOps &amp; Cloud</div>
+          <div class="skill-list">
+            <span class="skill-tag">Docker</span>
+            <span class="skill-tag">Azure</span>
+            <span class="skill-tag">GitHub Actions</span>
+            <span class="skill-tag">CI/CD</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- LINKS -->
+      <div class="section">
+        <div class="section-label">Online Presence</div>
+        <a class="link-item" href="https://patelshakil.techsavvysolution.in" target="_blank">
+          <svg class="link-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6.5"/><path d="M8 1.5C8 1.5 5.5 4.5 5.5 8s2.5 6.5 2.5 6.5M8 1.5C8 1.5 10.5 4.5 10.5 8S8 14.5 8 14.5M1.5 8h13"/></svg>
+          patelshakil.techsavvysolution.in
+        </a>
+        <a class="link-item" href="https://linkedin.com/in/patelshakil" target="_blank">
+          <svg class="link-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M13 1H3a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2ZM5.5 12.5h-2v-7h2v7ZM4.5 4.7a1.15 1.15 0 1 1 0-2.3 1.15 1.15 0 0 1 0 2.3ZM12.5 12.5h-2V9.2c0-.8-.3-1.3-1-1.3-.5 0-.8.4-.9.7-.05.1-.05.3-.05.5v3.4h-2s.02-5.5 0-7h2v1a2 2 0 0 1 1.8-1c1.3 0 2.2.85 2.2 2.7v4.3Z"/></svg>
+          linkedin.com/in/patelshakil
+        </a>
+        <a class="link-item" href="https://github.com/PatelShakil" target="_blank">
+          <svg class="link-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+          github.com/PatelShakil
+        </a>
+        <a class="link-item" href="https://docs.boloindia.techsavvysolution.in" target="_blank">
+          <svg class="link-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="1" width="9" height="12" rx="1"/><path d="M5 4h5M5 7h5M5 10h3"/><path d="M11 5l3 3-3 3"/></svg>
+          BoloIndia Docs
+        </a>
+      </div>
+
+      <!-- LANGUAGES -->
+      <div class="section">
+        <div class="section-label">Languages</div>
+        <div class="lang-item">
+          <span class="lang-name">English</span>
+          <div class="lang-dots">
+            <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span>
+          </div>
+        </div>
+        <div class="lang-item">
+          <span class="lang-name">Hindi</span>
+          <div class="lang-dots">
+            <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span>
+          </div>
+        </div>
+        <div class="lang-item">
+          <span class="lang-name">Gujarati</span>
+          <div class="lang-dots">
+            <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-left">References and extended portfolio available on request</div>
+    <div class="footer-right">Updated June 2026</div>
+  </div>
+
+</div>
+</body>
+</html>
